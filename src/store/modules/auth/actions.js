@@ -3,9 +3,12 @@ export default {
     // this registers a new account
     async register(context, payload){
         let url = 'http://localhost:8000/api/resource';
-
+        const apiKey = 'Help';
         const response = await fetch(url,{
             method: 'POST',
+            headers: {
+                'API-Key': apiKey,
+            },
             body: JSON.stringify({
                 email: payload.email,
                 name: payload.name,
@@ -17,8 +20,12 @@ export default {
     },
     // this logs you in through the api
     async login(context, payload) {
+        const apiKey = 'Help';
         const response = await fetch('http://localhost:8000/api/login', {
                 method: 'POST',
+                headers: {
+                    'API-Key': apiKey,
+                },
                 body: JSON.stringify(
                     {
                         headers: {

@@ -25,9 +25,13 @@ export default {
     },
     async logCreate(){
       let url = 'http://localhost:8000/api/domainlog';
-
+      const apiKey = 'Help';
+      
       const response = await fetch(url,{
         method: 'POST',
+        headers: {
+          'API-Key': apiKey,
+        },
         body: JSON.stringify({
           domain_name: this.domainName.hostname ,
           page_name: this.pagekame,

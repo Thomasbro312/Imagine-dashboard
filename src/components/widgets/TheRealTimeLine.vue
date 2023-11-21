@@ -39,9 +39,13 @@ export default {
   methods:{
     async getApiData() {
       if(this.id){
+        const apiKey = 'Help';
         try {
           const response = await fetch(`http://localhost:8000/api/campaign/${this.$route.params.id}`, {
-            method: 'GET'
+            method: 'GET',
+            headers: {
+              'API-Key': apiKey,
+            },
           });
           if (response.ok) {
             this.apiData = await response.json()
@@ -51,9 +55,13 @@ export default {
           return 'Client Name Not Found';
         }
       }else{
+        const apiKey = 'Help';
         try {
-          const response = await fetch(`http://localhost:8000/api/resource`, {
-            method: 'GET'
+          const response = await fetch(`http://localhost:8000/api/campaign`, {
+            method: 'GET',
+            headers: {
+              'API-Key': apiKey,
+            },
           });
           if (response.ok) {
             this.apiData = await response.json()

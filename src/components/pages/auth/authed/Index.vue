@@ -33,8 +33,12 @@ export default {
       console.log(id)
       this.isLoading = true;
       try {
+        const apiKey = 'Help';
         const response = await fetch(`http://localhost:8000/api/user-campaign/${id}`, {
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
         })
         this.apiData = await response.json();
       } catch (err){
@@ -46,9 +50,13 @@ export default {
     },
     // This gets the phase that corresponds to the id that is given
     async getPhaseId(campaignPhase) {
+      const apiKey = 'Help';
       try {
         const response = await fetch(`http://localhost:8000/api/phase/${campaignPhase}`, {
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
         });
 
         if (response.ok) {
@@ -66,9 +74,13 @@ export default {
     },
     // This gets the client name that corresponds to the client id
     async getClientName(clientId) {
+      const apiKey = 'Help';
       try {
         const response = await fetch(`http://localhost:8000/api/users/${clientId}`, {
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
         });
 
         if (response.ok) {

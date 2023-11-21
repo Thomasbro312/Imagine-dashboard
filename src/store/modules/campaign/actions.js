@@ -2,9 +2,12 @@ export default {
     // this creates a campaign and pushes it onto the api
     async campaignCreate(context, payload){
         let url = 'http://localhost:8000/api/campaign';
-
+        const apiKey = 'Help';
         const response = await fetch(url,{
             method: 'POST',
+            headers: {
+                'API-Key': apiKey,
+            },
             body: JSON.stringify({
                 campaign_name: payload.campaign_name,
                 client_id: payload.client_id,
@@ -14,8 +17,12 @@ export default {
         })
     },
     async editCampaign(context, payload) {
-            const response = await fetch(`http://localhost:8000/api/campaign/${payload.id}`, {
+        const apiKey = 'Help';
+        const response = await fetch(`http://localhost:8000/api/campaign/${payload.id}`, {
                 method: "PUT",
+                headers: {
+                    'API-Key': apiKey,
+                },
                 body: JSON.stringify({
                     campaign_name: payload.campaign_name,
                     client_id: payload.client_id,

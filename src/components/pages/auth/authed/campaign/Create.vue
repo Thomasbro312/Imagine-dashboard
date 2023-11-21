@@ -32,8 +32,13 @@ export default {
     },
     //this gets the user and company data for selecting client's
     async userInfo(){
+      const apiKey = 'Help';
+
       const response = await fetch('http://localhost:8000/api/users',{
-        method: 'GET'
+        method: 'GET',
+        headers: {
+          'API-Key': apiKey,
+        },
       })
       this.apiData = await response.json();
     },

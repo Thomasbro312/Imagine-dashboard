@@ -7,9 +7,13 @@ export default {
   },
   methods:{
     async getApiData() {
+      const apiKey = 'Help';
       const id = this.$store.getters.user_id.userId
       const response = await fetch(`http://localhost:8000/api/users/${id}`, {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+          'API-Key': apiKey,
+        },
       })
       this.apiData = await response.json()
     },

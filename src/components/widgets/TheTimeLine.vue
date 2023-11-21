@@ -25,9 +25,13 @@ export default {
   },
   methods:{
     async getApiData() {
+      const apiKey = 'Help';
       try {
         const response = await fetch(`http://localhost:8000/api/campaign/${this.$route.params.id}`, {
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
         });
         if (response.ok) {
           this.apiData = await response.json()

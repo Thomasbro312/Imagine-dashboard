@@ -22,8 +22,13 @@ export default {
     }
   },
   mounted() {
+    const apiKey = 'Help';
     // Fetch the page logs from the API using the fetch API
-    fetch(`http://localhost:8000/api/domainlog/${this.$route.params.id}`)
+    fetch(`http://localhost:8000/api/domainlog/${this.$route.params.id}`,{
+      headers: {
+        'API-Key': apiKey,
+      },
+    })
         .then(response => {
           if (!response.ok) {
             throw new Error("Network response was not ok");

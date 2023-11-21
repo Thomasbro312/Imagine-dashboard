@@ -29,9 +29,13 @@ export default {
   methods: {
     // This gets the specified campaign from the api and puts it inside the form fields
     async fetchResource(id) {
+      const apiKey = 'Help';
       try {
         const response = await fetch(`http://localhost:8000/api/campaign/${id}`,{
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
         })
         let data = await response.json()
         this.editedResource.campaign.campaign_name = data[0].campaign_name
@@ -45,8 +49,12 @@ export default {
     },
     // This pushes the changes to the api that pushes it to the database
     editResource() {
+      const apiKey = 'Help';
       try {
         this.$store.dispatch('editCampaign',{
+          headers: {
+            'API-Key': apiKey,
+          },
           id: this.$route.params.id,
           campaign_name: this.editedResource.campaign.campaign_name,
           client_id: this.editedResource.campaign.client_id,
@@ -61,15 +69,23 @@ export default {
     },
     //this gets the user and company data for selecting client's
     async userInfo() {
+      const apiKey = 'Help';
       const response = await fetch('http://localhost:8000/api/users', {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+          'API-Key': apiKey,
+        },
       })
       this.apiDataUsers = await response.json();
     },
     // this gets the phases to the corresponding id's
     async phaseInfo() {
+      const apiKey = 'Help';
       const response = await fetch('http://localhost:8000/api/phase', {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+          'API-Key': apiKey,
+        },
       })
       this.apiDataPhase = await response.json();
     },
