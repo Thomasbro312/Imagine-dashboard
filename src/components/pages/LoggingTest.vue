@@ -42,6 +42,7 @@ export default {
           campaign_id: '22'
         })
       })
+      this.$router.replace('/');
     },
   },
   mounted() {

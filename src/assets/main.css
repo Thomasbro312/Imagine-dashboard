@@ -1,9 +1,8 @@
-.bg-navbar{
-  background: darkslategrey;
+@font-face {
+    font-family: Poppins;
+    src: url(public/font/Poppins-SemiBold.ttf);
 }
-.bg-navbar a{
-  color: white;
-}
-.bg-color{
-  background-color: #e3e3e3;
+@font-face {
+    font-family: Baskerville;
+    src: url(public/font/baskvl.ttf);
 }

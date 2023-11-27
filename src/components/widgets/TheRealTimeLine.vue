@@ -1,42 +1,40 @@
+<template>
+  <div id="app">
+    <h1>My Calendar</h1>
+    <calendar-view
+        :show-date="showDate"
+        :items="items"
+        class="theme-default holiday-us-traditional holiday-us-official">
+      <template #header="{ headerProps }">
+        <calendar-view-header
+            :header-props="headerProps"
+            @input="setShowDate" />
+      </template>
+    </calendar-view>
+  </div>
+</template>
 <script>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-import {ref} from 'vue'
-import {getJson, localeEn, localeNl, MbscEventcalendar, setOptions} from '@mobiscroll/vue'
+import { CalendarView, CalendarViewHeader } from "vue-simple-calendar"
 
-setOptions({
-  locale: localeEn,
-  theme: 'material',
-  themeVariant: 'light'
-})
+import "../../../node_modules/vue-simple-calendar/dist/style.css"
+// The next two lines are optional themes
+import "../../../node_modules/vue-simple-calendar/dist/css/default.css"
+import "../../../node_modules/vue-simple-calendar/dist/css/holidays-us.css"
 
 export default {
-  props:{
-    id:{
-      type: Boolean,
-      required: false,
-      default: false
-    }
+  name: 'app',
+  data: function() {
+    return { showDate: new Date(), items:[
+      ], }
   },
-  components: {MbscEventcalendar},
-  data(){
-    return{
-      isLoading: true,
-      test:[],
-      apiData: [],
-      myEvents:ref([]),
-      myView: {
-        timeline: { type: 'year' }
-      },
-      myResources:ref([
-        {
-          id: 2,
-          name: 'Campaign Duration',
-          color: '#88e200'
-        },
-      ])
-    }
+  components: {
+    CalendarView,
+    CalendarViewHeader,
   },
-  methods:{
+  methods: {
+    setShowDate(d) {
+      this.showDate = d;
+    },
     async getApiData() {
       if(this.id){
         const apiKey = 'Help';
@@ -83,7 +81,7 @@ export default {
           // const formattedStart = start.replace(/\s/, 'T');
           // const end = item.end_date;
           // const formattedEnd = end.replace(/\s/, 'T');
-          this.myEvents = [{
+          this.items = [{
             start: isoStartDate,
             end: isoEndDate,
             allDay:true,
@@ -99,7 +97,7 @@ export default {
           const isoStartDate = start.toISOString()
           const end = new Date(item.end_date)
           const isoEndDate = end.toISOString()
-          this.myEvents.push({
+          this.items.push({
             start: isoStartDate,
             end: isoEndDate,
             title: item.campaign_name,
@@ -107,6 +105,9 @@ export default {
             resource: 2
           });
         }
+        console.log(
+
+        )
         this.isLoading = false;
       }
     }
@@ -116,20 +117,14 @@ export default {
     await this.loopCalendar()
   }
 }
-
 </script>
-
-<template>
-  <div>
-    <MbscEventcalendar v-if="!isLoading"
-        class="timelineStyle"
-        :view="myView"
-        :data="myEvents"
-        :resources="myResources"
-    />
-  </div>
-</template>
-
-<style>
-
+<style scoped>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+  height: 67vh;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>

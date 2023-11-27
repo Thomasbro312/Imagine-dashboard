@@ -16,14 +16,9 @@ export default {
 </script>
 
 <template>
-  <div class="container row gap-5">
-    <div class="sizeCalender col">
-      <the-time-line :id="id"/>
-    </div>
     <div class="backgroundChart col">
       <unique-vistitors-chart/>
     </div>
-  </div>
   <div class="m-3">
     <div class="timelineStyle p-3">
       <the-real-time-line id :id="id"/>

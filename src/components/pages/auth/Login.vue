@@ -36,26 +36,54 @@ export default {
 
 </script>
 
-<template>
-  <div class="d-flex justify-content-around mb-3">
+<template class="layout">
+  <div class="">
     <div class="">
       <h3>Login</h3>
       <form @submit.prevent="login">
-        <div class="mb-3">
-          <label for="login">Email</label>
-          <input class="form-control mb-3"  type="email" v-model.trim="email" id="email" placeholder="Email@email.com" />
+        <div class="d-flex flex-column">
+          <label class="font margin-bottom-form" for="login">Email*</label>
+          <input class=input-main  type="email" v-model.trim="email" id="email"/>
         </div>
-        <div class="mb-3">
-          <label for="password">Password</label>
-          <input @keydown="capsLockEvent" class="form-control mb-3" v-model.trim="password" placeholder="Password" id="password" type="password" />
+        <div class="d-flex flex-column">
+          <label class="font margin-bottom-form margin-top-form" for="password">Password*</label>
+          <input @keydown="capsLockEvent" class="input-main" v-model.trim="password"  id="password" type="password" />
           <p v-if="capsLockOn">Caps Lock is on.</p>
         </div>
-        <base-button class="btn-outline-dark">Login</base-button>
+        <base-button class="btn-main">Inloggen</base-button>
       </form>
     </div>
   </div>
 </template>
 
 <style scoped>
+.btn-main{
+  background: #222222 0% 0% no-repeat padding-box;
+  border-radius: 32px;
+  opacity: 1;
+  padding: 18px 220px 18px 220px;
+}
+.input-main{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 2px solid #D4D4D4;
+  border-radius: 8px;
+  opacity: 1;
+  height: 70px;
+  width: 510px;
+}
+.font{
+  text-align: left;
+  font-family: Poppins,serif;
+  letter-spacing: 0px;
+  color: #222222;
+  opacity: 1;
+}
+.margin-bottom-form{
+  margin-bottom: 8px;
+}
+.margin-top-form{
+  margin-top: 39px;
+}
+
 
 </style>
