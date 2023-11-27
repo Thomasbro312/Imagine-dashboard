@@ -21,10 +21,10 @@ export default {
 </script>
 
 <template>
-  <button class="btn btn-outline-light" v-if='!link'>
+  <button v-if='!link'>
     <slot></slot>
   </button>
-  <router-link  class="btn btn-outline-dark" v-else :to='to' :class='mode'>
+  <router-link v-else :to='to' :class='mode'>
     <slot></slot>
   </router-link>
 </template>

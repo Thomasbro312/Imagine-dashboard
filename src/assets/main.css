@@ -4,5 +4,82 @@
 }
 @font-face {
     font-family: Baskerville;
-    src: url(public/font/baskvl.ttf);
+    src: url(public/font/baskervilleboldbt.ttf);
+}
+.input-main{
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 1;
+    height: 70px;
+    width: 510px;
+}
+.not-empty{
+    border: 2px solid #9DC4A3;
+}
+.error-border{
+    border: 2px solid #ff5e5e;
+}
+.empty{
+    border: 2px solid #D4D4D4;
+}
+.font_poppins{
+    text-align: left;
+    font: normal normal bold 16px/25px Poppins;
+    letter-spacing: 0;
+    color: #222222;
+    opacity: 1;
+}
+.font_baskerville{
+    text-align: left;
+    font: normal normal 600 44px/54px Baskerville;
+    letter-spacing: 0;
+    color: #222222;
+    opacity: 1;
+}
+.btn-main{
+    background: #222222 0 0 no-repeat padding-box;
+    border-radius: 32px;
+    opacity: 1;
+    font: normal normal 600 20px/30px Poppins;
+    padding: 18px 220px 18px 220px;
+}
+.checkbox-styling{
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    border: 2px solid #D4D4D4;
+    opacity: 1;
+    width: 22px;
+    height: 22px;
+    margin: 45px 12px 45px 0;
+}
+.checkbox-label{
+    text-align: left;
+    font: normal normal bold 14px/21px Poppins;
+    letter-spacing: 0;
+    margin-right: 225px;
+    color: #AFAEAE;
+    opacity: 1;
+}
+.forgot-password{
+    text-align: right;
+    text-decoration: underline;
+    font: normal normal bold 14px/21px Poppins;
+    letter-spacing: 0;
+    color: #222222;
+    opacity: 1;
+}
+.account-text{
+    text-align: center;
+    font: normal normal bold 14px/21px Poppins;
+    letter-spacing: 0;
+    color: #AFAEAE;
+    opacity: 1;
+}
+.account-link{
+    text-align: left;
+    text-decoration: underline;
+    font: normal normal bold 14px/21px Poppins;
+    letter-spacing: 0;
+    margin: 0 0 0 8px;
+    color: #222222;
+    opacity: 1;
 }
