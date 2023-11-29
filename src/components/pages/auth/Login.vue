@@ -50,12 +50,12 @@ export default {
       <div class="row">
         <div class="col-6">
           <div class="container-login">
-            <img class="login-logo" src="https://media.discordapp.net/attachments/1071487102723833896/1089906927674347530/togif.gif" alt="">
+            <img class="login-logo" src="https://media.discordapp.net/attachments/1071487102723833896/1089906927674347530/togif.gif" alt="Logo Imagine Creative Agency">
             <h3 class="font_baskerville">Inloggen</h3>
-            <form class="" @submit.prevent="login">
+            <form @submit.prevent="login">
               <div class="d-flex flex-column margin-top-email">
                 <label class="font_poppins margin-bottom-form" for="login">Email*</label>
-                <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt}"  type="email" v-model.trim="email" id="email" required/>
+                <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt}" type="email" v-model.trim="email" id="email" required/>
               </div>
               <div class="d-flex flex-column">
                 <label class="font_poppins margin-bottom-form margin-top-form" for="password">Wachtwoord*</label>
@@ -65,14 +65,14 @@ export default {
               <div>
                 <div class="d-flex align-items-center">
                   <input class="checkbox-styling" type="checkbox">
-                  <label for="" class="checkbox-label">Onthouden</label>
-                  <a class="forgot-password" href="">Wachtwoord vergeten?</a>
+                  <label class="checkbox-label">Onthouden</label>
+                  <a class="forgot-password">Wachtwoord vergeten?</a>
                 </div>
               </div>
               <base-button :disabled="isEmailEmpty || isPasswordShort" class="btn-main text-white">Inloggen</base-button>
             </form>
             <div class="text-center margin-top-account">
-              <span class="account-text">Nog geen Account</span><a class="account-link" href="">Registreren</a>
+              <span class="account-text">Nog geen Account</span><router-link class="account-link" to="/register">Registreren</router-link>
             </div>
           </div>
         </div>
