@@ -22,16 +22,23 @@
 .empty{
     border: 2px solid #D4D4D4;
 }
-.font_poppins{
+.font-poppins{
     text-align: left;
     font: normal normal bold 16px/25px Poppins;
     letter-spacing: 0;
     color: #222222;
     opacity: 1;
 }
-.font_baskerville{
+.font-baskerville{
     text-align: left;
     font: normal normal 600 44px/54px Baskerville;
+    letter-spacing: 0;
+    color: #222222;
+    opacity: 1;
+}
+.font-baskerville-forgot{
+    text-align: left;
+    font: normal normal 600 48px/54px Baskerville;
     letter-spacing: 0;
     color: #222222;
     opacity: 1;

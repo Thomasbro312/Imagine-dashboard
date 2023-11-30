@@ -12,14 +12,15 @@ import UserInfo from "@/components/pages/auth/authed/user/UserInfo.vue";
 import store from "@/store";
 import Widget from "@/components/pages/auth/authed/Widget.vue";
 import LoggingTest from "@/components/pages/LoggingTest.vue";
+import ForgotPassword from "@/components/pages/auth/forgot-password/ForgotPassword.vue";
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {path: '/test', component: LoggingTest, name: 'test'},
-        {path: '/', component: Home, name: 'home'},
-        {path: '/login', component: Login, name: 'login', meta: { requiresUnauth: true}},
+        {path: '/', component: Login, name: 'login', meta: { requiresUnauth: true}},
         {path: '/register', component: Register, name: 'register', meta: { requiresUnauth: true}},
+        {path: '/forgot-password', component: ForgotPassword, name: 'forgot-password'},
         {path: '/auth/index', component: IndexAuth, name: 'auth-index', meta: { requiresAuth: true}},
         {path: '/auth/users', component: UserInfo , name: 'profile',meta: { requiresAuth: true}} ,
         {path: '/auth/users/edit', component: EditUser  , name: 'edit-user',meta: { requiresAuth: true}} ,

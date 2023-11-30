@@ -48,27 +48,27 @@ export default {
         <div class="col-6">
           <div class="container-login">
             <img class="register-logo" src="../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
-            <h3 class="font_baskerville">Register form</h3>
+            <h3 class="font-baskerville">Register form</h3>
             <form @submit.prevent="submitForm">
               <div class="d-flex flex-column margin-top-email">
-                <label class="font_poppins margin-bottom-form" for="email">Email*</label>
+                <label class="font-poppins margin-bottom-form" for="email">Email*</label>
                 <input class="input-main" type="email" id="email" v-model.trim="email">
               </div>
               <div class="d-flex flex-column margin-top-form">
-                <label class="font_poppins margin-bottom-form" for="name">Name*</label>
+                <label class="font-poppins margin-bottom-form" for="name">Name*</label>
                 <input class="input-main" type="text" id="name" v-model.trim="name">
               </div>
               <div class="d-flex flex-column margin-top-form">
-                <label class="font_poppins margin-bottom-form" for="password">Password*</label>
+                <label class="font-poppins margin-bottom-form" for="password">Password*</label>
                 <input  @keydown="capsLockEvent" class="input-main" type="password" id="password" v-model.trim="password">
                 <p v-if="capsLockOn">Caps Lock is on.</p>
               </div>
               <div class="d-flex flex-column margin-top-form">
-                <label class="font_poppins margin-bottom-form" for="phoneNumber">Phone Number*</label>
+                <label class="font-poppins margin-bottom-form" for="phoneNumber">Phone Number*</label>
                 <input class="input-main" type="tel" id="phoneNumber" v-model.trim="phoneNumber">
               </div>
               <div class="d-flex flex-column margin-top-form">
-                <label class="font_poppins margin-bottom-form" for="companyName">Company Name*</label>
+                <label class="font-poppins margin-bottom-form" for="companyName">Company Name*</label>
                 <input class="input-main" type="text" id="companyName" v-model.trim="companyName">
               </div>
               <div class="d-flex align-items-center">
@@ -78,7 +78,7 @@ export default {
               <base-button class="btn-main text-white">Submit</base-button>
             </form>
             <div class="text-center margin-top-account">
-              <span class="account-text">Al een account?</span><router-link class="account-link" to="/login">Inloggen</router-link>
+              <span class="account-text">Al een account?</span><router-link class="account-link" :to="{name:'login'}">Inloggen</router-link>
             </div>
           </div>
           <div class="col-6 bg-login">

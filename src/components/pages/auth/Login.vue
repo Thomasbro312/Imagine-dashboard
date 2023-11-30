@@ -51,14 +51,14 @@ export default {
         <div class="col-6">
           <div class="container-login">
             <img class="login-logo" src="../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
-            <h3 class="font_baskerville">Inloggen</h3>
+            <h3 class="font-baskerville">Inloggen</h3>
             <form @submit.prevent="login">
               <div class="d-flex flex-column margin-top-email">
-                <label class="font_poppins margin-bottom-form" for="login">Email*</label>
+                <label class="font-poppins margin-bottom-form" for="login">Email*</label>
                 <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt}" type="email" v-model.trim="email" id="email" required/>
               </div>
               <div class="d-flex flex-column">
-                <label class="font_poppins margin-bottom-form margin-top-form" for="password">Wachtwoord*</label>
+                <label class="font-poppins margin-bottom-form margin-top-form" for="password">Wachtwoord*</label>
                 <input @keydown="capsLockEvent" class="input-main" v-model.trim="password" :class="{'error-border': isPasswordShort && isPasswordEmpty, 'not-empty': !isPasswordEmpty && !isPasswordShort }" id="password" type="password" required/>
                 <p v-if="capsLockOn">Caps Lock is on.</p>
               </div>
@@ -66,7 +66,7 @@ export default {
                 <div class="d-flex align-items-center">
                   <input class="checkbox-styling" type="checkbox">
                   <label class="checkbox-label">Onthouden</label>
-                  <a class="forgot-password">Wachtwoord vergeten?</a>
+                  <router-link class="forgot-password" :to="{name: 'forgot-password'}">Wachtwoord vergeten?</router-link>
                 </div>
               </div>
               <base-button :disabled="isEmailEmpty || isPasswordShort" class="btn-main text-white">Inloggen</base-button>
