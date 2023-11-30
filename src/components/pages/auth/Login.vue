@@ -50,7 +50,7 @@ export default {
       <div class="row">
         <div class="col-6">
           <div class="container-login">
-            <img class="login-logo" src="https://media.discordapp.net/attachments/1071487102723833896/1089906927674347530/togif.gif" alt="Logo Imagine Creative Agency">
+            <img class="login-logo" src="../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
             <h3 class="font_baskerville">Inloggen</h3>
             <form @submit.prevent="login">
               <div class="d-flex flex-column margin-top-email">

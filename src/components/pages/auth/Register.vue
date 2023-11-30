@@ -13,11 +13,7 @@ export default {
   },
   methods:{
     capsLockEvent(){
-      if (event.getModifierState("CapsLock")) {
-        this.capsLockOn = true;
-      } else {
-        this.capsLockOn = false;
-      }
+      this.capsLockOn = event.getModifierState("CapsLock");
     },
     // This calls the register method from the auth/action.js
     async submitForm(){
@@ -46,37 +42,75 @@ export default {
 </script>
 
 <template>
-  <div class="container d-inline-flex justify-content-around">
-    <div>
-      <h3>Register form</h3>
-      <form @submit.prevent="submitForm">
-        <div class="mb-3">
-          <label class="form-label" for="email">Email</label>
-          <input class="form-control" type="email" id="email" v-model.trim="email">
+  <div class="vh-container position-relative d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="container-login">
+            <img class="register-logo" src="../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
+            <h3 class="font_baskerville">Register form</h3>
+            <form @submit.prevent="submitForm">
+              <div class="d-flex flex-column margin-top-email">
+                <label class="font_poppins margin-bottom-form" for="email">Email*</label>
+                <input class="input-main" type="email" id="email" v-model.trim="email">
+              </div>
+              <div class="d-flex flex-column margin-top-form">
+                <label class="font_poppins margin-bottom-form" for="name">Name*</label>
+                <input class="input-main" type="text" id="name" v-model.trim="name">
+              </div>
+              <div class="d-flex flex-column margin-top-form">
+                <label class="font_poppins margin-bottom-form" for="password">Password*</label>
+                <input  @keydown="capsLockEvent" class="input-main" type="password" id="password" v-model.trim="password">
+                <p v-if="capsLockOn">Caps Lock is on.</p>
+              </div>
+              <div class="d-flex flex-column margin-top-form">
+                <label class="font_poppins margin-bottom-form" for="phoneNumber">Phone Number*</label>
+                <input class="input-main" type="tel" id="phoneNumber" v-model.trim="phoneNumber">
+              </div>
+              <div class="d-flex flex-column margin-top-form">
+                <label class="font_poppins margin-bottom-form" for="companyName">Company Name*</label>
+                <input class="input-main" type="text" id="companyName" v-model.trim="companyName">
+              </div>
+              <div class="d-flex align-items-center">
+                <input class="checkbox-styling" type="checkbox">
+                <label class="checkbox-label">Onthouden</label>
+              </div>
+              <base-button class="btn-main text-white">Submit</base-button>
+            </form>
+            <div class="text-center margin-top-account">
+              <span class="account-text">Al een account?</span><router-link class="account-link" to="/login">Inloggen</router-link>
+            </div>
+          </div>
+          <div class="col-6 bg-login">
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label" for="name">Name</label>
-          <input class="form-control" type="text" id="name" v-model.trim="name">
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="password">Password</label>
-          <input  @keydown="capsLockEvent" class="form-control" type="password" id="password" v-model.trim="password">
-          <p v-if="capsLockOn">Caps Lock is on.</p>
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="phoneNumber">Phone Number</label>
-          <input class="form-control" type="tel" id="phoneNumber" v-model.trim="phoneNumber">
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="companyName">Company Name</label>
-          <input class="form-control" type="text" id="companyName" v-model.trim="companyName">
-        </div>
-        <base-button class="btn-outline-dark">Submit</base-button>
-      </form>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-
+.register-logo{
+  height: 100px;
+  position: absolute;
+  margin-top: -150px
+}
+.margin-bottom-form{
+  margin-bottom: 8px;
+}
+.margin-top-form{
+  margin-top: 39px;
+}
+.margin-top-email{
+  margin-top: 33px;
+}
+.container-login{
+  width: 510px;
+}
+.margin-top-account{
+  margin-top: 35px;
+}
+.vh-container{
+  height: 150vh;
+}
 </style>
