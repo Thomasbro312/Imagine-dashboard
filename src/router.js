@@ -14,6 +14,7 @@ import LoggingTest from "@/components/pages/LoggingTest.vue";
 import ForgotPassword from "@/components/pages/auth/forgot-password/ForgotPassword.vue";
 import VerifyCode from "@/components/pages/auth/forgot-password/VerifyCode.vue";
 import NewPassword from "@/components/pages/auth/forgot-password/NewPassword.vue";
+import PasswordChanged from "@/components/pages/auth/forgot-password/PasswordChanged.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -22,6 +23,7 @@ const router = createRouter({
         {path: '/', component: Login, name: 'login', meta: { requiresUnauth: true}},
         {path: '/register', component: Register, name: 'register', meta: { requiresUnauth: true}},
         {path: '/forgot-password', component: ForgotPassword, name: 'forgot-password'},
+        {path: '/password-changed', component: PasswordChanged, name: 'password-changed'},
         {path: '/new-password', component: NewPassword, name:'new-password'},
         {path: '/verify-code', component: VerifyCode, name: 'verify-code'},
         {path: '/auth/index', component: IndexAuth, name: 'auth-index', meta: { requiresAuth: true}},

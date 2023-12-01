@@ -11,6 +11,29 @@ export default {
       capsLockOn: false
     }
   },
+  computed: {
+    isEmailEmpty() {
+      return this.email === '';
+    },
+    isNameEmpty() {
+      return this.name === '';
+    },
+    isCompanyEmpty() {
+      return this.companyName === '';
+    },
+    isPhoneNumberEmpty() {
+      return this.phoneNumber === '';
+    },
+    isPasswordEmpty() {
+      return this.password === '';
+    },
+    isPasswordShort(){
+      return this.password.length < 6;
+    },
+    containsAt() {
+      return !this.email.includes('@');
+    }
+  },
   methods:{
     capsLockEvent(){
       this.capsLockOn = event.getModifierState("CapsLock");
@@ -52,24 +75,24 @@ export default {
             <form @submit.prevent="submitForm">
               <div class="d-flex flex-column margin-top-email">
                 <label class="font-poppins margin-bottom-form" for="email">Email*</label>
-                <input class="input-main" type="email" id="email" v-model.trim="email">
+                <input class="input-main" type="email" id="email" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt}" v-model.trim="email">
               </div>
               <div class="d-flex flex-column margin-top-form">
                 <label class="font-poppins margin-bottom-form" for="name">Name*</label>
-                <input class="input-main" type="text" id="name" v-model.trim="name">
+                <input class="input-main" type="text" id="name"  :class="{'not-empty': !isEmailEmpty, 'empty': isNameEmpty}" v-model.trim="name">
               </div>
               <div class="d-flex flex-column margin-top-form">
                 <label class="font-poppins margin-bottom-form" for="password">Password*</label>
-                <input  @keydown="capsLockEvent" class="input-main" type="password" id="password" v-model.trim="password">
+                <input  @keydown="capsLockEvent" class="input-main" type="password" :class="{'error-border': isPasswordShort && !isPasswordEmpty, 'not-empty': !isPasswordEmpty && !isPasswordShort }" id="password" v-model.trim="password">
                 <p v-if="capsLockOn">Caps Lock is on.</p>
               </div>
               <div class="d-flex flex-column margin-top-form">
                 <label class="font-poppins margin-bottom-form" for="phoneNumber">Phone Number*</label>
-                <input class="input-main" type="tel" id="phoneNumber" v-model.trim="phoneNumber">
+                <input class="input-main" type="tel" id="phoneNumber"  :class="{'not-empty': !isEmailEmpty, 'empty': isPhoneNumberEmpty}" v-model.trim="phoneNumber">
               </div>
               <div class="d-flex flex-column margin-top-form">
                 <label class="font-poppins margin-bottom-form" for="companyName">Company Name*</label>
-                <input class="input-main" type="text" id="companyName" v-model.trim="companyName">
+                <input class="input-main" type="text" id="companyName" :class="{'not-empty': !isEmailEmpty, 'empty': isCompanyEmpty}" v-model.trim="companyName">
               </div>
               <div class="d-flex align-items-center">
                 <input class="checkbox-styling" type="checkbox">
