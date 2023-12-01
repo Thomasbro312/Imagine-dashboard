@@ -42,6 +42,9 @@
     color: #222222;
     opacity: 1;
 }
+.bg-login{
+    background-color: #0a0a0a;
+}
 .font-baskerville-forgot{
     text-align: left;
     font: normal normal 600 48px/54px Baskerville;
