@@ -1,6 +1,5 @@
 <script>
 export default {
-  name: "ForgotPassword"
 }
 </script>
 
@@ -11,17 +10,17 @@ export default {
         <div class="col-6">
           <div class="container-login">
             <img class="login-logo" src="../../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
-            <h3 class="font-baskerville-forgot">Wachtwoord Vergeten</h3>
-            <p class="text-forgot">Voordat u uw wachtwoord kunt veranderen, dient u uw account door middel van een code te verifiëren.</p>
+            <h3 class="font-baskerville-forgot">Verificatiecode</h3>
+            <p class="text-forgot">We hebben een 6-cijferige code verstuurd naar placeholder@email.com Vul deze hieronder in. Niet gevonden? Kijk uw spamfolder na of verstuur een nieuwe code door hier te drukken.</p>
             <form @submit.prevent="">
               <div class="d-flex flex-column margin-top-email margin-bot-form">
-                <label class="font-poppins margin-bottom-form" for="login">Email*</label>
+                <label class="font-poppins margin-bottom-form" for="login">Code*</label>
                 <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt}" type="email" v-model.trim="email" id="email" required/>
               </div>
-              <base-button class="btn-main text-white" link to="/verify-code">Verder</base-button>
+              <base-button class="btn-main text-white" link to="new-password">Verder</base-button>
             </form>
             <div class="text-center margin-top-account">
-              <span class="account-text">Ga terug naar</span><router-link class="account-link" :to="{name: 'login'}">Inloggen</router-link>
+              <span class="account-text">Ander emailadres</span><router-link class="account-link" :to="{name: 'forgot-password'}">opgeven</router-link>
             </div>
           </div>
         </div>
@@ -60,7 +59,7 @@ export default {
 .text-forgot{
   text-align: left;
   font: normal normal normal 18px/27px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #222222;
   opacity: 1;
 }

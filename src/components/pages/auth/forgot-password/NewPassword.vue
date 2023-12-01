@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "ForgotPassword"
+
 }
 </script>
 
@@ -11,14 +11,14 @@ export default {
         <div class="col-6">
           <div class="container-login">
             <img class="login-logo" src="../../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
-            <h3 class="font-baskerville-forgot">Wachtwoord Vergeten</h3>
+            <h3 class="font-baskerville-forgot">Nieuw Wachtwoord</h3>
             <p class="text-forgot">Voordat u uw wachtwoord kunt veranderen, dient u uw account door middel van een code te verifiëren.</p>
             <form @submit.prevent="">
               <div class="d-flex flex-column margin-top-email margin-bot-form">
-                <label class="font-poppins margin-bottom-form" for="login">Email*</label>
-                <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt}" type="email" v-model.trim="email" id="email" required/>
+                <label class="font-poppins margin-bottom-form" for="">Nieuw wachtwoord*</label>
+                <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt}" required/>
               </div>
-              <base-button class="btn-main text-white" link to="/verify-code">Verder</base-button>
+              <base-button class="btn-main text-white" link to="password-changed">Veranderen</base-button>
             </form>
             <div class="text-center margin-top-account">
               <span class="account-text">Ga terug naar</span><router-link class="account-link" :to="{name: 'login'}">Inloggen</router-link>
