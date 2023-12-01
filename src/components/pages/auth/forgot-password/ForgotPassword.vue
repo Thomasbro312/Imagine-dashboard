@@ -1,7 +1,32 @@
 <script>
 export default {
-  name: "ForgotPassword"
-}
+  data() {
+    return {
+      email: '',
+      password: '',
+      error: null,
+      capsLockOn: false
+    };
+  },
+  computed: {
+    isEmailEmpty() {
+      return this.email === '';
+    },
+    isPasswordEmpty() {
+      return this.password === '';
+    },
+    isPasswordShort(){
+      return this.password.length < 6;
+    },
+    containsAt() {
+      return !this.email.includes('@');
+    }
+  },
+  methods: {
+    capsLockEvent(){
+      this.capsLockOn = event.getModifierState("CapsLock");
+    }
+  }}
 </script>
 
 <template>
@@ -10,7 +35,7 @@ export default {
       <div class="row">
         <div class="col-6">
           <div class="container-login">
-            <img class="login-logo" src="../../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
+            <img class="login-logo" src="../../../../../public/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
             <h3 class="font-baskerville-forgot">Wachtwoord Vergeten</h3>
             <p class="text-forgot">Voordat u uw wachtwoord kunt veranderen, dient u uw account door middel van een code te verifiëren.</p>
             <form @submit.prevent="">
@@ -51,11 +76,6 @@ export default {
 }
 .vh-container{
   height: 100vh;
-}
-.login-logo{
-  height: 100px;
-  position: absolute;
-  margin-top: -150px
 }
 .text-forgot{
   text-align: left;

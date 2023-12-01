@@ -1,5 +1,32 @@
 <script>
 export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      error: null,
+      capsLockOn: false
+    };
+  },
+  computed: {
+    isEmailEmpty() {
+      return this.email === '';
+    },
+    isPasswordEmpty() {
+      return this.password === '';
+    },
+    isPasswordShort(){
+      return this.password.length < 6;
+    },
+    containsAt() {
+      return !this.email.includes('@');
+    }
+  },
+  methods: {
+    capsLockEvent(){
+      this.capsLockOn = event.getModifierState("CapsLock");
+    }
+  }
 }
 </script>
 
@@ -9,13 +36,13 @@ export default {
       <div class="row">
         <div class="col-6">
           <div class="container-login">
-            <img class="login-logo" src="../../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
+            <img class="login-logo" src="../../../../../public/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
             <h3 class="font-baskerville-forgot">Verificatiecode</h3>
             <p class="text-forgot">We hebben een 6-cijferige code verstuurd naar placeholder@email.com Vul deze hieronder in. Niet gevonden? Kijk uw spamfolder na of verstuur een nieuwe code door hier te drukken.</p>
             <form @submit.prevent="">
               <div class="d-flex flex-column margin-top-email margin-bot-form">
                 <label class="font-poppins margin-bottom-form" for="login">Code*</label>
-                <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt}" type="email" v-model.trim="email" id="email" required/>
+                <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty,}" type="email" v-model.trim="email" id="email" required/>
               </div>
               <base-button class="btn-main text-white" link to="new-password">Verder</base-button>
             </form>
@@ -50,11 +77,6 @@ export default {
 }
 .vh-container{
   height: 100vh;
-}
-.login-logo{
-  height: 100px;
-  position: absolute;
-  margin-top: -150px
 }
 .text-forgot{
   text-align: left;

@@ -50,7 +50,7 @@ export default {
       <div class="row">
         <div class="col-6">
           <div class="container-login">
-            <img class="login-logo" src="../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
+            <img class="login-logo" src="../../../../public/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
             <h3 class="font-baskerville">Inloggen</h3>
             <form @submit.prevent="login">
               <div class="d-flex flex-column margin-top-email">
@@ -59,7 +59,7 @@ export default {
               </div>
               <div class="d-flex flex-column">
                 <label class="font-poppins margin-bottom-form margin-top-form" for="password">Wachtwoord*</label>
-                <input @keydown="capsLockEvent" class="input-main" v-model.trim="password" :class="{'error-border': isPasswordShort && isPasswordEmpty, 'not-empty': !isPasswordEmpty && !isPasswordShort }" id="password" type="password" required/>
+                <input @keydown="capsLockEvent" class="input-main" v-model.trim="password" :class="{'error-border': isPasswordShort && !isPasswordEmpty, 'not-empty': !isPasswordEmpty && !isPasswordShort }" id="password" type="password" required/>
                 <p v-if="capsLockOn">Caps Lock is on.</p>
               </div>
               <div>
@@ -101,10 +101,5 @@ export default {
 }
 .vh-container{
   height: 100vh;
-}
-.login-logo{
-  height: 100px;
-  position: absolute;
-  margin-top: -150px
 }
 </style>

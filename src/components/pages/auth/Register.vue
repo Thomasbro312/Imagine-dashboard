@@ -47,7 +47,7 @@ export default {
       <div class="row">
         <div class="col-6">
           <div class="container-login">
-            <img class="register-logo" src="../../../../public/img/Imagine_logo_zwart.png" alt="Logo Imagine Creative Agency">
+            <img class="login-logo" src="../../../../public/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
             <h3 class="font-baskerville">Register form</h3>
             <form @submit.prevent="submitForm">
               <div class="d-flex flex-column margin-top-email">
@@ -90,11 +90,6 @@ export default {
 </template>
 
 <style scoped>
-.register-logo{
-  height: 100px;
-  position: absolute;
-  margin-top: -150px
-}
 .margin-bottom-form{
   margin-bottom: 8px;
 }

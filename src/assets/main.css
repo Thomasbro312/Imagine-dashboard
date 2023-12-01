@@ -1,17 +1,23 @@
-@font-face {
-    font-family: Poppins;
-    src: url(public/font/Poppins-SemiBold.ttf);
+.font-baskerville{
+    font-family: 'Libre Baskerville', serif;
 }
-@font-face {
-    font-family: Baskerville;
-    src: url(public/font/baskervilleboldbt.ttf);
+.font-poppins{
+    font-family: 'Poppins', sans-serif;
 }
 .input-main{
     background: #FFFFFF 0 0 no-repeat padding-box;
     border-radius: 8px;
+    border: 2px solid #D4D4D4;
+    font: normal normal bold 16px/25px Poppins;
     opacity: 1;
+    padding: 24px;
     height: 70px;
     width: 510px;
+}
+.login-logo{
+    height: 80px;
+    position: absolute;
+    margin-top: -150px
 }
 .not-empty{
     border: 2px solid #9DC4A3;
@@ -31,7 +37,7 @@
 }
 .font-baskerville{
     text-align: left;
-    font: normal normal 600 44px/54px Baskerville;
+    font: normal normal 600 48px/54px Baskerville;
     letter-spacing: 0;
     color: #222222;
     opacity: 1;
