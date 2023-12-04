@@ -1,5 +1,8 @@
 <script>
+import NavBar from "@/components/ui/TheNavBar.vue";
+
 export default {
+  components: {NavBar},
   data(){
     return{
       apiData: []
@@ -25,6 +28,7 @@ export default {
 </script>
 
 <template>
+  <nav-bar></nav-bar>
   <div>
     <h4>Name</h4>
     <p>{{ this.apiData[0].user_name }}</p>

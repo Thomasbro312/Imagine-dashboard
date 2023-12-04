@@ -42,7 +42,7 @@ router.beforeEach(function(to,from, next){
     if (to.meta.requiresUnauth && store.getters.isAuthenticated) {
         next('/auth/index');
     } else  if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
-        next('/login');
+        next('/');
     } else if (to.matched.some(record => record.meta.admin)) {
         if (store.getters.role.role !== '2') {
             next('/auth/index');

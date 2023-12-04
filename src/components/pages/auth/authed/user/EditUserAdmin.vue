@@ -1,5 +1,8 @@
 <script>
+import NavBar from "@/components/ui/TheNavBar.vue";
+
 export default {
+  components: {NavBar},
   data() {
     return {
       editedResource: {
@@ -68,6 +71,8 @@ export default {
 </script>
 
 <template>
+  <nav-bar></nav-bar>
+
   <div>
     <div>
       <h1>Edit User</h1>

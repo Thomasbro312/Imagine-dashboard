@@ -2,9 +2,10 @@
 import TheTimeLine from "@/components/widgets/TheTimeLine.vue";
 import TheChart from "@/components/widgets/UniqueVistitorsChart.vue";
 import store from "@/store";
+import NavBar from "@/components/ui/TheNavBar.vue";
 
 export default {
-  components: {TheChart, TheTimeLine},
+  components: {NavBar, TheChart, TheTimeLine},
   data() {
     return {
       apiData: [],
@@ -124,6 +125,7 @@ export default {
 </script>
 
 <template>
+  <nav-bar></nav-bar>
   <div class="text-center">
     <p>Welcome back {{this.welcomeMessage}}!</p>
   </div>

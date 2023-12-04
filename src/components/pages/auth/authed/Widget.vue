@@ -2,6 +2,7 @@
 import TheTimeLine from "@/components/widgets/TheTimeLine.vue";
 import UniqueVistitorsChart from "@/components/widgets/UniqueVistitorsChart.vue";
 import TheRealTimeLine from "@/components/widgets/TheRealTimeLine.vue";
+import NavBar from "@/components/ui/TheNavBar.vue";
 export default {
   data(){
     return{
@@ -9,6 +10,7 @@ export default {
     }
   },
   components:{
+    NavBar,
     TheRealTimeLine,
     TheTimeLine, UniqueVistitorsChart
   }
@@ -16,7 +18,8 @@ export default {
 </script>
 
 <template>
-    <div class="backgroundChart col">
+  <nav-bar></nav-bar>
+  <div class="backgroundChart col">
       <unique-vistitors-chart/>
     </div>
   <div class="m-3">

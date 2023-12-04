@@ -1,8 +1,9 @@
 <script>
 import TheRealTimeLine from "@/components/widgets/TheRealTimeLine.vue";
+import NavBar from "@/components/ui/TheNavBar.vue";
 
 export default {
-  components: {TheRealTimeLine},
+  components: {NavBar, TheRealTimeLine},
   data() {
     return {
       isLoading: true,
@@ -120,6 +121,7 @@ export default {
 </script>
 
 <template>
+  <nav-bar></nav-bar>
   <div>
     <div>
       <div class="timelineStyle p-3 mb-3">

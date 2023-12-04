@@ -1,8 +1,9 @@
 <script>
 import DeleteModal from "@/components/ui/DeleteModal.vue";
+import NavBar from "@/components/ui/TheNavBar.vue";
 
 export default {
-  components: {DeleteModal},
+  components: {NavBar, DeleteModal},
   data() {
     return {
       editedResource: {
@@ -94,6 +95,7 @@ export default {
 </script>
 
 <template>
+  <nav-bar></nav-bar>
   <div>
     <div>
       <h1>Edit Resource</h1>

@@ -1,5 +1,8 @@
 <script>
+import NavBar from "@/components/ui/TheNavBar.vue";
+
 export default {
+  components: {NavBar},
   data(){
     return{
       campaign_name: '',
@@ -50,6 +53,7 @@ export default {
 </script>
 
 <template>
+  <nav-bar></nav-bar>
   <div>
     <form @submit.prevent="submitForm">
       <div class="mb-3">
