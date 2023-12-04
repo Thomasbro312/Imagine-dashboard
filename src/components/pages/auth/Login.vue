@@ -48,7 +48,7 @@ export default {
   <div class="vh-container position-relative d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="col-6 m-auto">
           <div class="container-login">
             <img class="login-logo" src="../../../../public/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
             <h3 class="font-baskerville">Inloggen</h3>
@@ -87,12 +87,6 @@ export default {
 </template>
 
 <style scoped>
-.vh-container2 {
-   height: 100vh;
-   width: 50%;
-  float: right;
-  background-color: #0a0a0a;
-}
 .margin-bottom-form{
   margin-bottom: 8px;
 }
@@ -107,10 +101,5 @@ export default {
 }
 .margin-top-account{
   margin-top: 35px;
-}
-.vh-container{
-  height: 100vh;
-  float: left;
-  width: 50%;
 }
 </style>

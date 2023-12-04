@@ -34,7 +34,7 @@ export default {
   <div class="vh-container position-relative d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="col-6 m-auto">
           <div class="container-login">
             <img class="login-logo" src="../../../../../public/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
             <h3 class="font-baskerville-forgot">Verificatiecode</h3>
@@ -51,9 +51,12 @@ export default {
             </div>
           </div>
         </div>
-        <div class="col-6 bg-login">
-        </div>
       </div>
+    </div>
+  </div>
+  <div class="vh-container2">
+    <div class="col-6 bg-login">
+
     </div>
   </div>
 </template>
@@ -74,9 +77,6 @@ export default {
 }
 .margin-top-account{
   margin-top: 35px;
-}
-.vh-container{
-  height: 100vh;
 }
 .text-forgot{
   text-align: left;

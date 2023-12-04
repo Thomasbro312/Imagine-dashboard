@@ -68,7 +68,7 @@ export default {
   <div class="vh-container position-relative d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="col-6 m-auto">
           <div class="container-login">
             <img class="login-logo" src="../../../../public/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
             <h3 class="font-baskerville">Register form</h3>
@@ -104,10 +104,13 @@ export default {
               <span class="account-text">Al een account?</span><router-link class="account-link" :to="{name:'login'}">Inloggen</router-link>
             </div>
           </div>
-          <div class="col-6 bg-login">
-          </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="vh-container2">
+    <div class="col-6 bg-login">
+
     </div>
   </div>
 </template>
@@ -129,6 +132,9 @@ export default {
   margin-top: 35px;
 }
 .vh-container{
+  height: 150vh;
+}
+.vh-container2{
   height: 150vh;
 }
 </style>
