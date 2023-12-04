@@ -76,14 +76,23 @@ export default {
             </div>
           </div>
         </div>
-        <div class="col-6 bg-login">
-        </div>
       </div>
+    </div>
+  </div>
+  <div class="vh-container2">
+    <div class="col-6 bg-login">
+
     </div>
   </div>
 </template>
 
 <style scoped>
+.vh-container2 {
+   height: 100vh;
+   width: 50%;
+  float: right;
+  background-color: #0a0a0a;
+}
 .margin-bottom-form{
   margin-bottom: 8px;
 }
@@ -101,5 +110,7 @@ export default {
 }
 .vh-container{
   height: 100vh;
+  float: left;
+  width: 50%;
 }
 </style>
