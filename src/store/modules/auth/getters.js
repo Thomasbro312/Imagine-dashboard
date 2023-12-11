@@ -1,4 +1,7 @@
 export default {
+    error(state) {
+        return state.error;
+    },
     user_id(state){
         return state.user_id;
     },

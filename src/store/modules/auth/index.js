@@ -6,6 +6,7 @@ export default {
         user_id: null,
         user: null,
         token: null,
+        error: null
     },
     mutations,
     actions,

@@ -1,4 +1,10 @@
 export default {
+  setError(state, payload) {
+    state.error = payload.error;
+  },
+  clearError(state) {
+    state.error = null;
+  },
   didAutoLogout(state){
     state.didAutoLogout = true
   },

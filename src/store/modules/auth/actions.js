@@ -38,7 +38,9 @@ export default {
             }
         )
         if (!response.ok) {
-            throw new Error('Login failed');
+            context.commit('setError', {
+                error: error.message,
+            })
         }
 
         const responseData = await response.json();
