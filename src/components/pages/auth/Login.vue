@@ -36,7 +36,7 @@ export default {
         this.$router.replace('/auth/index');
       } catch (err){
         console.log(err)
-        this.error= err.message || 'Failed to login'
+        this.error = err || 'Failed to login'
       }
     },
   }
@@ -60,6 +60,9 @@ export default {
                 <label class="font-poppins margin-bottom-form margin-top-form" for="password">Wachtwoord*</label>
                 <input @keydown="capsLockEvent" class="input-main" v-model.trim="password" :class="{'error-border': isPasswordShort && !isPasswordEmpty, 'not-empty': !isPasswordEmpty && !isPasswordShort }" id="password" type="password" required/>
                 <p v-if="capsLockOn">Caps Lock is on.</p>
+                <div class="font-poppins">
+                  <p>{{this.error}}</p>
+                </div>
               </div>
               <div>
                 <div class="d-flex align-items-center">

@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import { CalendarView, CalendarViewHeader } from "vue-simple-calendar"
+import { CalendarView, CalendarViewHeader } from "vue-simple-calendar" // published version
 
 import "../../../node_modules/vue-simple-calendar/dist/style.css"
 // The next two lines are optional themes
@@ -23,9 +23,18 @@ import "../../../node_modules/vue-simple-calendar/dist/css/holidays-us.css"
 
 export default {
   name: 'app',
+  props:{
+    id:{
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
   data: function() {
-    return { showDate: new Date(), items:[
-      ], }
+    return {
+      showDate: new Date(),
+      items:[],
+    }
   },
   components: {
     CalendarView,
@@ -82,8 +91,9 @@ export default {
           // const end = item.end_date;
           // const formattedEnd = end.replace(/\s/, 'T');
           this.items = [{
-            start: isoStartDate,
-            end: isoEndDate,
+            id: 'e1',
+            startDate: isoStartDate,
+            endDate: isoEndDate,
             allDay:true,
             title: item.campaign_name,
             resource: 2
@@ -97,17 +107,22 @@ export default {
           const isoStartDate = start.toISOString()
           const end = new Date(item.end_date)
           const isoEndDate = end.toISOString()
+          const letters = '0123456789ABCDEF';
+          let color = '#';
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
           this.items.push({
-            start: isoStartDate,
-            end: isoEndDate,
+            id: "e1",
+            startDate: isoStartDate,
+            endDate: isoEndDate,
             title: item.campaign_name,
             allDay:true,
+            style: 'background-color:' + color + ';',
             resource: 2
           });
         }
-        console.log(
-
-        )
+        console.log(this.items)
         this.isLoading = false;
       }
     }
