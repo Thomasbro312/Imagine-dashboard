@@ -2,6 +2,7 @@
 export default {
     // this registers a new account
     async register(context, payload){
+
         let url = 'http://localhost:8000/api/resource';
         const apiKey = 'Help';
         const response = await fetch(url,{
@@ -20,43 +21,51 @@ export default {
     },
     // this logs you in through the api
     async login(context, payload) {
-        const apiKey = 'Help';
-        const response = await fetch('http://localhost:8000/api/login', {
-                method: 'POST',
-                headers: {
-                    'API-Key': apiKey,
-                },
-                body: JSON.stringify(
-                    {
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        email: payload.email,
-                        password: payload.password
-                    }
-                )
+        try {
+            const apiKey = 'Help';
+            const response = await fetch('http://localhost:8000/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'API-Key': apiKey,
+                    },
+                    body: JSON.stringify(
+                        {
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            email: payload.email,
+                            password: payload.password
+                        }
+                    )
+                }
+            )
+            if (!response.ok) {
+                context.commit('setError', {
+                    error: 'Wrong Password/Email'
+                })
+                return;
             }
-        )
-        if (!response.ok) {
-            context.commit('setError', {
-                error: error.message,
+
+            const responseData = await response.json();
+
+            context.commit('setUser',{
+                user: responseData.user,
             })
+            context.commit('SetUser_id',{
+                userId: responseData.user.user_id
+            })
+            context.commit('setRole',{
+                role: responseData.user.role
+            })
+            context.commit('setToken',{
+                token: responseData.token
+            })
+            context.commit("setAuthentication", true);
+            context.commit("setError", null);
+        }catch (err){
+            context.commit("setAuthentication", false);
+            context.commit("setError", "Invalid credentials. Please try again.");
         }
-
-        const responseData = await response.json();
-
-        context.commit('setUser',{
-            user: responseData.user,
-        })
-        context.commit('SetUser_id',{
-            userId: responseData.user.user_id
-        })
-        context.commit('setRole',{
-            role: responseData.user.role
-        })
-        context.commit('setToken',{
-            token: responseData.token
-        })
     },
     // this deletes the token, role and userid from local storage once you log out
     async logout(context){

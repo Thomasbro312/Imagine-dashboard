@@ -1,9 +1,9 @@
 export default {
-  setError(state, payload) {
-    state.error = payload.error;
+  setAuthentication(state, isCorrect) {
+    state.isCorrect = isCorrect;
   },
-  clearError(state) {
-    state.error = null;
+  setError(state, error) {
+    state.error = error;
   },
   didAutoLogout(state){
     state.didAutoLogout = true
