@@ -75,7 +75,7 @@ export default {
 
   <div>
     <div>
-      <h1>Edit User</h1>
+      <h1 class="font-baskerville">Edit User</h1>
       <form @submit.prevent="editResource(this.$route.params.id)">
         <div class="mb-3">
           <label for="userName" class="form-label">First and Last name</label>

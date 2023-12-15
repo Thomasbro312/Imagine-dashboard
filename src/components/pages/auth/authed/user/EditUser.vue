@@ -64,29 +64,36 @@ export default {
 
 <template>
   <nav-bar></nav-bar>
-
-  <div>
-    <div>
-      <h1>Edit User</h1>
-      <form @submit.prevent="editResource(this.$route.params.id)">
-        <div class="mb-3">
-          <label for="userName" class="form-label">First and Last name</label>
-          <input type="text" class="form-control" id="userName" v-model="editedResource.users.user_name">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 m-auto">
+        <div class="container-login">
+          <div>
+            <div>
+              <h1 class="font-baskerville mb-3">Edit User</h1>
+              <form @submit.prevent="editResource(this.$route.params.id)">
+                <div class="d-flex flex-column mb-3">
+                  <label for="userName" class="font-poppins">First and Last name</label>
+                  <input type="text" class="input-main" id="userName" v-model="editedResource.users.user_name">
+                </div>
+                <div class="d-flex flex-column mb-3">
+                  <label for="email" class="font-poppins">Email</label>
+                  <input type="email" class="input-main" id="email" v-model="editedResource.users.email">
+                </div>
+                <div class="d-flex flex-column mb-3">
+                  <label for="phoneNumber" class="font-poppins">Phone Number</label>
+                  <input type="tel" class="input-main" id="phoneNumber" v-model="editedResource.users.phone_number">
+                </div>
+                <div class="d-flex flex-column mb-3">
+                  <label for="companyName" class="font-poppins">Company Name</label>
+                  <input type="text" class="input-main" id="companyName" v-model="editedResource.users.company_name">
+                </div>
+                <base-button class='btn-main text-white' type="submit">Update</base-button>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" v-model="editedResource.users.email">
-        </div>
-        <div class="mb-3">
-          <label for="phoneNumber" class="form-label">Phone Number</label>
-          <input type="tel" class="form-control" id="phoneNumber" v-model="editedResource.users.phone_number">
-        </div>
-        <div class="mb-3">
-          <label for="companyName" class="form-label">Company Name</label>
-          <input type="text" class="form-control" id="companyName" v-model="editedResource.users.company_name">
-        </div>
-        <base-button class='margin-button btn-outline-dark' type="submit">Update</base-button>
-      </form>
+      </div>
     </div>
   </div>
 </template>
