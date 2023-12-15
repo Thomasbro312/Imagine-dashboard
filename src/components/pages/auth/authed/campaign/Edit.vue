@@ -96,39 +96,47 @@ export default {
 
 <template>
   <nav-bar></nav-bar>
-  <div>
-    <div>
-      <h1>Edit Resource</h1>
-      <form @submit.prevent="editResource(this.$route.params.id)">
-        <div class="mb-3">
-          <label class="form-label" for="campaignName">Campaign Name</label>
-          <input type="text" class="form-control" id="campaignName" v-model="editedResource.campaign.campaign_name">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 m-auto">
+        <div class="container-login">
+          <div>
+            <div>
+              <h1>Edit Resource</h1>
+              <form @submit.prevent="editResource(this.$route.params.id)">
+                <div class="d-flex flex-column">
+                  <label class="font-poppins" for="campaignName">Campaign Name</label>
+                  <input type="text" class="input-main" id="campaignName" v-model="editedResource.campaign.campaign_name">
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="font-poppins" for="clientId">Client Id</label>
+                  <select id="client_id" class="input-main" v-model.trim="editedResource.campaign.client_id">
+                    <option disabled value="">Select an option</option>
+                    <option v-for="item in apiDataUsers" :value="item.user_id">{{ item.user_name }}, {{ item.company_name }}</option>
+                  </select>
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="font-poppins" for="startDate">Start Date</label>
+                  <input class="input-main" v-model="editedResource.campaign.start_date" id="startDate" type="date">
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="font-poppins" for="endDate">End Date</label>
+                  <input class="input-main" v-model="editedResource.campaign.end_date" id="endDate" type="date">
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="font-poppins" for="campaignPhase">Campaign Phase</label>
+                  <select class="input-main" v-model="editedResource.campaign.campaign_phase" id="campaignPhase">
+                    <option disabled value="">Select an option</option>
+                    <option v-for="phase in apiDataPhase" :value="phase.id">{{ phase.phase_name }}</option>
+                  </select>
+                </div>
+                <base-button class='btn-main text-white' type="submit">Update</base-button>
+                <delete-modal></delete-modal>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label" for="clientId">Client Id</label>
-          <select id="client_id" class="form-control" v-model.trim="editedResource.campaign.client_id">
-            <option disabled value="">Select an option</option>
-            <option v-for="item in apiDataUsers" :value="item.user_id">{{ item.user_name }}, {{ item.company_name }}</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="startDate">Start Date</label>
-          <input class="form-control" v-model="editedResource.campaign.start_date" id="startDate" type="date">
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="endDate">End Date</label>
-          <input class="form-control" v-model="editedResource.campaign.end_date" id="endDate" type="date">
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="campaignPhase">Campaign Phase</label>
-          <select class="form-control" v-model="editedResource.campaign.campaign_phase" id="campaignPhase">
-            <option disabled value="">Select an option</option>
-            <option v-for="phase in apiDataPhase" :value="phase.id">{{ phase.phase_name }}</option>
-          </select>
-        </div>
-        <base-button class='margin-button btn-outline-dark' type="submit">Update</base-button>
-        <delete-modal></delete-modal>
-      </form>
+      </div>
     </div>
   </div>
 </template>
