@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <h1>My Calendar</h1>
     <calendar-view
         :show-date="showDate"
         :items="items"
-        class="theme-default holiday-us-traditional holiday-us-official">
+        class="style theme-default holiday-us-traditional holiday-us-official">
       <template #header="{ headerProps }">
         <calendar-view-header
             :header-props="headerProps"
@@ -138,8 +137,13 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: #2c3e50;
   height: 67vh;
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto;
+  width: 50vw;
+}
+.style{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 1px 6px #00000029;
+  border: 1px solid #D4D4D4;
+  border-radius: 8px;
+  opacity: 1;
 }
 </style>

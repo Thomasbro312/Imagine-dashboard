@@ -1,4 +1,6 @@
 <script>
+import store from "@/store";
+
 export default {
   data() {
     return {
@@ -26,19 +28,29 @@ export default {
     }
   },
   methods: {
+    redirect() {
+      this.$router.push('/auth/index');
+    },
     capsLockEvent(){
       this.capsLockOn = event.getModifierState("CapsLock");
     },
-    login() {
+    async login() {
       try {
-        this.$store.dispatch('login', {
+        await this.$store.dispatch('login', {
           email: this.email,
           password: this.password,
         })
-        this.$router.replace('/auth/index');
+        this.$router.push('/auth/index');
       } catch (err){
+        console.log(err)
       }
     },
+  },
+  beforeUpdate() {
+    console.log(store.getters.isAuthenticated)
+    if (store.getters.isAuthenticated){
+      this.$router.push('/auth/index')
+    }
   }
 }
 </script>

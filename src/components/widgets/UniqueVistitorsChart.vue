@@ -86,7 +86,7 @@ export default {
 </script>
 
 <template>
-  <Bar id="my-chart-id" :width="240" :height="272"
+  <Bar id="my-chart-id" :width="250" :height="193"
        :options="chartOptions"
        :data="chartData" />
 </template>

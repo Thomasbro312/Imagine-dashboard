@@ -121,63 +121,68 @@ export default {
 </script>
 
 <template>
-  <nav-bar></nav-bar>
-  <div>
-    <div>
-      <div class="timelineStyle p-3 mb-3">
-        <the-real-time-line/>
-      </div>
+  <div class="navbar-router">
+    <div class="row">
+      <nav-bar></nav-bar>
+    </div>
+    <div class="max-width-router">  <div>
       <div>
-        <base-button class="mb-3" link :to="{name: 'create-campaign'}">Create Campaign</base-button>
+        <div class="timelineStyle p-3 mb-3">
+          <the-real-time-line/>
+        </div>
+        <div>
+          <base-button class="mb-3" link :to="{name: 'create-campaign'}">Create Campaign</base-button>
+        </div>
+        <div class="">
+          <button class="btn btn-outline-secondary me-2" @click="sortAscending">Sort Ascending</button>
+          <button class="btn btn-outline-secondary" @click="sortDescending">Sort Descending</button>
+        </div>
       </div>
-      <div class="">
-        <button class="btn btn-outline-secondary me-2" @click="sortAscending">Sort Ascending</button>
-        <button class="btn btn-outline-secondary" @click="sortDescending">Sort Descending</button>
+      <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">
+        <div v-if="!isLoading">
+          <p>There are not any Campaigns</p>
+          <p>Please make one :)</p>
+        </div>
       </div>
-    </div>
-    <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">
-      <div v-if="!isLoading">
-        <p>There are not any Campaigns</p>
-        <p>Please make one :)</p>
+      <div class="text-center">
+        <div v-if="isLoading" class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
-    </div>
-    <div class="text-center">
-      <div v-if="isLoading" class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-    <div v-if="!isDataEmpty(apiData)" class="container d-flex">
-      <div class="row justify-content-center">
-        <div v-for="item in sortedArray" :key="item.id" class="col-lg-auto col-md-auto col-sm-8 pt-3 gap-5">
-          <div class="card card-back-drop dimensions-card">
-            <div class="card-body pb-0">
-              <div class="pb-3 card-title-height">
-                <h3 class="card-title w-auto">{{ item.campaign_name }}</h3>
+      <div v-if="!isDataEmpty(apiData)" class="container d-flex">
+        <div class="row justify-content-center">
+          <div v-for="item in sortedArray" :key="item.id" class="col-lg-auto col-md-auto col-sm-8 pt-3 gap-5">
+            <div class="card card-back-drop dimensions-card">
+              <div class="card-body pb-0">
+                <div class="pb-3 card-title-height">
+                  <h3 class="card-title w-auto">{{ item.campaign_name }}</h3>
+                </div>
+                <hr>
+                <h5>Campaign UID</h5>
+                <p>{{ item.campaign_id }}</p>
+                <h5>Client</h5>
+                <p>{{ item.client_name }}</p>
+                <h5>Campaign start</h5>
+                <p>{{ item.start_date }}</p>
+                <h5>Campaign end</h5>
+                <p>{{ item.end_date }}</p>
+                <h5>Total campaign duration</h5>
+                <p>{{ item.diff_date }} Days</p>
+                <h5>Campaign Phase</h5>
+                <p>{{ item.phase }}</p>
               </div>
               <hr>
-              <h5>Campaign UID</h5>
-              <p>{{ item.campaign_id }}</p>
-              <h5>Client</h5>
-              <p>{{ item.client_name }}</p>
-              <h5>Campaign start</h5>
-              <p>{{ item.start_date }}</p>
-              <h5>Campaign end</h5>
-              <p>{{ item.end_date }}</p>
-              <h5>Total campaign duration</h5>
-              <p>{{ item.diff_date }} Days</p>
-              <h5>Campaign Phase</h5>
-              <p>{{ item.phase }}</p>
-            </div>
-            <hr>
-            <div class="mb-3 mx-3">
-              <base-button class="card-button me-2" link :to="{ name:'edit-campaign', params: {id: item.id}}">Edit
-              </base-button>
-              <base-button class="card-button" link :to="{ name:'campaign-summary', params: {id: item.id}}">View Details
-              </base-button>
+              <div class="mb-3 mx-3">
+                <base-button class="card-button me-2" link :to="{ name:'edit-campaign', params: {id: item.id}}">Edit
+                </base-button>
+                <base-button class="card-button" link :to="{ name:'campaign-summary', params: {id: item.id}}">View Details
+                </base-button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -198,5 +203,12 @@ export default {
 .timelineStyle{
   background-color: #ffffff;
   border-radius: 10px;
+}
+.navbar-router{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: stretch;
 }
 </style>

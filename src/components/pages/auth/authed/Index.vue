@@ -125,52 +125,58 @@ export default {
 </script>
 
 <template>
-  <nav-bar></nav-bar>
-  <div class="text-center">
-    <p>Welcome back {{this.welcomeMessage}}!</p>
-  </div>
-  <div class="">
-    <button class="btn btn-outline-secondary me-2" @click="sortAscending">Sort Ascending</button>
-    <button class="btn btn-outline-secondary" @click="sortDescending">Sort Descending</button>
-  </div>
-  <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">
-    <div v-if="!isLoading">
-      <p>There are not any Campaigns</p>
-      <p>Please make one :)</p>
-    </div>
-  </div>
-  <div class="text-center">
-    <div v-if="isLoading" class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
-  <div v-if="!isDataEmpty(apiData)" class="container d-flex justify-content-center">
+  <div class="navbar-router">
     <div class="row">
-      <div v-for="item in sortedArray" :key="item.id" class="col-lg-auto col-md-auto col-sm-8 pt-3">
-        <div class="card card-back-drop dimensions-card">
-          <div class="card-body pb-0">
-            <div class="pb-3 card-title-height">
-              <h3 class="card-title w-auto">{{ item.campaign_name }}</h3>
+      <nav-bar></nav-bar>
+    </div>
+    <div class="max-width-router">
+      <div class="text-center">
+        <p>Welcome back {{this.welcomeMessage}}!</p>
+      </div>
+      <div class="">
+        <button class="btn btn-outline-secondary me-2" @click="sortAscending">Sort Ascending</button>
+        <button class="btn btn-outline-secondary" @click="sortDescending">Sort Descending</button>
+      </div>
+      <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">
+        <div v-if="!isLoading">
+          <p>There are not any Campaigns</p>
+          <p>Please make one :)</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <div v-if="isLoading" class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div v-if="!isDataEmpty(apiData)" class="container d-flex justify-content-center">
+        <div class="row">
+          <div v-for="item in sortedArray" :key="item.id" class="col-lg-auto col-md-auto col-sm-8 pt-3">
+            <div class="card card-back-drop dimensions-card">
+              <div class="card-body pb-0">
+                <div class="pb-3 card-title-height">
+                  <h3 class="card-title w-auto">{{ item.campaign_name }}</h3>
+                </div>
+                <hr>
+                <h5>Campaign UID</h5>
+                <p>{{ item.campaign_id }}</p>
+                <h5>Client</h5>
+                <p>{{ item.client_name }}</p>
+                <h5>Campaign start</h5>
+                <p>{{ item.start_date }}</p>
+                <h5>Campaign end</h5>
+                <p>{{ item.end_date }}</p>
+                <h5>Total campaign duration</h5>
+                <p>{{ item.diff_date }} Days</p>
+                <h5>Campaign Phase</h5>
+                <p>{{ item.phase }}</p>
+                <hr>
+              </div>
+              <div class="mb-3 mx-3">
+                <base-button class="card-button" link :to="{ name:'campaign-summary', params: {id: item.id}}">View Details
+                </base-button>
+              </div>
             </div>
-            <hr>
-            <h5>Campaign UID</h5>
-            <p>{{ item.campaign_id }}</p>
-            <h5>Client</h5>
-            <p>{{ item.client_name }}</p>
-            <h5>Campaign start</h5>
-            <p>{{ item.start_date }}</p>
-            <h5>Campaign end</h5>
-            <p>{{ item.end_date }}</p>
-            <h5>Total campaign duration</h5>
-            <p>{{ item.diff_date }} Days</p>
-            <h5>Campaign Phase</h5>
-            <p>{{ item.phase }}</p>
-            <hr>
-            </div>
-            <div class="mb-3 mx-3">
-              <base-button class="card-button" link :to="{ name:'campaign-summary', params: {id: item.id}}">View Details
-              </base-button>
-            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -189,5 +195,61 @@ export default {
 .card-back-drop{
   border: black;
   border-radius: 25px;
+}
+.background-main{
+  background-color: #F7F7F7;
+}
+.svg{
+  margin-top: 40px;
+  align-self: center;
+}
+.bg-navbar{
+  background: #222222;
+}
+.bg-navbar-dropdown{
+  background: #FFFFFF;
+}
+.nav-bar-font{
+  text-align: left;
+  font: normal normal 600 24px/54px Baskerville;
+  letter-spacing: -0.96px;
+  color: #222222;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.nav-bar-active{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  color: white;
+  opacity: 1;
+}
+.navbar-layout{
+  width: 280px
+}
+.navbar-router{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: stretch;
+}
+.margin-top{
+  margin-top: 84px;
+}
+.container-dropdown-font{
+  margin: 0;
+  font: normal normal normal 16px/79px Poppins;
+  letter-spacing: 0px;
+  color: #222222;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.margin-dashboard{
+  margin: 10px 0 10px 0px;
+}
+.margin-navigation{
+  margin-left: 18px;
+}
+.max-width-router{
+  width: 100%;
 }
 </style>

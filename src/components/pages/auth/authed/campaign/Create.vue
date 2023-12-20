@@ -70,13 +70,23 @@ export default {
                 <option v-for="item in apiData" :value="item.user_id">{{item.company_name}}</option>
               </select>
             </div>
-            <div class="d-flex flex-column">
-              <label class="font-poppins" for="start_date">Start Date</label>
-              <input class="input-main" type="date" id="start_date" v-model.trim="start_date">
-            </div>
-            <div class="d-flex flex-column">
-              <label class="font-poppins" for="end_date">End Date</label>
-              <input class="input-main" type="date" id="end_date" v-model.trim="end_date">
+            <div class="card">
+              <h5 class="card-header">
+                <a data-toggle="collapse" href="#collapse-example" aria-expanded="true" aria-controls="collapse-example" id="heading-example" class="d-block">
+                  <i class="fa fa-chevron-down pull-right"></i>
+                  Collapsible Group Item #1
+                </a>
+              </h5>
+              <div id="collapse-example" class="collapse show" aria-labelledby="heading-example">
+                <div class="d-flex flex-column">
+                  <label class="font-poppins" for="start_date">Start Date</label>
+                  <input class="input-main" type="date" id="start_date" v-model.trim="start_date">
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="font-poppins" for="end_date">End Date</label>
+                  <input class="input-main" type="date" id="end_date" v-model.trim="end_date">
+                </div>
+              </div>
             </div>
             <base-button class="btn-main text-white mt-4" type="submit">Submit</base-button>
           </form>
