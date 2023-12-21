@@ -45,7 +45,7 @@ export default {
 <template>
   <div class="min-height-navbar">
     <div v-if="isLoggedIn" class="bg-navbar navbar-layout">
-      <div class="d-flex flex-column align-items-center align-items-sm-start pt-2 text-white">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-2 text-white">
         <img src="../../../public/img/logo_ungrouped_wit.svg" width="150" class="svg" alt="">
         <ul class="margin-top nav flex-column navbar-layout nav-bar-font mb-sm-auto" id="menu">
           <li class="navbar-router margin-dashboard text-left text-white text-decoration-none">
@@ -62,7 +62,7 @@ export default {
           </li>
         </ul>
         <hr>
-        <div class="dropdown pb-4">
+        <div class="dropdown px-3">
           <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
             <span class="d-none d-sm-inline mx-1">PlaceHolder</span>
@@ -72,7 +72,7 @@ export default {
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><base-button class="dropdown-item container-dropdown-font" @click="logout" href="#">Uitloggen</base-button></li>
+            <li><base-button class="dropdown-item container-dropdown-font" @click="logout" link to="">Uitloggen</base-button></li>
           </ul>
         </div>
       </div>
