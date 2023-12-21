@@ -65,14 +65,14 @@ export default {
         <div class="dropdown px-3">
           <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
-            <span class="d-none d-sm-inline mx-1">PlaceHolder</span>
+            <span class="d-none d-sm-inline mx-1 text-white">PlaceHolder</span>
           </a>
           <ul class="dropdown-menu bg-navbar-dropdown text-small shadow">
-            <li><a class="dropdown-item text-white" href="#">Profile</a></li>
+            <li><router-link class="dropdown-item" to="/auth/users"><span class="container-dropdown-font m-0">Profile</span></router-link></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><base-button class="dropdown-item container-dropdown-font" @click="logout" link to="">Uitloggen</base-button></li>
+            <li><base-button class="dropdown-item container-dropdown-font m-0" @click="logout">Uitloggen</base-button></li>
           </ul>
         </div>
       </div>
@@ -81,12 +81,8 @@ export default {
 </template>
 
 <style scoped>
-
 .bg-navbar{
   background: #222222;
-}
-.background-main{
-  background-color: #F7F7F7;
 }
 .svg{
   margin-top: 40px;
@@ -122,7 +118,7 @@ export default {
 }
 .container-dropdown-font{
   margin: 0;
-  font: normal normal normal 16px/79px Poppins;
+  font: normal normal normal 16px/18px Poppins;
   letter-spacing: 0px;
   color: #222222;
   text-transform: capitalize;

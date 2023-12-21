@@ -196,59 +196,6 @@ export default {
   border: black;
   border-radius: 25px;
 }
-.background-main{
-  background-color: #F7F7F7;
-}
-.svg{
-  margin-top: 40px;
-  align-self: center;
-}
-.bg-navbar{
-  background: #222222;
-}
-.bg-navbar-dropdown{
-  background: #FFFFFF;
-}
-.nav-bar-font{
-  text-align: left;
-  font: normal normal 600 24px/54px Baskerville;
-  letter-spacing: -0.96px;
-  color: #222222;
-  text-transform: capitalize;
-  opacity: 1;
-}
-.nav-bar-active{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  color: white;
-  opacity: 1;
-}
-.navbar-layout{
-  width: 280px
-}
-.navbar-router{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-content: stretch;
-}
-.margin-top{
-  margin-top: 84px;
-}
-.container-dropdown-font{
-  margin: 0;
-  font: normal normal normal 16px/79px Poppins;
-  letter-spacing: 0px;
-  color: #222222;
-  text-transform: capitalize;
-  opacity: 1;
-}
-.margin-dashboard{
-  margin: 10px 0 10px 0px;
-}
-.margin-navigation{
-  margin-left: 18px;
-}
 .max-width-router{
   width: 100%;
 }

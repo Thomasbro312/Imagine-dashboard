@@ -112,3 +112,10 @@
 .margin-auto{
     margin: auto;
 }
+.navbar-router{
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     align-items: stretch;
+     align-content: stretch;
+ }

@@ -27,22 +27,28 @@ export default {
 }
 </script>
 
-<template>
-  <nav-bar></nav-bar>
-  <div>
-    <h4>Name</h4>
-    <p>{{ this.apiData[0].user_name }}</p>
-    <h4>Email</h4>
-    <p>{{ this.apiData[0].email }}</p>
-    <h4>Phone Number</h4>
-    <p>{{ this.apiData[0].phone_number }}</p>
-    <h4>Company Name</h4>
-    <p>{{ this.apiData[0].company_name }}</p>
-    <base-button class="card-button" link :to="{ name: 'edit-user'}">Edit
-    </base-button>
+<template class="background-main">
+  <div class="navbar-router">
+    <div class="row">
+      <nav-bar></nav-bar>
+    </div>
+    <div class="max-width-router">
+      <h4>Name</h4>
+      <p>{{ this.apiData[0].user_name }}</p>
+      <h4>Email</h4>
+      <p>{{ this.apiData[0].email }}</p>
+      <h4>Phone Number</h4>
+      <p>{{ this.apiData[0].phone_number }}</p>
+      <h4>Company Name</h4>
+      <p>{{ this.apiData[0].company_name }}</p>
+      <base-button class="card-button" link :to="{ name: 'edit-user'}">Edit
+      </base-button>
+    </div>
   </div>
 </template>
 
 <style scoped>
-
+.background-main{
+  background-color: #F7F7F7;
+}
 </style>

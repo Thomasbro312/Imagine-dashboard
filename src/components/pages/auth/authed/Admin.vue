@@ -204,11 +204,4 @@ export default {
   background-color: #ffffff;
   border-radius: 10px;
 }
-.navbar-router{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-content: stretch;
-}
 </style>

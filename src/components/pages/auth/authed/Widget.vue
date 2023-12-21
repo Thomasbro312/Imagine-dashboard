@@ -93,17 +93,9 @@ export default {
   opacity: 1;
   max-width: 258px;
   height: 193px;
-
 }
 .timelineStyle{
   width: 500px;
-}
-.navbar-router{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-content: stretch;
 }
 .main-dropdown{
   width: 548px;
