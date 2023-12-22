@@ -11,6 +11,9 @@ export default {
   setUser(state, user) {
     state.user = user;
   },
+  setUserName(state, userName) {
+    state.userName = userName;
+  },
   SetUser_id(state, user_id){
     state.user_id = user_id;
   },

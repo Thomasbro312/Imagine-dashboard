@@ -5,6 +5,7 @@ export default {
     state: {
         user_id: null,
         user: null,
+        userName: null,
         token: null,
         isCorrect: false,
         error: null

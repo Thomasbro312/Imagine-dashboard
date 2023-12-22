@@ -51,6 +51,9 @@ export default {
             context.commit('setUser',{
                 user: responseData.user,
             })
+            context.commit('setUserName',{
+                userName: responseData.userName,
+            })
             context.commit('SetUser_id',{
                 userId: responseData.user.user_id
             })

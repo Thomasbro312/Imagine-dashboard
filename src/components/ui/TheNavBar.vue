@@ -3,6 +3,9 @@ import store from "@/store";
 export default {
   data(){
     return{
+      hoverDashboard: false,
+      hoverCampaign: false,
+      hover: false,
       idProfile: store.getters.userId,
       dynamicHeight: window.innerHeight
     }
@@ -28,6 +31,9 @@ export default {
     }
   },
   computed: {
+    store() {
+      return store
+    },
     isAdmin() {
       return store.getters.role.role === '2'; // Replace 'admin' with the correct role
     },
@@ -46,41 +52,44 @@ export default {
   <div class="min-height-navbar">
     <div v-if="isLoggedIn" class="bg-navbar navbar-layout">
       <div class="d-flex flex-column align-items-center align-items-sm-start px-2 text-white">
-        <img src="/img/logo_ungrouped_wit.svg" width="150" class="svg" alt="">
+        <img src="/img/logo_ungrouped_wit.svg" class="svg" alt="">
         <ul class="margin-top nav flex-column navbar-layout nav-bar-font mb-sm-auto" id="menu">
-          <li class="navbar-router margin-dashboard text-left text-white text-decoration-none">
+          <li  v-on:mouseover="hoverDashboard = true" v-on:mouseout="hoverDashboard = false" class="navbar-router margin-dashboard text-left text-white text-decoration-none nav-bar-active">
             <router-link to="/auth/index" class="text-decoration-none text-white">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg" alt="">
+                <img v-if="!hoverDashboard" class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg" alt="">
+                <img v-if="hoverDashboard" class="icons-margin" src="/img/icons/Dashboard%20icon%20zwart.svg" alt="">
                 <span class="margin-navigation">Dashboard</span>
               </div>
             </router-link>
           </li>
-          <li class="navbar-router margin-dashboard text-left">
+          <li  v-on:mouseover="hoverCampaign = true" v-on:mouseout="hoverCampaign = false" class="navbar-router margin-dashboard text-left nav-bar-active">
             <router-link to="/auth/index" class="text-white text-decoration-none">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg" alt="">
+                <img v-if="!hoverCampaign" class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg" alt="">
+                <img v-if="hoverCampaign" class="icons-margin" src="/img/icons/Campagne%20icon%20zwart.svg" alt="">
                 <span class="margin-navigation">Campagne</span>
               </div>
             </router-link>
           </li>
-          <li class="navbar-router margin-dashboard text-left">
-            <router-link to="/auth/index" class="text-white text-decoration-none">
+          <li v-on:mouseover="hover = true" v-on:mouseout="hover = false"  class="navbar-router margin-dashboard text-left nav-bar-active">
+            <router-link to="/auth/index" class="text-white text-decoration-none nav-bar-active">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg" alt="">
+                <img v-if="!hover" class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg" alt="">
+                <img v-if="hover" class="icons-margin" src="/img/icons/Rapportage%20icon%20zwart.svg" alt="">
                 <span class="margin-navigation">Rapporten</span>
               </div>
             </router-link>
           </li>
-          <li v-if="isAdmin" class="navbar-router margin-dashboard text-left">
+          <li v-if="isAdmin" class="navbar-router margin-dashboard text-left nav-bar-active">
             <router-link to="/auth/admin" class="text-white text-decoration-none"><span class="margin-navigation">Admin</span></router-link>
           </li>
         </ul>
         <hr>
-        <div class="dropdown margin-auto px-3">
+        <div class="dropdown margin-auto dropdown-menu-style px-3">
           <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
-            <span class="d-none d-sm-inline mx-1 text-white">PlaceHolder</span>
+            <span class="d-none d-sm-inline mx-1 text-white">Place Holder</span>
           </a>
           <ul class="dropdown-menu bg-navbar-dropdown text-small shadow container-dropdown-font">
             <li><router-link class="dropdown-item" to="/auth/users"><span class="m-0 w-auto">Profile</span></router-link></li>
@@ -103,6 +112,7 @@ export default {
 }
 .icons-margin{
   margin-left: 23px;
+  width: auto !important;
 }
 .svg{
   margin-top: 40px;
@@ -122,10 +132,14 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-.nav-bar-active{
+.nav-bar-active :hover{
   background: #FFFFFF 0 0 no-repeat padding-box;
-  color: white;
+  color: black;
   opacity: 1;
+  width: 100%;
+}
+.nav-bar-active img :hover{
+  width: 0px;
 }
 .navbar-layout{
   width: 280px
@@ -157,5 +171,10 @@ export default {
 }
 .min-height-navbar > * {
   flex-grow: 1;
+}
+.dropdown-menu-style{
+  position:absolute;
+  bottom:0;
+  margin-bottom: 20px;
 }
 </style>
