@@ -51,7 +51,7 @@ export default {
           <li class="navbar-router margin-dashboard text-left text-white text-decoration-none">
             <router-link to="/auth/index" class="text-decoration-none text-white">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg">
+                <img class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg" alt="">
                 <span class="margin-navigation">Dashboard</span>
               </div>
             </router-link>
@@ -59,7 +59,7 @@ export default {
           <li class="navbar-router margin-dashboard text-left">
             <router-link to="/auth/index" class="text-white text-decoration-none">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg">
+                <img class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg" alt="">
                 <span class="margin-navigation">Campagne</span>
               </div>
             </router-link>
@@ -67,7 +67,7 @@ export default {
           <li class="navbar-router margin-dashboard text-left">
             <router-link to="/auth/index" class="text-white text-decoration-none">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg">
+                <img class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg" alt="">
                 <span class="margin-navigation">Rapporten</span>
               </div>
             </router-link>
@@ -123,7 +123,7 @@ export default {
   opacity: 1;
 }
 .nav-bar-active{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0 0 no-repeat padding-box;
   color: white;
   opacity: 1;
 }
@@ -139,13 +139,13 @@ export default {
 .container-dropdown-font{
   margin: 0;
   font: normal normal normal 16px/18px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #222222;
   text-transform: capitalize;
   opacity: 1;
 }
 .margin-dashboard{
-  margin: 10px 0 10px 0px;
+  margin: 10px 0 10px 0;
 }
 .margin-navigation{
   margin-left: 18px;
