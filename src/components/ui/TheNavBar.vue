@@ -51,7 +51,7 @@ export default {
           <li class="navbar-router margin-dashboard text-left text-white text-decoration-none">
             <router-link to="/auth/index" class="text-decoration-none text-white">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg" alt="">
+                <img class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg">
                 <span class="margin-navigation">Dashboard</span>
               </div>
             </router-link>
@@ -59,7 +59,7 @@ export default {
           <li class="navbar-router margin-dashboard text-left">
             <router-link to="/auth/index" class="text-white text-decoration-none">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg" alt="">
+                <img class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg">
                 <span class="margin-navigation">Campagne</span>
               </div>
             </router-link>
@@ -67,13 +67,13 @@ export default {
           <li class="navbar-router margin-dashboard text-left">
             <router-link to="/auth/index" class="text-white text-decoration-none">
               <div class="d-flex">
-                <img class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg" alt="">
+                <img class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg">
                 <span class="margin-navigation">Rapporten</span>
               </div>
             </router-link>
           </li>
           <li v-if="isAdmin" class="navbar-router margin-dashboard text-left">
-            <router-link to="/auth/admin" class="text-white text-decoration-none"><i class=""></i><span class="margin-navigation">Admin</span></router-link>
+            <router-link to="/auth/admin" class="text-white text-decoration-none"><span class="margin-navigation">Admin</span></router-link>
           </li>
         </ul>
         <hr>
@@ -82,12 +82,14 @@ export default {
             <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
             <span class="d-none d-sm-inline mx-1 text-white">PlaceHolder</span>
           </a>
-          <ul class="dropdown-menu bg-navbar-dropdown text-small shadow">
-            <li><router-link class="dropdown-item" to="/auth/users"><span class="container-dropdown-font m-0">Profile</span></router-link></li>
+          <ul class="dropdown-menu bg-navbar-dropdown text-small shadow container-dropdown-font">
+            <li><router-link class="dropdown-item" to="/auth/users"><span class="m-0 w-auto">Profile</span></router-link></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><base-button class="dropdown-item container-dropdown-font m-0" @click="logout">Uitloggen</base-button></li>
+            <li>
+              <base-button class="dropdown-item m-0" @click="logout">Uitloggen</base-button>
+            </li>
           </ul>
         </div>
       </div>
