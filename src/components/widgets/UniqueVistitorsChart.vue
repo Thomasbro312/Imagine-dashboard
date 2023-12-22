@@ -1,31 +1,31 @@
 <script>
 import { Bar } from 'vue-chartjs'
-import {Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, Colors} from 'chart.js'
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, Colors } from 'chart.js'
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, Colors)
-
 
 export default {
   components: { Bar },
 
   data() {
     return {
-      pageLogs: [], // Assuming your API returns an array of page visit logs
+      pageLogs: [],
       monthlyPageCounts: {},
       chartData: {
-        labels: [ ],
-        datasets: [ ]
+        labels: [],
+        datasets: [],
       },
       chartOptions: {
         responsive: false,
-      }
+      },
+      // Add a reference to the chart instance
+      chartInstance: null,
     }
   },
   mounted() {
     const apiKey = 'Help';
 
-    // Fetch the page logs from the API using the fetch API
-    fetch(`http://localhost:8000/api/domainlog/${this.$route.params.id}`,{
+    fetch(`http://localhost:8000/api/domainlog/${this.$route.params.id}`, {
       headers: {
         'API-Key': apiKey,
       },
@@ -39,11 +39,11 @@ export default {
         .then(data => {
           this.pageLogs = data;
           this.calculateMonthlyPageCounts();
-          console.log(this.monthlyPageCounts)
+          console.log(this.monthlyPageCounts);
+          // Use this.chartInstance to reference the chart instance
           this.renderChart();
         })
         .catch(error => {
-          console.error("Error fetching page logs:", error);
         });
   },
   methods: {
@@ -64,9 +64,7 @@ export default {
         return acc;
       }, {});
     },
-
     renderChart() {
-      // Update the chart data with the calculated monthly page counts
       this.chartData = {
         labels: Object.keys(this.monthlyPageCounts),
         datasets: [{
@@ -78,19 +76,31 @@ export default {
         }],
       };
 
-      // Update the chart using vue-chartjs
-      this.renderChart(this.chartData);
+      // Check if chartInstance is available
+      if (this.chartInstance) {
+        // Update the chart using the chartInstance directly
+        this.chartInstance.render(this.chartData, this.chartOptions);
+      } else {
+        // Create the chart and save the reference to the chartInstance
+        new Bar(this, {
+          propsData: {
+            options: this.chartOptions,
+            chartData: this.chartData,
+          },
+        });
+        this.$refs.chart = this.chartInstance;
+        this.chartInstance.$mount();
+      }
     },
   }
 }
 </script>
 
 <template>
-  <Bar id="my-chart-id" :width="250" :height="193"
-       :options="chartOptions"
-       :data="chartData" />
+  <div>
+    <Bar ref="chart" :width="250" :height="193" :options="chartOptions" :data="chartData" />
+  </div>
 </template>
 
 <style scoped>
-
 </style>
