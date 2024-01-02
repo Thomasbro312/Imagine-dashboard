@@ -170,6 +170,7 @@ export default {
   font: normal normal normal 20px/27px Poppins;
   letter-spacing: 0;
   margin-left: 32px;
+  margin-bottom: 40px;
   color: #231F20;
   opacity: 1;
 }
