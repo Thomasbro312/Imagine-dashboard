@@ -138,7 +138,7 @@ export default {
         </ul>
       </div>
       <div>
-        <p class="welcome-message">Hi {{this.welcomeMessage}}, Wat ga je Vandaag Doen</p>
+        <p class="welcome-message">Hi {{this.welcomeMessage}}, Wat ga je vandaag doen</p>
         <p class="welcome-text"> Check hier de laaste inzichten</p>
       </div>
       <div class="d-flex justify-content-center">
@@ -168,7 +168,7 @@ export default {
 .welcome-text{
   text-align: left;
   font: normal normal normal 20px/27px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   margin-left: 32px;
   color: #231F20;
   opacity: 1;
@@ -178,6 +178,7 @@ export default {
   font: normal normal 600 42px/54px Baskerville;
   letter-spacing: -1.68px;
   margin-left: 32px;
+  margin-top: 56px;
   color: #222222;
   opacity: 1;
 }
