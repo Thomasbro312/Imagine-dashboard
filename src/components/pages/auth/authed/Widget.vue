@@ -116,7 +116,7 @@ export default {
     await this.getApiDataUsers()
   },
   async created() {
-    this.welcomeMessage = await this.getClientName(this.id)
+    this.welcomeMessage = await this.getClientName(this.userId)
   }
 }
 </script>
@@ -138,10 +138,10 @@ export default {
         </ul>
       </div>
       <div>
-        <p>Hi {{this.welcomeMessage}}</p>
-        <p></p>
+        <p class="welcome-message">Hi {{this.welcomeMessage}}, Wat ga je Vandaag Doen</p>
+        <p class="welcome-text"> Check hier de laaste inzichten</p>
       </div>
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
         <div class="backgroundChart margin-dashboard mb-3 col">
           <unique-vistitors-chart/>
         </div>
@@ -155,8 +155,8 @@ export default {
           <total-visitors/>
         </div>
       </div>
-      <div>
-        <div class="timelineStyle margin-dashboard ">
+      <div class="">
+        <div class="timelineStyle margin-dashboard">
           <the-real-time-line id :id="id"/>
         </div>
       </div>
@@ -165,6 +165,22 @@ export default {
 </template>
 
 <style scoped>
+.welcome-text{
+  text-align: left;
+  font: normal normal normal 20px/27px Poppins;
+  letter-spacing: 0px;
+  margin-left: 32px;
+  color: #231F20;
+  opacity: 1;
+}
+.welcome-message{
+  text-align: left;
+  font: normal normal 600 42px/54px Baskerville;
+  letter-spacing: -1.68px;
+  margin-left: 32px;
+  color: #222222;
+  opacity: 1;
+}
 .dropdown-link{
   width: 548px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
