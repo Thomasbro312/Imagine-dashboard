@@ -54,8 +54,8 @@ export default {
       <div class="d-flex flex-column align-items-center align-items-sm-start px-2 text-white">
         <img src="/img/logo_ungrouped_wit.svg" class="svg" alt="">
         <ul class="margin-top nav flex-column navbar-layout nav-bar-font mb-sm-auto" id="menu">
-          <li  v-on:mouseover="hoverDashboard = true" v-on:mouseout="hoverDashboard = false" class="navbar-router margin-dashboard text-left text-white text-decoration-none nav-bar-active">
-            <router-link to="/auth/index" class="text-decoration-none text-white">
+          <li  v-on:mouseover="hoverDashboard = true" v-on:mouseout="hoverDashboard = false" class="navbar-router margin-dashboard text-left text-decoration-none" :class="{'nav-bar-active': hoverDashboard, 'text-black': hoverDashboard}">
+            <router-link to="/auth/index" class="text-decoration-none text-white" :class="{'nav-bar-active': hoverDashboard}">
               <div class="d-flex">
                 <img v-if="!hoverDashboard" class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg" alt="">
                 <img v-if="hoverDashboard" class="icons-margin" src="/img/icons/Dashboard%20icon%20zwart.svg" alt="">
@@ -63,8 +63,8 @@ export default {
               </div>
             </router-link>
           </li>
-          <li  v-on:mouseover="hoverCampaign = true" v-on:mouseout="hoverCampaign = false" class="navbar-router margin-dashboard text-left nav-bar-active">
-            <router-link to="/auth/index" class="text-white text-decoration-none">
+          <li  v-on:mouseover="hoverCampaign = true" v-on:mouseout="hoverCampaign = false"  :class="{'nav-bar-active': hoverCampaign}" class="navbar-router margin-dashboard text-left">
+            <router-link to="/auth/index" class="text-white text-decoration-none" :class="{'nav-bar-active': hoverCampaign}">
               <div class="d-flex">
                 <img v-if="!hoverCampaign" class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg" alt="">
                 <img v-if="hoverCampaign" class="icons-margin" src="/img/icons/Campagne%20icon%20zwart.svg" alt="">
@@ -72,8 +72,8 @@ export default {
               </div>
             </router-link>
           </li>
-          <li v-on:mouseover="hover = true" v-on:mouseout="hover = false"  class="navbar-router margin-dashboard text-left nav-bar-active">
-            <router-link to="/auth/index" class="text-white text-decoration-none nav-bar-active">
+          <li v-on:mouseover="hover = true" v-on:mouseout="hover = false"  class="navbar-router margin-dashboard text-left " :class="{'nav-bar-active': hover}">
+            <router-link to="/auth/index" class="text-white text-decoration-none " :class="{'nav-bar-active': hover}">
               <div class="d-flex">
                 <img v-if="!hover" class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg" alt="">
                 <img v-if="hover" class="icons-margin" src="/img/icons/Rapportage%20icon%20zwart.svg" alt="">
@@ -81,7 +81,7 @@ export default {
               </div>
             </router-link>
           </li>
-          <li v-if="isAdmin" class="navbar-router margin-dashboard text-left nav-bar-active">
+          <li v-if="isAdmin" class="navbar-router margin-dashboard text-left">
             <router-link to="/auth/admin" class="text-white text-decoration-none"><span class="margin-navigation">Admin</span></router-link>
           </li>
         </ul>
@@ -132,9 +132,9 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-.nav-bar-active :hover{
+.nav-bar-active{
   background: #FFFFFF 0 0 no-repeat padding-box;
-  color: black;
+  color: #222222 !important;
   opacity: 1;
   width: 100%;
 }

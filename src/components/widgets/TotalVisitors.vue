@@ -1,10 +1,9 @@
 <script>
 export default {
-  components: { Bar },
-
   data() {
     return {
       pageLogs: [],
+      totalPageCounts: null,
       monthlyPageCounts: {},
       chartData: {
         labels: [],
@@ -35,6 +34,7 @@ export default {
           this.pageLogs = data;
           this.calculateMonthlyPageCounts();
           console.log(this.monthlyPageCounts);
+          this.calculateAllPageCounts();
           // Use this.chartInstance to reference the chart instance
         })
         .catch(error => {
@@ -58,13 +58,45 @@ export default {
         return acc;
       }, {});
     },
+    calculateAllPageCounts(){
+      this.totalPageCounts = Object.values(this.monthlyPageCounts).reduce((sum, count) => sum + count, 0);
     }
+  }
 }
 </script>
 
 <template>
-  <p>{{ this.monthlyPageCounts }}</p>
+  <div>
+    <p class="title-style">Total Leads</p>
+    <p class="count-style">{{ this.totalPageCounts }}</p>
+    <p class="bottom-text-style">Bekijk Meer</p>
+  </div>
 </template>
 
 <style scoped>
+.count-style{
+  text-align: left;
+  font: normal normal 600 60px/77px Baskerville;
+  letter-spacing: -1.2px;
+  color: #222222;
+  margin-left: 16px;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.title-style{
+  text-align: left;
+  font: normal normal 600 18px/27px Poppins;
+  letter-spacing: 0px;
+  color: #222222;
+  opacity: 1;
+  margin: 16px 0 11px 16px;
+}
+.bottom-text-style{
+  text-align: left;
+  font: normal normal normal 15px/23px Poppins;
+  letter-spacing: 0px;
+  color: #222222;
+  opacity: 1;
+  margin: 35px 0 0 16px;
+}
 </style>

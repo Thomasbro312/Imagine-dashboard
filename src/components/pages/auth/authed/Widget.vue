@@ -5,10 +5,12 @@ import UniqueVistitorsChart from "@/components/widgets/UniqueVistitorsChart.vue"
 import TheRealTimeLine from "@/components/widgets/TheRealTimeLine.vue";
 import NavBar from "@/components/ui/TheNavBar.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
+import TotalVisitors from "@/components/widgets/TotalVisitors.vue";
 export default {
 
   data(){
     return{
+      welcomeMessage: "",
       apiData: [],
       apiDataUsers: [],
       userId: this.$store.getters.user_id.userId,
@@ -19,6 +21,29 @@ export default {
     onClickButton(id){
       this.$router.replace('/auth/campaign/' + id)
       console.log(id)
+    },
+    async getClientName(clientId) {
+      const apiKey = 'Help';
+      try {
+        const response = await fetch(`http://localhost:8000/api/users/${clientId}`, {
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          return data[0].user_name;
+
+        } else {
+          console.error('Failed to fetch client name');
+          return 'Client Name Not Found';
+        }
+      } catch (err) {
+        console.error(err);
+        return 'Client Name Not Found';
+      }
     },
     async getApiDataUsers() {
       const userId = this.userId
@@ -78,6 +103,7 @@ export default {
     },
   },
   components:{
+    TotalVisitors,
     BaseButton,
     NavBar,
     TheRealTimeLine,
@@ -88,6 +114,9 @@ export default {
   async beforeMount() {
     await this.getApiData()
     await this.getApiDataUsers()
+  },
+  async created() {
+    this.welcomeMessage = await this.getClientName(this.id)
   }
 }
 </script>
@@ -108,8 +137,23 @@ export default {
           </li>
         </ul>
       </div>
-      <div class="backgroundChart margin-dashboard mb-3 col">
-        <unique-vistitors-chart/>
+      <div>
+        <p>Hi {{this.welcomeMessage}}</p>
+        <p></p>
+      </div>
+      <div class="d-flex">
+        <div class="backgroundChart margin-dashboard mb-3 col">
+          <unique-vistitors-chart/>
+        </div>
+        <div class="backgroundChart margin-dashboard mb-3 col">
+          <total-visitors/>
+        </div>
+        <div class="backgroundChart margin-dashboard mb-3 col">
+          <total-visitors/>
+        </div>
+        <div class="backgroundChart margin-dashboard mb-3 col">
+          <total-visitors/>
+        </div>
       </div>
       <div>
         <div class="timelineStyle margin-dashboard ">
