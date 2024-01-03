@@ -141,7 +141,7 @@ export default {
         <p class="welcome-message">Hi {{this.welcomeMessage}}, Wat ga je vandaag doen</p>
         <p class="welcome-text"> Check hier de laaste inzichten</p>
       </div>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex">
         <div class="backgroundChart margin-dashboard mb-3 col">
           <unique-vistitors-chart/>
         </div>
