@@ -137,7 +137,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: #2c3e50;
   height: 67vh;
-  width: 50vw;
+  width: 60vw;
 }
 .style{
   background: #FFFFFF 0% 0% no-repeat padding-box;
