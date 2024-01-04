@@ -5,7 +5,8 @@ export default {
   components: {NavBar},
   data(){
     return{
-      dropdowm1: true,
+      dropdown1: true,
+      dropdownDate: false,
       campaign_name: '',
       client_id: null,
       start_date: null,
@@ -16,11 +17,10 @@ export default {
   },
   methods:{
     showDropdown(){
-      if (this.dropdowm1 === false){
-        this.dropdowm1 = true
-      }else {
-        this.dropdowm1 = false
-      }
+      this.dropdown1 = this.dropdown1 === false;
+    },
+    showDropdownDate(){
+      this.dropdownDate = this.dropdownDate === false;
     },
     // this creates a new campaign
     async submitForm(){
@@ -65,45 +65,56 @@ export default {
     <div class="row">
       <nav-bar></nav-bar>
     </div>
-    <div class="max-width-router">
+    <div class="max-width-router ">
+      <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center upper-icons text-center">
+          <p class="text-center ">Campagne Aanmaken</p>
+        </div>
+      </div>
       <div class="dropdown text-center">
         <div class="m-auto">
-          <div class="d-flex justify-content-center">
-            <div>
-              <button @click="showDropdown" class=" dropdown-button-style dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-              </button>
-
-              <div class="d-flex background-dropdown" v-if="dropdowm1">
-                <form @submit.prevent="submitForm">
-                  <div class="campaign-name">
-                    <label class="margin-bottom-form" for="campaign_name">Campagne naam</label>
-                    <input class="input-main" type="text" id="campaign_name" v-model.trim="campaign_name">
+          <p class="margin-left title">Campagne Aanmaken</p>
+          <form class="container-dropdown" @submit.prevent="submitForm">
+            <div class="container-dropdown margin-left">
+              <div>
+                <button @click="showDropdown" class="dropdown-toggle margin-bottom-dropdown" :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Details
+                </button>
+                <div class="" v-if="dropdown1">
+                  <div class="detail-page">
+                    <div class="d-flex float campaign-name margin-top">
+                      <label class="margin-text margin-name">Campagne Naam</label>
+                      <input class="input-campaign" type="text" id="campaign_name" v-model.trim="campaign_name">
+                    </div>
+                    <div class="margin-bottom float d-flex campaign-name margin-top">
+                      <label class="margin-text margin-client">Klant</label>
+                      <select class="input-campaign" id="client_id" v-model.trim="client_id">
+                        <option disabled value="">Kies een klant</option>
+                        <option v-for="item in apiData" :value="item.user_id">{{item.company_name}}</option>
+                      </select>
+                    </div>
                   </div>
-                  <div class="campaign-name">
-                    <label class="" for="client_id">Klant</label>
-                    <select class="input-main" id="client_id" v-model.trim="client_id">
-                      <option disabled value="">Kies een klant</option>
-                      <option v-for="item in apiData" :value="item.user_id">{{item.company_name}}</option>
-                    </select>
-                  </div>
-                  <div class="">
-                    <div id="collapse-example" class="collapse show" aria-labelledby="heading-example">
-                      <div class="d-flex flex-column">
-                        <label class="font-poppins" for="start_date">Start</label>
-                        <input class="input-main" type="date" id="start_date" v-model.trim="start_date">
+                </div>
+                <button @click="showDropdownDate" class="dropdown-toggle" :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Planning
+                </button>
+                <div v-if="dropdownDate">
+                  <div class="detail-page">
+                    <div id="collapse-example" class="gap-date d-flex collapse show" aria-labelledby="heading-example">
+                      <div class="campaign-name margin-top">
+                        <label class="margin-text margin-date" for="start_date">Looptijd</label>
+                        <input class="input-campaign" placeholder="Begindatum" type="date" id="start_date" v-model.trim="start_date">
                       </div>
-                      <div class="d-flex flex-column">
-                        <label class="font-poppins" for="end_date">Eind</label>
-                        <input class="input-main" type="date" id="end_date" v-model.trim="end_date">
+                      <div class="margin-bottom d-flex justify-content-center campaign-name margin-top">
+                        <input class="input-campaign" type="date" placeholder="Einddatum" id="end_date" v-model.trim="end_date">
                       </div>
                     </div>
                   </div>
                   <base-button class="btn-main text-white mt-4" type="submit">Submit</base-button>
-                </form>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -111,21 +122,29 @@ export default {
 </template>
 
 <style scoped>
-.dropdown-button-style{
+.dropdown-button-style-open{
   background: #F7F7F7 0% 0% no-repeat padding-box;
   border: 2px solid #D4D4D4;
   border-radius: 8px 8px 0px 0px;
   opacity: 1;
   width: 1032px;
   height: 96px;
+  font: normal normal 600 26px/54px Baskerville;
+  letter-spacing: -1.04px;
+  color: #222222;
+  text-transform: capitalize;
 }
-.background-dropdown{
+.dropdown-button-style-closed{
   background: #FFFFFF 0% 0% no-repeat padding-box;
   border: 2px solid #D4D4D4;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 8px;
   opacity: 1;
-  height: 504px;
   width: 1032px;
+  height: 96px;
+  font: normal normal 600 26px/54px Baskerville;
+  letter-spacing: -1.04px;
+  color: #222222;
+  text-transform: capitalize;
 }
 .max-width-router{
   width: 100%;
@@ -136,5 +155,81 @@ export default {
   letter-spacing: 0px;
   color: #231F20;
   opacity: 1;
+}
+.float label{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+}
+.margin-text{
+  margin-left: 32px;
+}
+.margin-top{
+  margin-top: 40px;
+}
+.margin-bottom{
+  margin-bottom: 40px;
+}
+.input-campaign{
+  background: #F7F7F7 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+  border-radius: 8px;
+  opacity: 1;
+  width: 263px;
+  height: 60px;
+}
+.gap-date{
+  gap: 32px;
+  margin: auto;
+}
+.title{
+  text-align: left;
+  font: normal normal 600 42px/54px Baskerville;
+  letter-spacing: -1.68px;
+  color: #222222;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.container-dropdown{
+  width: 1032px;
+}
+.margin-left{
+  margin-left: 64px;
+}
+.upper-icons{
+  width: 548px;
+  height: 89px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #D4D4D4;
+  border-radius: 0px 0px 8px 8px;
+  text-align: center;
+  font: normal normal 600 32px/54px Baskerville;
+  letter-spacing: -1.28px;
+  color: #222222;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.detail-page{
+  width: 1032px;
+  height: 504px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 2px solid #D4D4D4;
+  border-radius: 0px 0px 8px 8px;
+  opacity: 1;
+}
+.margin-name{
+  margin-right: 198px;
+}
+.margin-client{
+  margin-right: 301px;
+}
+.margin-date{
+  margin-right: 279px;
+}
+.margin-bottom-dropdown{
+  margin-bottom: 32px;
 }
 </style>
