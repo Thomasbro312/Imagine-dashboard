@@ -123,9 +123,9 @@ export default {
 
 <style scoped>
 .dropdown-button-style-open{
-  background: #F7F7F7 0% 0% no-repeat padding-box;
+  background: #F7F7F7 0 0 no-repeat padding-box;
   border: 2px solid #D4D4D4;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 0 0;
   opacity: 1;
   width: 1032px;
   height: 96px;
@@ -135,7 +135,7 @@ export default {
   text-transform: capitalize;
 }
 .dropdown-button-style-closed{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0 0 no-repeat padding-box;
   border: 2px solid #D4D4D4;
   border-radius: 8px;
   opacity: 1;
@@ -152,7 +152,7 @@ export default {
 .campaign-name{
   text-align: left;
   font: normal normal 600 16px/27px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #231F20;
   opacity: 1;
 }
@@ -174,7 +174,7 @@ export default {
   margin-bottom: 40px;
 }
 .input-campaign{
-  background: #F7F7F7 0% 0% no-repeat padding-box;
+  background: #F7F7F7 0 0 no-repeat padding-box;
   border: 1px solid #707070;
   border-radius: 8px;
   opacity: 1;
@@ -202,9 +202,9 @@ export default {
 .upper-icons{
   width: 548px;
   height: 89px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0 0 no-repeat padding-box;
   border: 1px solid #D4D4D4;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0 0 8px 8px;
   text-align: center;
   font: normal normal 600 32px/54px Baskerville;
   letter-spacing: -1.28px;
@@ -215,9 +215,9 @@ export default {
 .detail-page{
   width: 1032px;
   height: 504px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0 0 no-repeat padding-box;
   border: 2px solid #D4D4D4;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0 0 8px 8px;
   opacity: 1;
 }
 .margin-name{
