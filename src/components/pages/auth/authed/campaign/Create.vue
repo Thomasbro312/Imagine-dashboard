@@ -65,10 +65,10 @@ export default {
     <div class="row">
       <nav-bar></nav-bar>
     </div>
-    <div class="max-width-router ">
+    <div class="max-width-router">
       <div class="d-flex justify-content-center">
         <div class="d-flex justify-content-center upper-icons text-center">
-          <p class="text-center ">Campagne Aanmaken</p>
+          <p class="text-center">Campagne Aanmaken</p>
         </div>
       </div>
       <div class="dropdown text-center">

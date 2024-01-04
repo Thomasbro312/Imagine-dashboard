@@ -6,6 +6,8 @@ export default {
   components: {NavBar, DeleteModal},
   data() {
     return {
+      dropdown1: true,
+      dropdownDate: false,
       editedResource: {
         campaign: {
           id: null,
@@ -28,6 +30,12 @@ export default {
     this.fetchResource(this.$route.params.id)
   },
   methods: {
+    showDropdown(){
+      this.dropdown1 = this.dropdown1 === false;
+    },
+    showDropdownDate(){
+      this.dropdownDate = this.dropdownDate === false;
+    },
     // This gets the specified campaign from the api and puts it inside the form fields
     async fetchResource(id) {
       const apiKey = 'Help';
@@ -95,46 +103,68 @@ export default {
 </script>
 
 <template>
-  <nav-bar></nav-bar>
-  <div class="container">
+  <div class="navbar-router">
     <div class="row">
-      <div class="col-6 m-auto">
-        <div class="container-login">
-          <div>
-            <div>
-              <h1>Edit Resource</h1>
-              <form @submit.prevent="editResource(this.$route.params.id)">
-                <div class="d-flex flex-column">
-                  <label class="font-poppins" for="campaignName">Campaign Name</label>
-                  <input type="text" class="input-main" id="campaignName" v-model="editedResource.campaign.campaign_name">
+      <nav-bar></nav-bar>
+    </div>
+    <div class="max-width-router">
+      <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center upper-icons text-center">
+          <p class="text-center">Campagne Aanpassen</p>
+        </div>
+      </div>
+      <div class="dropdown text-center">
+        <div class="m-auto">
+          <p class="margin-left title">Campagne Aanpassen</p>
+          <form class="container-dropdown" @submit.prevent="editResource(this.$route.params.id)">
+            <div class="container-dropdown margin-left">
+              <div>
+                <button @click="showDropdown" class="dropdown-toggle margin-bottom-dropdown" :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Details
+                </button>
+                <div class="" v-if="dropdown1">
+                  <div class="detail-page">
+                    <div class="d-flex float campaign-name margin-top">
+                      <label class="margin-text margin-name" for="campaignName">Campagne Naam</label>
+                      <input type="text" class="input-campaign" id="campaignName" v-model="editedResource.campaign.campaign_name">
+                    </div>
+                    <div class="margin-bottom float d-flex campaign-name margin-top">
+                      <label class="margin-text margin-client" for="clientId">Klant</label>
+                      <select id="client_id" class="input-campaign" v-model.trim="editedResource.campaign.client_id">
+                        <option disabled value="">Select an option</option>
+                        <option v-for="item in apiDataUsers" :value="item.user_id">{{ item.user_name }}, {{ item.company_name }}</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <div class="d-flex flex-column">
-                  <label class="font-poppins" for="clientId">Client Id</label>
-                  <select id="client_id" class="input-main" v-model.trim="editedResource.campaign.client_id">
-                    <option disabled value="">Select an option</option>
-                    <option v-for="item in apiDataUsers" :value="item.user_id">{{ item.user_name }}, {{ item.company_name }}</option>
-                  </select>
+                <button @click="showDropdownDate" class="dropdown-toggle" :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Planning
+                </button>
+                <div v-if="dropdownDate">
+                  <div class="detail-page">
+                    <div id="collapse-example" class="gap-date d-flex collapse show" aria-labelledby="heading-example">
+                      <div class="campaign-name margin-top">
+                        <label class="margin-text margin-date" for="startDate">Looptijd</label>
+                        <input class="input-campaign" v-model="editedResource.campaign.start_date" id="startDate" type="date">
+                      </div>
+                      <div class="d-flex margin-bottom justify-content-center campaign-name margin-top">
+                        <input class="input-campaign" v-model="editedResource.campaign.end_date" id="endDate" type="date">
+                      </div>
+                      <div class="d-flex flex-column">
+                        <label class="font-poppins" for="campaignPhase">Campaign Phase</label>
+                        <select class="input-campaign" v-model="editedResource.campaign.campaign_phase" id="campaignPhase">
+                          <option disabled value="">Select an option</option>
+                          <option v-for="phase in apiDataPhase" :value="phase.id">{{ phase.phase_name }}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <base-button class='btn-main text-white mt-4' type="submit">Update</base-button>
+                  <delete-modal></delete-modal>
                 </div>
-                <div class="d-flex flex-column">
-                  <label class="font-poppins" for="startDate">Start Date</label>
-                  <input class="input-main" v-model="editedResource.campaign.start_date" id="startDate" type="date">
-                </div>
-                <div class="d-flex flex-column">
-                  <label class="font-poppins" for="endDate">End Date</label>
-                  <input class="input-main" v-model="editedResource.campaign.end_date" id="endDate" type="date">
-                </div>
-                <div class="d-flex flex-column">
-                  <label class="font-poppins" for="campaignPhase">Campaign Phase</label>
-                  <select class="input-main" v-model="editedResource.campaign.campaign_phase" id="campaignPhase">
-                    <option disabled value="">Select an option</option>
-                    <option v-for="phase in apiDataPhase" :value="phase.id">{{ phase.phase_name }}</option>
-                  </select>
-                </div>
-                <base-button class='btn-main text-white' type="submit">Update</base-button>
-                <delete-modal></delete-modal>
-              </form>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -142,7 +172,115 @@ export default {
 </template>
 
 <style scoped>
-.margin-button{
-  margin-right: 5px;
+
+.dropdown-button-style-open{
+  background: #F7F7F7 0 0 no-repeat padding-box;
+  border: 2px solid #D4D4D4;
+  border-radius: 8px 8px 0 0;
+  opacity: 1;
+  width: 1032px;
+  height: 96px;
+  font: normal normal 600 26px/54px Baskerville;
+  letter-spacing: -1.04px;
+  color: #222222;
+  text-transform: capitalize;
+}
+.dropdown-button-style-closed{
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  border: 2px solid #D4D4D4;
+  border-radius: 8px;
+  opacity: 1;
+  width: 1032px;
+  height: 96px;
+  font: normal normal 600 26px/54px Baskerville;
+  letter-spacing: -1.04px;
+  color: #222222;
+  text-transform: capitalize;
+}
+.max-width-router{
+  width: 100%;
+}
+.campaign-name{
+  text-align: left;
+  font: normal normal 600 16px/27px Poppins;
+  letter-spacing: 0;
+  color: #231F20;
+  opacity: 1;
+}
+.float label{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+}
+.margin-text{
+  margin-left: 32px;
+}
+.margin-top{
+  margin-top: 40px;
+}
+.margin-bottom{
+  margin-bottom: 40px;
+}
+.input-campaign{
+  background: #F7F7F7 0 0 no-repeat padding-box;
+  border: 1px solid #707070;
+  border-radius: 8px;
+  opacity: 1;
+  width: 263px;
+  height: 60px;
+}
+.gap-date{
+  gap: 32px;
+  margin: auto;
+}
+.title{
+  text-align: left;
+  font: normal normal 600 42px/54px Baskerville;
+  letter-spacing: -1.68px;
+  color: #222222;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.container-dropdown{
+  width: 1032px;
+}
+.margin-left{
+  margin-left: 64px;
+}
+.upper-icons{
+  width: 548px;
+  height: 89px;
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  border: 1px solid #D4D4D4;
+  border-radius: 0 0 8px 8px;
+  text-align: center;
+  font: normal normal 600 32px/54px Baskerville;
+  letter-spacing: -1.28px;
+  color: #222222;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.detail-page{
+  width: 1032px;
+  height: 504px;
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  border: 2px solid #D4D4D4;
+  border-radius: 0 0 8px 8px;
+  opacity: 1;
+}
+.margin-name{
+  margin-right: 198px;
+}
+.margin-client{
+  margin-right: 301px;
+}
+.margin-date{
+  margin-right: 279px;
+}
+.margin-bottom-dropdown{
+  margin-bottom: 32px;
 }
 </style>
