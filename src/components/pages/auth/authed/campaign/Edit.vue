@@ -164,7 +164,7 @@ export default {
                             <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
                           </div>
                         </div>
-                        <div class="d-flex flex-row ">
+                        <div class="d-flex flex-row">
                           <input class="input-campaign margin-top margin-date" v-model="editedResource.campaign.start_date" id="startDate"
                                  type="date">
                           <div class="d-flex margin-bottom campaign-name margin-top">

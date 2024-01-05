@@ -83,7 +83,10 @@ export default {
                 <div :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
                     <div class="d-flex float campaign-name margin-top">
-                      <label class="margin-text margin-name">Campagne Naam</label>
+                      <div>
+                        <label class="margin-text margin-name">Campagne Naam</label>
+                        <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                      </div>
                       <input class="input-campaign" type="text" id="campaign_name" v-model.trim="campaign_name">
                     </div>
                     <div class="margin-bottom float d-flex campaign-name margin-top">
@@ -104,15 +107,19 @@ export default {
                 <div v-if="dropdownDate">
                   <div class="detail-page">
                     <div id="collapse-example" class="gap-date d-flex collapse show" aria-labelledby="heading-example">
-                      <div class="campaign-name margin-top">
-                        <div>
-                          <label class="margin-text margin-date" for="start_date">Looptijd</label>
-                          <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                      <div class="d-flex flex-row">
+                        <div class="campaign-name margin-top margin-date">
+                          <div class="margin-date">
+                            <label class="margin-text margin-date" for="start_date">Looptijd</label>
+                            <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                          </div>
                         </div>
-                        <input class="input-campaign" placeholder="Begindatum" type="date" id="start_date" v-model.trim="start_date">
-                      </div>
-                      <div class="margin-bottom d-flex justify-content-center campaign-name margin-top">
-                        <input class="input-campaign" type="date" placeholder="Einddatum" id="end_date" v-model.trim="end_date">
+                        <div class="d-flex flex-row">
+                          <input class="input-campaign margin-top margin-date" placeholder="Begindatum" type="date" id="start_date" v-model.trim="start_date">
+                          <div class="margin-bottom d-flex justify-content-center campaign-name margin-top">
+                            <input class="input-campaign" type="date" placeholder="Einddatum" id="end_date" v-model.trim="end_date">
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -233,7 +240,7 @@ export default {
   margin-right: 301px;
 }
 .margin-date{
-  margin-right: 279px;
+  margin-right: 32px;
 }
 .margin-bottom-dropdown{
   margin-bottom: 32px;

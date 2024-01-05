@@ -86,7 +86,7 @@ export default {
           </li>
         </ul>
         <hr>
-        <div class="dropdown margin-auto dropdown-menu-style px-3">
+        <div class="dropdown margin-auto dropdown-menu-style px-3 profile-sticky">
           <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
             <span class="d-none d-sm-inline mx-1 text-white">Place Holder</span>
@@ -176,5 +176,8 @@ export default {
   position:absolute;
   bottom:0;
   margin-bottom: 20px;
+}
+.profile-sticky{
+  position: static;
 }
 </style>
