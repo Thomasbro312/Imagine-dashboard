@@ -136,30 +136,6 @@ export default {
 </template>
 
 <style scoped>
-.dropdown-button-style-open{
-  background: #F7F7F7 0 0 no-repeat padding-box;
-  border: 2px solid #D4D4D4;
-  border-radius: 8px 8px 0 0;
-  opacity: 1;
-  width: 1032px;
-  height: 96px;
-  font: normal normal 600 26px/54px Baskerville;
-  letter-spacing: -1.04px;
-  color: #222222;
-  text-transform: capitalize;
-}
-.dropdown-button-style-closed{
-  background: #FFFFFF 0 0 no-repeat padding-box;
-  border: 2px solid #D4D4D4;
-  border-radius: 8px;
-  opacity: 1;
-  width: 1032px;
-  height: 96px;
-  font: normal normal 600 26px/54px Baskerville;
-  letter-spacing: -1.04px;
-  color: #222222;
-  text-transform: capitalize;
-}
 .max-width-router{
   width: 100%;
 }
@@ -186,18 +162,6 @@ export default {
 }
 .margin-bottom{
   margin-bottom: 40px;
-}
-.input-campaign{
-  background: #F7F7F7 0 0 no-repeat padding-box;
-  border: 1px solid #707070;
-  border-radius: 8px;
-  opacity: 1;
-  width: 263px;
-  height: 60px;
-}
-.gap-date{
-  gap: 32px;
-  margin: auto;
 }
 .title{
   text-align: left;
@@ -226,32 +190,7 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-.detail-page{
-  width: 1032px;
-  height: 504px;
-  background: #FFFFFF 0 0 no-repeat padding-box;
-  border: 2px solid #D4D4D4;
-  border-radius: 0 0 8px 8px;
-  opacity: 1;
-}
 .margin-name{
   margin-right: 198px;
-}
-.margin-client{
-  margin-right: 301px;
-}
-.margin-date{
-  margin-right: 32px;
-}
-.margin-bottom-dropdown{
-  margin-bottom: 32px;
-}
-.description-text{
-  text-align: left;
-  font: normal normal normal 14px/27px Poppins;
-  letter-spacing: 0;
-  color: #231F20;
-  opacity: 1;
-  width: 291px;
 }
 </style>
