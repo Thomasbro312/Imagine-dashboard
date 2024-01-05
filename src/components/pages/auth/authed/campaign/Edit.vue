@@ -113,8 +113,8 @@ export default {
           <p class="text-center">Campagne Aanpassen</p>
         </div>
       </div>
-      <div class="dropdown text-center">
-        <div class="m-auto">
+      <div class="dropdown m-auto text-center">
+        <div class="">
           <p class="margin-left title">Campagne Aanpassen</p>
           <form class="container-dropdown" @submit.prevent="editResource(this.$route.params.id)">
             <div class="container-dropdown margin-left">
@@ -127,12 +127,18 @@ export default {
                 <div :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
                     <div class="d-flex float campaign-name margin-top">
-                      <label class="margin-text margin-name" for="campaignName">Campagne Naam</label>
+                      <div>
+                        <label class="margin-text margin-name" for="campaignName">Campagne Naam</label>
+                        <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                      </div>
                       <input type="text" class="input-campaign" id="campaignName"
                              v-model="editedResource.campaign.campaign_name">
                     </div>
                     <div class="margin-bottom float d-flex campaign-name margin-top">
-                      <label class="margin-text margin-client" for="clientId">Klant</label>
+                      <div>
+                        <label class="margin-text margin-client" for="clientId">Klant</label>
+                        <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                      </div>
                       <select id="client_id" class="input-campaign" v-model.trim="editedResource.campaign.client_id">
                         <option disabled value="">Select an option</option>
                         <option v-for="item in apiDataUsers" :value="item.user_id">{{ item.user_name }},
@@ -151,22 +157,30 @@ export default {
                   <div class="detail-page">
                     <div id="collapse-example" class="flex-column gap-date d-flex collapse show"
                          aria-labelledby="heading-example">
-                      <div class="d-flex flex-row ">
-                        <div class="campaign-name margin-top margin-date-between">
-                          <label class="margin-text margin-date" for="startDate">Looptijd</label>
-                          <input class="input-campaign" v-model="editedResource.campaign.start_date" id="startDate"
-                                 type="date">
+                      <div class="d-flex flex-row">
+                        <div class="campaign-name margin-top margin-date">
+                          <div class="margin-date">
+                            <label class="margin-text" for="startDate">Looptijd</label>
+                            <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                          </div>
                         </div>
-                        <div class="d-flex margin-bottom campaign-name margin-top">
-                          <input class="input-campaign" v-model="editedResource.campaign.end_date" id="endDate"
+                        <div class="d-flex flex-row ">
+                          <input class="input-campaign margin-top margin-date" v-model="editedResource.campaign.start_date" id="startDate"
                                  type="date">
+                          <div class="d-flex margin-bottom campaign-name margin-top">
+                            <input class="input-campaign" v-model="editedResource.campaign.end_date" id="endDate"
+                                   type="date">
+                          </div>
                         </div>
                       </div>
                       <div class="d-flex campaign-name flex-row">
-                        <label class="margin-text" for="campaignPhase">Campaign Phase</label>
+                        <div>
+                          <label class="margin-text phase-margin" for="campaignPhase">Campagne Fase</label>
+                          <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                        </div>
                         <select class="input-campaign" v-model="editedResource.campaign.campaign_phase"
                                 id="campaignPhase">
-                          <option disabled value="">Select an option</option>
+                          <option disabled value="">Selecteer een Optie</option>
                           <option v-for="phase in apiDataPhase" :value="phase.id">{{ phase.phase_name }}</option>
                         </select>
                       </div>
@@ -248,9 +262,6 @@ export default {
   gap: 32px;
   margin: auto;
 }
-.margin-date-between{
-  margin-right: 32px;
-}
 .title {
   text-align: left;
   font: normal normal 600 42px/54px Baskerville;
@@ -293,9 +304,20 @@ export default {
   margin-right: 301px;
 }
 .margin-date {
-  margin-right: 139px;
+  margin-right: 32px;
 }
 .margin-bottom-dropdown {
   margin-bottom: 32px;
+}
+.phase-margin{
+  margin-right: 217px;
+}
+.description-text{
+  text-align: left;
+  font: normal normal normal 14px/27px Poppins;
+  letter-spacing: 0;
+  color: #231F20;
+  opacity: 1;
+  width: 291px;
 }
 </style>

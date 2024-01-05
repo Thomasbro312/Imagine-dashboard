@@ -87,7 +87,10 @@ export default {
                       <input class="input-campaign" type="text" id="campaign_name" v-model.trim="campaign_name">
                     </div>
                     <div class="margin-bottom float d-flex campaign-name margin-top">
-                      <label class="margin-text margin-client">Klant</label>
+                      <div>
+                        <label class="margin-text margin-client">Klant</label>
+                        <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                      </div>
                       <select class="input-campaign" id="client_id" v-model.trim="client_id">
                         <option disabled value="">Kies een klant</option>
                         <option v-for="item in apiData" :value="item.user_id">{{item.company_name}}</option>
@@ -102,7 +105,10 @@ export default {
                   <div class="detail-page">
                     <div id="collapse-example" class="gap-date d-flex collapse show" aria-labelledby="heading-example">
                       <div class="campaign-name margin-top">
-                        <label class="margin-text margin-date" for="start_date">Looptijd</label>
+                        <div>
+                          <label class="margin-text margin-date" for="start_date">Looptijd</label>
+                          <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                        </div>
                         <input class="input-campaign" placeholder="Begindatum" type="date" id="start_date" v-model.trim="start_date">
                       </div>
                       <div class="margin-bottom d-flex justify-content-center campaign-name margin-top">
@@ -231,5 +237,13 @@ export default {
 }
 .margin-bottom-dropdown{
   margin-bottom: 32px;
+}
+.description-text{
+  text-align: left;
+  font: normal normal normal 14px/27px Poppins;
+  letter-spacing: 0;
+  color: #231F20;
+  opacity: 1;
+  width: 291px;
 }
 </style>
