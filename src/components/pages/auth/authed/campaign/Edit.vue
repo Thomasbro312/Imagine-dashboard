@@ -156,7 +156,7 @@ export default {
                 </button>
                 <div v-if="dropdownDate">
                   <div class="detail-page">
-                    <div id="collapse-example" class="flex-column gap-date d-flex collapse show"
+                    <div id="collapse-example" class="flex-column d-flex collapse show"
                          aria-labelledby="heading-example">
                       <div class="d-flex flex-row">
                         <div class="campaign-name margin-top margin-date">
@@ -168,17 +168,17 @@ export default {
                         <div class="d-flex flex-row">
                           <input class="input-campaign margin-top margin-date" v-model="editedResource.campaign.start_date" id="startDate"
                                  type="date">
-                          <div class="d-flex margin-bottom campaign-name margin-top">
+                          <div class="d-flex campaign-name margin-top">
                             <input class="input-campaign" v-model="editedResource.campaign.end_date" id="endDate"
                                    type="date">
                           </div>
                         </div>
                       </div>
                       <hr>
-                      <div class="d-flex campaign-name flex-row">
-                        <div>
+                      <div class="d-flex campaign-name margin-phase flex-row">
+                        <div class="margin-date">
                           <label class="margin-text phase-margin" for="campaignPhase">Campagne Fase</label>
-                          <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                          <p class="description-text margin-text margin-date">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
                         </div>
                         <select class="input-campaign" v-model="editedResource.campaign.campaign_phase"
                                 id="campaignPhase">
@@ -260,6 +260,9 @@ export default {
 }
 .margin-bottom-dropdown {
   margin-bottom: 32px;
+}
+.margin-phase{
+  margin: 32px 0 32px 0;
 }
 
 </style>
