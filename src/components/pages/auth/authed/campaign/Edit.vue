@@ -151,19 +151,19 @@ export default {
                   <div class="detail-page">
                     <div id="collapse-example" class="flex-column gap-date d-flex collapse show"
                          aria-labelledby="heading-example">
-                      <div class="d-flex flex-row">
-                        <div class="campaign-name margin-top">
+                      <div class="d-flex flex-row ">
+                        <div class="campaign-name margin-top margin-date-between">
                           <label class="margin-text margin-date" for="startDate">Looptijd</label>
                           <input class="input-campaign" v-model="editedResource.campaign.start_date" id="startDate"
                                  type="date">
                         </div>
-                        <div class="d-flex margin-bottom justify-content-center campaign-name margin-top">
+                        <div class="d-flex margin-bottom campaign-name margin-top">
                           <input class="input-campaign" v-model="editedResource.campaign.end_date" id="endDate"
                                  type="date">
                         </div>
                       </div>
-                      <div class="d-flex flex-column">
-                        <label class="font-poppins" for="campaignPhase">Campaign Phase</label>
+                      <div class="d-flex campaign-name flex-row">
+                        <label class="margin-text" for="campaignPhase">Campaign Phase</label>
                         <select class="input-campaign" v-model="editedResource.campaign.campaign_phase"
                                 id="campaignPhase">
                           <option disabled value="">Select an option</option>
@@ -185,7 +185,6 @@ export default {
 </template>
 
 <style scoped>
-
 .dropdown-button-style-open {
   background: #F7F7F7 0 0 no-repeat padding-box;
   border: 2px solid #D4D4D4;
@@ -198,7 +197,6 @@ export default {
   color: #222222;
   text-transform: capitalize;
 }
-
 .dropdown-button-style-closed {
   background: #FFFFFF 0 0 no-repeat padding-box;
   border: 2px solid #D4D4D4;
@@ -211,11 +209,9 @@ export default {
   color: #222222;
   text-transform: capitalize;
 }
-
 .max-width-router {
   width: 100%;
 }
-
 .campaign-name {
   text-align: left;
   font: normal normal 600 16px/27px Poppins;
@@ -223,7 +219,6 @@ export default {
   color: #231F20;
   opacity: 1;
 }
-
 .float label {
   display: flex;
   flex-direction: row;
@@ -232,19 +227,15 @@ export default {
   align-items: stretch;
   align-content: stretch;
 }
-
 .margin-text {
   margin-left: 32px;
 }
-
 .margin-top {
   margin-top: 40px;
 }
-
 .margin-bottom {
   margin-bottom: 40px;
 }
-
 .input-campaign {
   background: #F7F7F7 0 0 no-repeat padding-box;
   border: 1px solid #707070;
@@ -253,12 +244,13 @@ export default {
   width: 263px;
   height: 60px;
 }
-
 .gap-date {
   gap: 32px;
   margin: auto;
 }
-
+.margin-date-between{
+  margin-right: 32px;
+}
 .title {
   text-align: left;
   font: normal normal 600 42px/54px Baskerville;
@@ -267,15 +259,12 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-
 .container-dropdown {
   width: 1032px;
 }
-
 .margin-left {
   margin-left: 64px;
 }
-
 .upper-icons {
   width: 548px;
   height: 89px;
@@ -289,7 +278,6 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-
 .detail-page {
   width: 1032px;
   height: 504px;
@@ -298,19 +286,15 @@ export default {
   border-radius: 0 0 8px 8px;
   opacity: 1;
 }
-
 .margin-name {
   margin-right: 198px;
 }
-
 .margin-client {
   margin-right: 301px;
 }
-
 .margin-date {
-  margin-right: 279px;
+  margin-right: 139px;
 }
-
 .margin-bottom-dropdown {
   margin-bottom: 32px;
 }
