@@ -77,10 +77,10 @@ export default {
           <form class="container-dropdown" @submit.prevent="submitForm">
             <div class="container-dropdown margin-left">
               <div>
-                <button @click="showDropdown" class="dropdown-toggle margin-bottom-dropdown" :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button @click="showDropdown" class="dropdown-toggle" :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1, 'margin-bottom-dropdown': !dropdown1}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Details
                 </button>
-                <div class="" v-if="dropdown1">
+                <div :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
                     <div class="d-flex float campaign-name margin-top">
                       <label class="margin-text margin-name">Campagne Naam</label>

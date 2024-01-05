@@ -30,17 +30,17 @@ export default {
     this.fetchResource(this.$route.params.id)
   },
   methods: {
-    showDropdown(){
+    showDropdown() {
       this.dropdown1 = this.dropdown1 === false;
     },
-    showDropdownDate(){
+    showDropdownDate() {
       this.dropdownDate = this.dropdownDate === false;
     },
     // This gets the specified campaign from the api and puts it inside the form fields
     async fetchResource(id) {
       const apiKey = 'Help';
       try {
-        const response = await fetch(`http://localhost:8000/api/campaign/${id}`,{
+        const response = await fetch(`http://localhost:8000/api/campaign/${id}`, {
           method: 'GET',
           headers: {
             'API-Key': apiKey,
@@ -60,7 +60,7 @@ export default {
     editResource() {
       const apiKey = 'Help';
       try {
-        this.$store.dispatch('editCampaign',{
+        this.$store.dispatch('editCampaign', {
           headers: {
             'API-Key': apiKey,
           },
@@ -72,7 +72,7 @@ export default {
           campaign_phase: this.editedResource.campaign.campaign_phase
         })
         this.$router.replace('/auth/admin');
-      } catch (err){
+      } catch (err) {
         this.error = err.message || 'Failed to edit'
       }
     },
@@ -119,40 +119,53 @@ export default {
           <form class="container-dropdown" @submit.prevent="editResource(this.$route.params.id)">
             <div class="container-dropdown margin-left">
               <div>
-                <button @click="showDropdown" class="dropdown-toggle margin-bottom-dropdown" :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button @click="showDropdown" class="dropdown-toggle"
+                        :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1, 'margin-bottom-dropdown': !dropdown1}"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Details
                 </button>
-                <div class="" v-if="dropdown1">
+                <div :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
                     <div class="d-flex float campaign-name margin-top">
                       <label class="margin-text margin-name" for="campaignName">Campagne Naam</label>
-                      <input type="text" class="input-campaign" id="campaignName" v-model="editedResource.campaign.campaign_name">
+                      <input type="text" class="input-campaign" id="campaignName"
+                             v-model="editedResource.campaign.campaign_name">
                     </div>
                     <div class="margin-bottom float d-flex campaign-name margin-top">
                       <label class="margin-text margin-client" for="clientId">Klant</label>
                       <select id="client_id" class="input-campaign" v-model.trim="editedResource.campaign.client_id">
                         <option disabled value="">Select an option</option>
-                        <option v-for="item in apiDataUsers" :value="item.user_id">{{ item.user_name }}, {{ item.company_name }}</option>
+                        <option v-for="item in apiDataUsers" :value="item.user_id">{{ item.user_name }},
+                          {{ item.company_name }}
+                        </option>
                       </select>
                     </div>
                   </div>
                 </div>
-                <button @click="showDropdownDate" class="dropdown-toggle" :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button @click="showDropdownDate" class="dropdown-toggle"
+                        :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Planning
                 </button>
                 <div v-if="dropdownDate">
                   <div class="detail-page">
-                    <div id="collapse-example" class="gap-date d-flex collapse show" aria-labelledby="heading-example">
-                      <div class="campaign-name margin-top">
-                        <label class="margin-text margin-date" for="startDate">Looptijd</label>
-                        <input class="input-campaign" v-model="editedResource.campaign.start_date" id="startDate" type="date">
-                      </div>
-                      <div class="d-flex margin-bottom justify-content-center campaign-name margin-top">
-                        <input class="input-campaign" v-model="editedResource.campaign.end_date" id="endDate" type="date">
+                    <div id="collapse-example" class="flex-column gap-date d-flex collapse show"
+                         aria-labelledby="heading-example">
+                      <div class="d-flex flex-row">
+                        <div class="campaign-name margin-top">
+                          <label class="margin-text margin-date" for="startDate">Looptijd</label>
+                          <input class="input-campaign" v-model="editedResource.campaign.start_date" id="startDate"
+                                 type="date">
+                        </div>
+                        <div class="d-flex margin-bottom justify-content-center campaign-name margin-top">
+                          <input class="input-campaign" v-model="editedResource.campaign.end_date" id="endDate"
+                                 type="date">
+                        </div>
                       </div>
                       <div class="d-flex flex-column">
                         <label class="font-poppins" for="campaignPhase">Campaign Phase</label>
-                        <select class="input-campaign" v-model="editedResource.campaign.campaign_phase" id="campaignPhase">
+                        <select class="input-campaign" v-model="editedResource.campaign.campaign_phase"
+                                id="campaignPhase">
                           <option disabled value="">Select an option</option>
                           <option v-for="phase in apiDataPhase" :value="phase.id">{{ phase.phase_name }}</option>
                         </select>
@@ -173,7 +186,7 @@ export default {
 
 <style scoped>
 
-.dropdown-button-style-open{
+.dropdown-button-style-open {
   background: #F7F7F7 0 0 no-repeat padding-box;
   border: 2px solid #D4D4D4;
   border-radius: 8px 8px 0 0;
@@ -185,7 +198,8 @@ export default {
   color: #222222;
   text-transform: capitalize;
 }
-.dropdown-button-style-closed{
+
+.dropdown-button-style-closed {
   background: #FFFFFF 0 0 no-repeat padding-box;
   border: 2px solid #D4D4D4;
   border-radius: 8px;
@@ -197,17 +211,20 @@ export default {
   color: #222222;
   text-transform: capitalize;
 }
-.max-width-router{
+
+.max-width-router {
   width: 100%;
 }
-.campaign-name{
+
+.campaign-name {
   text-align: left;
   font: normal normal 600 16px/27px Poppins;
   letter-spacing: 0;
   color: #231F20;
   opacity: 1;
 }
-.float label{
+
+.float label {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -215,16 +232,20 @@ export default {
   align-items: stretch;
   align-content: stretch;
 }
-.margin-text{
+
+.margin-text {
   margin-left: 32px;
 }
-.margin-top{
+
+.margin-top {
   margin-top: 40px;
 }
-.margin-bottom{
+
+.margin-bottom {
   margin-bottom: 40px;
 }
-.input-campaign{
+
+.input-campaign {
   background: #F7F7F7 0 0 no-repeat padding-box;
   border: 1px solid #707070;
   border-radius: 8px;
@@ -232,11 +253,13 @@ export default {
   width: 263px;
   height: 60px;
 }
-.gap-date{
+
+.gap-date {
   gap: 32px;
   margin: auto;
 }
-.title{
+
+.title {
   text-align: left;
   font: normal normal 600 42px/54px Baskerville;
   letter-spacing: -1.68px;
@@ -244,13 +267,16 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-.container-dropdown{
+
+.container-dropdown {
   width: 1032px;
 }
-.margin-left{
+
+.margin-left {
   margin-left: 64px;
 }
-.upper-icons{
+
+.upper-icons {
   width: 548px;
   height: 89px;
   background: #FFFFFF 0 0 no-repeat padding-box;
@@ -263,7 +289,8 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-.detail-page{
+
+.detail-page {
   width: 1032px;
   height: 504px;
   background: #FFFFFF 0 0 no-repeat padding-box;
@@ -271,16 +298,20 @@ export default {
   border-radius: 0 0 8px 8px;
   opacity: 1;
 }
-.margin-name{
+
+.margin-name {
   margin-right: 198px;
 }
-.margin-client{
+
+.margin-client {
   margin-right: 301px;
 }
-.margin-date{
+
+.margin-date {
   margin-right: 279px;
 }
-.margin-bottom-dropdown{
+
+.margin-bottom-dropdown {
   margin-bottom: 32px;
 }
 </style>
