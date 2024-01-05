@@ -134,6 +134,7 @@ export default {
                       <input type="text" class="input-campaign" id="campaignName"
                              v-model="editedResource.campaign.campaign_name">
                     </div>
+                    <hr>
                     <div class="margin-bottom float d-flex campaign-name margin-top">
                       <div>
                         <label class="margin-text margin-client" for="clientId">Klant</label>
@@ -173,6 +174,7 @@ export default {
                           </div>
                         </div>
                       </div>
+                      <hr>
                       <div class="d-flex campaign-name flex-row">
                         <div>
                           <label class="margin-text phase-margin" for="campaignPhase">Campagne Fase</label>

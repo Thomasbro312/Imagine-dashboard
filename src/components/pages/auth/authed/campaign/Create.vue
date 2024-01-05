@@ -89,6 +89,7 @@ export default {
                       </div>
                       <input class="input-campaign" type="text" id="campaign_name" v-model.trim="campaign_name">
                     </div>
+                    <hr>
                     <div class="margin-bottom float d-flex campaign-name margin-top">
                       <div>
                         <label class="margin-text margin-client">Klant</label>

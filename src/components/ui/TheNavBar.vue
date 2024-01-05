@@ -51,57 +51,59 @@ export default {
 <template>
   <div class="min-height-navbar">
     <div v-if="isLoggedIn" class="bg-navbar navbar-layout">
-      <div class="d-flex flex-column align-items-center align-items-sm-start px-2 text-white">
-        <img src="/img/logo_ungrouped_wit.svg" class="svg" alt="">
-        <ul class="margin-top nav flex-column navbar-layout nav-bar-font mb-sm-auto" id="menu">
-          <li  v-on:mouseover="hoverDashboard = true" v-on:mouseout="hoverDashboard = false" class="navbar-router margin-dashboard text-left text-decoration-none" :class="{'nav-bar-active': hoverDashboard, 'text-black': hoverDashboard}">
-            <router-link to="/auth/index" class="text-decoration-none text-white" :class="{'nav-bar-active': hoverDashboard}">
-              <div class="d-flex">
-                <img v-if="!hoverDashboard" class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg" alt="">
-                <img v-if="hoverDashboard" class="icons-margin" src="/img/icons/Dashboard%20icon%20zwart.svg" alt="">
-                <span class="margin-navigation">Dashboard</span>
-              </div>
-            </router-link>
-          </li>
-          <li  v-on:mouseover="hoverCampaign = true" v-on:mouseout="hoverCampaign = false"  :class="{'nav-bar-active': hoverCampaign}" class="navbar-router margin-dashboard text-left">
-            <router-link to="/auth/index" class="text-white text-decoration-none" :class="{'nav-bar-active': hoverCampaign}">
-              <div class="d-flex">
-                <img v-if="!hoverCampaign" class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg" alt="">
-                <img v-if="hoverCampaign" class="icons-margin" src="/img/icons/Campagne%20icon%20zwart.svg" alt="">
-                <span class="margin-navigation">Campagne</span>
-              </div>
-            </router-link>
-          </li>
-          <li v-on:mouseover="hover = true" v-on:mouseout="hover = false"  class="navbar-router margin-dashboard text-left " :class="{'nav-bar-active': hover}">
-            <router-link to="/auth/index" class="text-white text-decoration-none " :class="{'nav-bar-active': hover}">
-              <div class="d-flex">
-                <img v-if="!hover" class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg" alt="">
-                <img v-if="hover" class="icons-margin" src="/img/icons/Rapportage%20icon%20zwart.svg" alt="">
-                <span class="margin-navigation">Rapporten</span>
-              </div>
-            </router-link>
-          </li>
-          <li v-if="isAdmin" class="navbar-router margin-dashboard text-left">
-            <router-link to="/auth/admin" class="text-white text-decoration-none"><span class="margin-navigation">Admin</span></router-link>
-          </li>
-        </ul>
-        <hr>
-        <div class="dropdown margin-auto dropdown-menu-style px-3 profile-sticky">
-          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
-            <span class="d-none d-sm-inline mx-1 text-white">Place Holder</span>
-          </a>
-          <ul class="dropdown-menu bg-navbar-dropdown text-small shadow container-dropdown-font">
-            <li><router-link class="dropdown-item" to="/auth/users"><span class="m-0 w-auto">Profile</span></router-link></li>
-            <li>
-              <hr class="dropdown-divider">
+      <footer class="fixed-bottom bg-navbar navbar-layout min-height-navbar">
+        <div class="d-flex flex-column align-items-center align-items-sm-start px-2 text-white">
+          <img src="/img/logo_ungrouped_wit.svg" class="svg" alt="">
+          <ul class="margin-top nav flex-column navbar-layout nav-bar-font mb-sm-auto" id="menu">
+            <li  v-on:mouseover="hoverDashboard = true" v-on:mouseout="hoverDashboard = false" class="navbar-router margin-dashboard text-left text-decoration-none" :class="{'nav-bar-active': hoverDashboard, 'text-black': hoverDashboard}">
+              <router-link to="/auth/index" class="text-decoration-none text-white" :class="{'nav-bar-active': hoverDashboard}">
+                <div class="d-flex">
+                  <img v-if="!hoverDashboard" class="icons-margin" src="/img/icons/Dashboard%20icon%20wit.svg" alt="">
+                  <img v-if="hoverDashboard" class="icons-margin" src="/img/icons/Dashboard%20icon%20zwart.svg" alt="">
+                  <span class="margin-navigation">Dashboard</span>
+                </div>
+              </router-link>
             </li>
-            <li>
-              <base-button class="dropdown-item m-0" @click="logout">Uitloggen</base-button>
+            <li  v-on:mouseover="hoverCampaign = true" v-on:mouseout="hoverCampaign = false"  :class="{'nav-bar-active': hoverCampaign}" class="navbar-router margin-dashboard text-left">
+              <router-link to="/auth/index" class="text-white text-decoration-none" :class="{'nav-bar-active': hoverCampaign}">
+                <div class="d-flex">
+                  <img v-if="!hoverCampaign" class="icons-margin" src="/img/icons/Campagne%20icon%20wit.svg" alt="">
+                  <img v-if="hoverCampaign" class="icons-margin" src="/img/icons/Campagne%20icon%20zwart.svg" alt="">
+                  <span class="margin-navigation">Campagne</span>
+                </div>
+              </router-link>
+            </li>
+            <li v-on:mouseover="hover = true" v-on:mouseout="hover = false"  class="navbar-router margin-dashboard text-left " :class="{'nav-bar-active': hover}">
+              <router-link to="/auth/index" class="text-white text-decoration-none " :class="{'nav-bar-active': hover}">
+                <div class="d-flex">
+                  <img v-if="!hover" class="icons-margin" src="/img/icons/Rapportage%20icon%20wit.svg" alt="">
+                  <img v-if="hover" class="icons-margin" src="/img/icons/Rapportage%20icon%20zwart.svg" alt="">
+                  <span class="margin-navigation">Rapporten</span>
+                </div>
+              </router-link>
+            </li>
+            <li v-if="isAdmin" class="navbar-router margin-dashboard text-left">
+              <router-link to="/auth/admin" class="text-white text-decoration-none"><span class="margin-navigation">Admin</span></router-link>
             </li>
           </ul>
+          <hr>
+          <div class="dropdown margin-auto dropdown-menu-style px-3 ">
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
+              <span class="d-none d-sm-inline mx-1 text-white">Place Holder</span>
+            </a>
+            <ul class="dropdown-menu bg-navbar-dropdown text-small shadow container-dropdown-font">
+              <li><router-link class="dropdown-item" to="/auth/users"><span class="m-0 w-auto">Profile</span></router-link></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <base-button class="dropdown-item m-0" @click="logout">Uitloggen</base-button>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   </div>
 </template>
@@ -176,8 +178,5 @@ export default {
   position:absolute;
   bottom:0;
   margin-bottom: 20px;
-}
-.profile-sticky{
-  position: static;
 }
 </style>
