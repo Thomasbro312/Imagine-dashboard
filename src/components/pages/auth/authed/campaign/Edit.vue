@@ -11,6 +11,7 @@ export default {
       editedResource: {
         campaign: {
           id: null,
+          campaign_id: null,
           campaign_name: null,
           client_id: null,
           start_date: null,
@@ -48,6 +49,7 @@ export default {
         })
         let data = await response.json()
         this.editedResource.campaign.campaign_name = data[0].campaign_name
+        this.editedResource.campaign.campaign_id = data[0].campaign_id
         this.editedResource.campaign.client_id = data[0].client_id
         this.editedResource.campaign.start_date = data[0].start_date
         this.editedResource.campaign.end_date = data[0].end_date
@@ -133,6 +135,15 @@ export default {
                       </div>
                       <input type="text" class="input-campaign" id="campaignName"
                              v-model="editedResource.campaign.campaign_name">
+                    </div>
+                    <hr>
+                    <div class="d-flex float campaign-name margin-top">
+                      <div>
+                        <label class="margin-text margin-name" for="campaignName">Campagne ID</label>
+                        <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                      </div>
+                      <input type="text" class="input-campaign" disabled id="campaignName"
+                             v-model="editedResource.campaign.campaign_id">
                     </div>
                     <hr>
                     <div class="margin-bottom float d-flex campaign-name margin-top">
@@ -247,8 +258,11 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-.margin-name {
+.margin-name{
   margin-right: 198px;
+}
+.margin-id{
+  margin-right: 231px;
 }
 .title {
   text-align: left;
@@ -264,5 +278,7 @@ export default {
 .margin-phase{
   margin: 32px 0 32px 0;
 }
-
+.margin-id{
+  margin-left: 231px;
+}
 </style>
