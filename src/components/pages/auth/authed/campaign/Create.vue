@@ -71,9 +71,9 @@ export default {
           <p class="text-center">Campagne Aanmaken</p>
         </div>
       </div>
-      <div class="dropdown text-center">
+      <p class="margin-left title">Campagne Aanmaken</p>
+      <div class="d-flex justify-content-center dropdown text-center ">
         <div class="m-auto">
-          <p class="margin-left title">Campagne Aanmaken</p>
           <form class="container-dropdown" @submit.prevent="submitForm">
             <div class="container-dropdown margin-left">
               <div>

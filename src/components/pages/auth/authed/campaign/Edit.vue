@@ -115,10 +115,11 @@ export default {
           <p class="text-center">Campagne Aanpassen</p>
         </div>
       </div>
-      <div class="dropdown m-auto text-center">
+      <p class="margin-left title">Campagne Aanpassen</p>
+
+      <div class="dropdown m-auto text-center d-flex justify-content-center">
         <div class="">
-          <p class="margin-left title">Campagne Aanpassen</p>
-          <form class="container-dropdown" @submit.prevent="editResource(this.$route.params.id)">
+          <form class="container-dropdown " @submit.prevent="editResource(this.$route.params.id)">
             <div class="container-dropdown margin-left">
               <div>
                 <button @click="showDropdown" class=""
