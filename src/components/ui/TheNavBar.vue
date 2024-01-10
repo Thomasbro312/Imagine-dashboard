@@ -144,7 +144,7 @@ export default {
   width: 0px;
 }
 .navbar-layout{
-  width: 280px
+  width: 14vw
 }
 .navbar-router{
   height: 54px;

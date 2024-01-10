@@ -113,7 +113,7 @@ export default {
           <p class="text-center">Campagne Aanpassen</p>
         </div>
       </div>
-      <div class="dropdown m-auto text-center">
+      <div class="dropdown full-height m-auto text-center">
         <div class="">
           <p class="margin-left title">Campagne Aanpassen</p>
           <form class="container-dropdown" @submit.prevent="editResource(this.$route.params.id)">
@@ -196,11 +196,21 @@ export default {
           </form>
         </div>
       </div>
+      <footer class="footer-buttons-area">
+
+      </footer>
     </div>
   </div>
 </template>
 
 <style scoped>
+.footer-buttons-area{
+  height: 85px;
+  background: #222222;
+  opacity: 1;
+  position: sticky;
+  bottom: 0;
+}
 .max-width-router {
   width: 100%;
 }
@@ -232,7 +242,7 @@ export default {
    width: 1032px;
  }
 .margin-left {
-    margin-left: 64px;
+  margin-left: 64px;
   }
 .upper-icons {
   width: 548px;
