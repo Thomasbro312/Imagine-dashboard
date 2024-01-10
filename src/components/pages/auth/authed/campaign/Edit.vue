@@ -8,6 +8,8 @@ export default {
     return {
       dropdown1: true,
       dropdownDate: false,
+      dropdownLinks: false,
+      dropdownAccess: false,
       editedResource: {
         campaign: {
           id: null,
@@ -36,6 +38,12 @@ export default {
     },
     showDropdownDate() {
       this.dropdownDate = this.dropdownDate === false;
+    },
+    showDropdownLinks() {
+      this.dropdownLinks = this.dropdownLinks === false;
+    },
+    showDropdownAccess() {
+      this.dropdownAccess = this.dropdownAccess === false;
     },
     // This gets the specified campaign from the api and puts it inside the form fields
     async fetchResource(id) {
@@ -118,9 +126,9 @@ export default {
       <p class="margin-left title">Campagne Aanpassen</p>
       <div class="dropdown m-auto text-center d-flex justify-content-center">
         <div class="">
-          <form class="container-dropdown " @submit.prevent="editResource(this.$route.params.id)">
-            <div class="container-dropdown margin-left">
-              <div>
+          <form class="" @submit.prevent="editResource(this.$route.params.id)">
+            <div class=" margin-left">
+              <div class="">
                 <button @click="showDropdown" class=""
                         :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1, 'margin-bottom-dropdown': !dropdown1}"
                         type="button" aria-expanded="false">
@@ -129,11 +137,10 @@ export default {
                     <div>Details</div>
                     <svg class="dropdown-margin ms-auto" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
                   </div>
-
                 </button>
-                <div :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
+                <div class="dropdown-content" :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
-                    <div class="d-flex float campaign-name margin-top">
+                    <div class="d-flex campaign-name margin-top">
                       <div>
                         <label class="margin-text margin-name" for="campaignName">Campagne Naam</label>
                         <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
@@ -142,7 +149,7 @@ export default {
                              v-model="editedResource.campaign.campaign_name">
                     </div>
                     <hr>
-                    <div class="d-flex float campaign-name margin-top">
+                    <div class="d-flex campaign-name margin-top">
                       <div>
                         <label class="margin-text margin-name" for="campaignName">Campagne ID</label>
                         <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
@@ -151,7 +158,7 @@ export default {
                              v-model="editedResource.campaign.campaign_id">
                     </div>
                     <hr>
-                    <div class="margin-bottom float d-flex campaign-name margin-top">
+                    <div class="margin-bottom d-flex campaign-name margin-top">
                       <div>
                         <label class="margin-text margin-client" for="clientId">Klant</label>
                         <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
@@ -166,7 +173,7 @@ export default {
                   </div>
                 </div>
                 <button @click="showDropdownDate"
-                        :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}"
+                        :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate, 'margin-bottom-dropdown': !dropdownDate}"
                         type="button" aria-expanded="false">
                   <div class="dropdown-flex">
                     <div class="circle-campaign"></div>
@@ -174,7 +181,7 @@ export default {
                     <svg class="dropdown-margin ms-auto" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
                   </div>
                 </button>
-                <div v-if="dropdownDate">
+                <div v-if="dropdownDate" class="dropdown-content">
                   <div class="detail-page">
                     <div id="collapse-example" class="flex-column d-flex collapse show"
                          aria-labelledby="heading-example">
@@ -208,17 +215,83 @@ export default {
                       </div>
                     </div>
                   </div>
-                  <base-button class='btn-main text-white mt-4' type="submit">Update</base-button>
-                  <delete-modal></delete-modal>
+                </div>
+
+                <button @click="showDropdownLinks"
+                        :class="{'dropdown-button-style-open': dropdownLinks, 'dropdown-button-style-closed': !dropdownLinks, 'margin-bottom-dropdown': !dropdownLinks}"
+                        type="button" aria-expanded="false">
+                  <div class="dropdown-flex">
+                    <div class="circle-campaign"></div>
+                    <div>Koppelingen</div>
+                    <svg class="dropdown-margin ms-auto" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
+                  </div>
+                </button>
+                <div v-if="dropdownLinks" class="dropdown-content">
+                  <div class="detail-page">
+                    <div id="collapse-example" class="flex-column d-flex collapse show"
+                         aria-labelledby="heading-example">
+                      <div class="d-flex flex-row">
+                        <div class="campaign-name margin-top margin-date">
+                          <div class="margin-date">
+                            <label class="margin-text" for="startDate">Looptijd</label>
+                            <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                          <input class="input-campaign margin-top margin-date"
+                                 type="date">
+                          <div class="d-flex campaign-name margin-top">
+                            <input class="input-campaign"
+                                   type="date">
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                    </div>
+                  </div>
+                </div>
+                <button @click="showDropdownAccess"
+                        :class="{'dropdown-button-style-open': dropdownAccess, 'dropdown-button-style-closed': !dropdownAccess}"
+                        type="button" aria-expanded="false">
+                  <div class="dropdown-flex">
+                    <div class="circle-campaign"></div>
+                    <div>Toegang</div>
+                    <svg class="dropdown-margin ms-auto" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
+                  </div>
+                </button>
+                <div v-if="dropdownAccess" class="dropdown-content">
+                  <div class="detail-page">
+                    <div id="collapse-example" class="flex-column d-flex collapse show"
+                         aria-labelledby="heading-example">
+                      <div class="d-flex flex-row">
+                        <div class="campaign-name margin-top margin-date">
+                          <div class="margin-date">
+                            <label class="margin-text" for="startDate">Looptijd</label>
+                            <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                          <input class="input-campaign margin-top margin-date"
+                                 type="date">
+                          <div class="d-flex campaign-name margin-top">
+                            <input class="input-campaign"
+                                   type="date">
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <footer class="footer-buttons-area">
+              <base-button class='btn-main text-white mt-2' type="submit">Update</base-button>
+              <delete-modal></delete-modal>
+            </footer>
           </form>
         </div>
       </div>
-      <footer class="footer-buttons-area">
-
-      </footer>
     </div>
   </div>
 </template>
@@ -227,8 +300,9 @@ export default {
 .footer-buttons-area{
   height: 85px;
   background: #222222;
+  width: 100%;
   opacity: 1;
-  position: sticky;
+  position: fixed;
   bottom: 0;
 }
 .max-width-router {
@@ -258,12 +332,9 @@ export default {
 .margin-bottom {
   margin-bottom: 40px;
 }
-.container-dropdown {
-   width: 1032px;
- }
 .margin-left {
-    margin-left: 64px;
-  }
+  margin-left: 64px;
+}
 .upper-icons {
   width: 548px;
   height: 89px;
@@ -314,5 +385,12 @@ export default {
 }
 .dropdown-margin{
   margin-right: 32px;
+}
+.dropdown-content{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 </style>

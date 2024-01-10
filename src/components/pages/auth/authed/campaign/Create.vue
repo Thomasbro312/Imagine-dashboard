@@ -1,8 +1,9 @@
 <script>
 import NavBar from "@/components/ui/TheNavBar.vue";
+import DeleteModal from "@/components/ui/DeleteModal.vue";
 
 export default {
-  components: {NavBar},
+  components: {DeleteModal, NavBar},
   data(){
     return{
       dropdown1: true,
@@ -72,10 +73,10 @@ export default {
         </div>
       </div>
       <p class="margin-left title">Campagne Aanmaken</p>
-      <div class="d-flex justify-content-center dropdown text-center ">
+      <div class="text-center">
         <div class="m-auto">
-          <form class="container-dropdown" @submit.prevent="submitForm">
-            <div class="container-dropdown margin-left">
+          <form @submit.prevent="submitForm">
+            <div class="margin-left">
               <div>
                 <button @click="showDropdown" :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1, 'margin-bottom-dropdown': !dropdown1}" type="button" aria-expanded="false">
                   <div class="dropdown-flex">
@@ -84,7 +85,7 @@ export default {
                     <svg class="ms-auto dropdown-margin" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
                   </div>
                 </button>
-                <div :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
+                <div class="dropdown-content" :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
                     <div class="d-flex float campaign-name margin-top">
                       <div>
@@ -113,7 +114,7 @@ export default {
                     <svg class="ms-auto dropdown-margin" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
                   </div>
                 </button>
-                <div v-if="dropdownDate">
+                <div v-if="dropdownDate" class="dropdown-content">
                   <div class="detail-page">
                     <div id="collapse-example" class="gap-date d-flex collapse show" aria-labelledby="heading-example">
                       <div class="d-flex flex-row">
@@ -132,10 +133,12 @@ export default {
                       </div>
                     </div>
                   </div>
-                  <base-button class="btn-main text-white mt-4" type="submit">Submit</base-button>
                 </div>
               </div>
             </div>
+            <footer class="footer-buttons-area">
+              <base-button class='btn-main text-white mt-2' type="submit">Volgende</base-button>
+            </footer>
           </form>
         </div>
       </div>
@@ -179,9 +182,6 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-.container-dropdown{
-  width: 1032px;
-}
 .margin-left{
   margin-left: 64px;
 }
@@ -221,5 +221,20 @@ export default {
 }
 .dropdown-margin{
   margin-right: 32px;
+}
+.footer-buttons-area{
+  height: 85px;
+  width: 100%;
+  background: #222222;
+  opacity: 1;
+  position: fixed;
+  bottom: 0;
+}
+.dropdown-content{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 </style>
