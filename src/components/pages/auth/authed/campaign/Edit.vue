@@ -11,6 +11,7 @@ export default {
       editedResource: {
         campaign: {
           id: null,
+          campaign_id: null,
           campaign_name: null,
           client_id: null,
           start_date: null,
@@ -48,6 +49,7 @@ export default {
         })
         let data = await response.json()
         this.editedResource.campaign.campaign_name = data[0].campaign_name
+        this.editedResource.campaign.campaign_id = data[0].campaign_id
         this.editedResource.campaign.client_id = data[0].client_id
         this.editedResource.campaign.start_date = data[0].start_date
         this.editedResource.campaign.end_date = data[0].end_date
@@ -113,16 +115,21 @@ export default {
           <p class="text-center">Campagne Aanpassen</p>
         </div>
       </div>
-      <div class="dropdown full-height m-auto text-center">
+      <p class="margin-left title">Campagne Aanpassen</p>
+      <div class="dropdown m-auto text-center d-flex justify-content-center">
         <div class="">
-          <p class="margin-left title">Campagne Aanpassen</p>
-          <form class="container-dropdown" @submit.prevent="editResource(this.$route.params.id)">
+          <form class="container-dropdown " @submit.prevent="editResource(this.$route.params.id)">
             <div class="container-dropdown margin-left">
               <div>
-                <button @click="showDropdown" class="dropdown-toggle"
+                <button @click="showDropdown" class=""
                         :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1, 'margin-bottom-dropdown': !dropdown1}"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Details
+                        type="button" aria-expanded="false">
+                  <div class="dropdown-flex">
+                    <div class="circle-campaign"></div>
+                    <div>Details</div>
+                    <svg class="dropdown-margin ms-auto" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
+                  </div>
+
                 </button>
                 <div :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
@@ -133,6 +140,15 @@ export default {
                       </div>
                       <input type="text" class="input-campaign" id="campaignName"
                              v-model="editedResource.campaign.campaign_name">
+                    </div>
+                    <hr>
+                    <div class="d-flex float campaign-name margin-top">
+                      <div>
+                        <label class="margin-text margin-name" for="campaignName">Campagne ID</label>
+                        <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
+                      </div>
+                      <input type="text" class="input-campaign" disabled id="campaignName"
+                             v-model="editedResource.campaign.campaign_id">
                     </div>
                     <hr>
                     <div class="margin-bottom float d-flex campaign-name margin-top">
@@ -149,10 +165,14 @@ export default {
                     </div>
                   </div>
                 </div>
-                <button @click="showDropdownDate" class="dropdown-toggle"
+                <button @click="showDropdownDate"
                         :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Planning
+                        type="button" aria-expanded="false">
+                  <div class="dropdown-flex">
+                    <div class="circle-campaign"></div>
+                    <div>Planning</div>
+                    <svg class="dropdown-margin ms-auto" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
+                  </div>
                 </button>
                 <div v-if="dropdownDate">
                   <div class="detail-page">
@@ -242,7 +262,7 @@ export default {
    width: 1032px;
  }
 .margin-left {
-  margin-left: 64px;
+    margin-left: 64px;
   }
 .upper-icons {
   width: 548px;
@@ -257,7 +277,7 @@ export default {
   text-transform: capitalize;
   opacity: 1;
 }
-.margin-name {
+.margin-name{
   margin-right: 198px;
 }
 .title {
@@ -274,5 +294,25 @@ export default {
 .margin-phase{
   margin: 32px 0 32px 0;
 }
-
+.circle-campaign{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 2px solid #222222;
+  border-radius: 100%;
+  opacity: 1;
+  margin: 32px 0 32px 32px;
+  width: 32px;
+  height: 32px;
+}
+.dropdown-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+  gap: 16px;
+}
+.dropdown-margin{
+  margin-right: 32px;
+}
 </style>

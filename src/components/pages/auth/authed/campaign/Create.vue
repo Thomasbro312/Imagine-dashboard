@@ -71,14 +71,18 @@ export default {
           <p class="text-center">Campagne Aanmaken</p>
         </div>
       </div>
-      <div class="dropdown text-center">
+      <p class="margin-left title">Campagne Aanmaken</p>
+      <div class="d-flex justify-content-center dropdown text-center ">
         <div class="m-auto">
-          <p class="margin-left title">Campagne Aanmaken</p>
           <form class="container-dropdown" @submit.prevent="submitForm">
             <div class="container-dropdown margin-left">
               <div>
-                <button @click="showDropdown" class="dropdown-toggle" :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1, 'margin-bottom-dropdown': !dropdown1}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Details
+                <button @click="showDropdown" :class="{'dropdown-button-style-open': dropdown1, 'dropdown-button-style-closed': !dropdown1, 'margin-bottom-dropdown': !dropdown1}" type="button" aria-expanded="false">
+                  <div class="dropdown-flex">
+                    <div class="circle-campaign"></div>
+                    <div>Details</div>
+                    <svg class="ms-auto dropdown-margin" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
+                  </div>
                 </button>
                 <div :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
@@ -102,8 +106,12 @@ export default {
                     </div>
                   </div>
                 </div>
-                <button @click="showDropdownDate" class="dropdown-toggle" :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Planning
+                <button @click="showDropdownDate" :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}" type="button" aria-expanded="false">
+                  <div class="dropdown-flex">
+                    <div class="circle-campaign"></div>
+                    <div>Planning</div>
+                    <svg class="ms-auto dropdown-margin" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
+                  </div>
                 </button>
                 <div v-if="dropdownDate">
                   <div class="detail-page">
@@ -192,5 +200,26 @@ export default {
 }
 .margin-name{
   margin-right: 198px;
+}
+.circle-campaign{
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  border: 2px solid #222222;
+  border-radius: 100%;
+  opacity: 1;
+  margin: 32px 0 32px 32px;
+  width: 32px;
+  height: 32px;
+}
+.dropdown-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+  gap: 16px;
+}
+.dropdown-margin{
+  margin-right: 32px;
 }
 </style>
