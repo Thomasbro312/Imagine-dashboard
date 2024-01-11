@@ -34,8 +34,9 @@ export default {
     store() {
       return store
     },
+    // this checks if you're an admin
     isAdmin() {
-      return store.getters.role.role === '2'; // Replace 'admin' with the correct role
+      return store.getters.role.role === '2';
     },
     // this checks if your logged in
     isLoggedIn() {
@@ -141,7 +142,7 @@ export default {
   width: 100%;
 }
 .nav-bar-active img :hover{
-  width: 0px;
+  width: 0;
 }
 .navbar-layout{
   width: 14vw
