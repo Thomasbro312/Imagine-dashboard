@@ -1,8 +1,88 @@
+/**/
+/* Font's*/
+/**/
 .font-baskerville{
     font-family: 'Libre Baskerville', serif;
 }
 .font-poppins{
     font-family: 'Poppins', sans-serif;
+}
+.font-poppins{
+    text-align: left;
+    font: normal normal bold 16px/25px Poppins;
+    letter-spacing: 0;
+    color: #222222;
+    opacity: 1;
+}
+.font-baskerville{
+    text-align: left;
+    font: normal normal 600 48px/54px Baskerville;
+    letter-spacing: 0;
+    color: #222222;
+    opacity: 1;
+}
+.font-baskerville-forgot{
+    text-align: left;
+    font: normal normal 600 48px/54px Baskerville;
+    letter-spacing: 0;
+    color: #222222;
+    opacity: 1;
+}
+
+/**/
+/* Logo's */
+/**/
+
+.login-logo{
+    height: 80px;
+    position: absolute;
+    margin-top: -150px
+}
+
+/**/
+/* Margin's/Borders */
+/**/
+
+.not-empty{
+    border: 2px solid #9DC4A3;
+}
+.error-border{
+    border: 2px solid #ff5e5e;
+}
+.empty{
+    border: 2px solid #D4D4D4;
+}
+.margin-auto{
+    margin: auto;
+}
+.margin-bottom-dropdown{
+    margin-bottom: 32px;
+}
+.margin-date{
+    margin-right: 32px;
+}
+.margin-client {
+    margin-right: 301px;
+}
+
+/**/
+/* Form Inputs/texts*/
+/**/
+
+.title{
+    text-align: left;
+    font: normal normal 600 42px/54px Baskerville;
+    letter-spacing: -1.68px;
+    color: #222222;
+    text-transform: capitalize;
+    opacity: 1;
+}
+.campaign-name{
+    text-align: left;
+    font: normal normal 600 16px/27px Poppins;
+    letter-spacing: 0;
+    color: #231F20;
+    opacity: 1;
 }
 .input-main{
     background: #FFFFFF 0 0 no-repeat padding-box;
@@ -14,60 +94,13 @@
     height: 70px;
     width: 510px;
 }
-.vh-container2 {
-    height: 100vh;
-    width: 50%;
-    float: right;
-    background-color: #0a0a0a;
-}
-.vh-container{
-    height: 100vh;
-    float: left;
-    width: 50%;
-}
-.login-logo{
-    height: 80px;
-    position: absolute;
-    margin-top: -150px
-}
-.not-empty{
-    border: 2px solid #9DC4A3;
-}
-.error-border{
-    border: 2px solid #ff5e5e;
-}
-.empty{
-    border: 2px solid #D4D4D4;
-}
-.font-poppins{
-    text-align: left;
-    font: normal normal bold 16px/25px Poppins;
-    letter-spacing: 0;
-    color: #222222;
+.input-campaign{
+    background: #F7F7F7 0 0 no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 8px;
     opacity: 1;
-}
-.font-baskerville{
-    text-align: left;
-    font: normal normal 600 48px/54px Baskerville;
-    letter-spacing: 0;
-    color: #222222;
-    opacity: 1;
-}
-.bg-login{
-}
-.font-baskerville-forgot{
-    text-align: left;
-    font: normal normal 600 48px/54px Baskerville;
-    letter-spacing: 0;
-    color: #222222;
-    opacity: 1;
-}
-.btn-main{
-    background: #222222 0 0 no-repeat padding-box;
-    border-radius: 32px;
-    opacity: 1;
-    font: normal normal 600 20px/30px Poppins;
-    padding: 18px 220px 20px 220px;
+    width: 263px;
+    height: 60px;
 }
 .checkbox-styling{
     background: #FFFFFF 0 0 no-repeat padding-box;
@@ -109,9 +142,6 @@
     color: #222222;
     opacity: 1;
 }
-.margin-auto{
-    margin: auto;
-}
 .navbar-router{
      display: flex;
      flex-direction: row;
@@ -119,8 +149,9 @@
      align-items: stretch;
      align-content: stretch;
  }
-
+/**/
 /* Campaign page CSS*/
+/**/
 .detail-page{
     width: 1032px;
     background: #FFFFFF 0 0 no-repeat padding-box;
@@ -136,26 +167,90 @@
     opacity: 1;
     width: 291px;
 }
-.margin-bottom-dropdown{
-    margin-bottom: 32px;
-}
-.margin-date{
-    margin-right: 32px;
-}
-.margin-client {
-    margin-right: 301px;
-}
-.input-campaign{
-    background: #F7F7F7 0 0 no-repeat padding-box;
-    border: 1px solid #707070;
-    border-radius: 8px;
-    opacity: 1;
-    width: 263px;
-    height: 60px;
-}
 .gap-date {
     gap: 32px;
     margin: auto;
+}
+
+.footer-buttons-area{
+    height: 85px;
+    background: #222222;
+    width: 100%;
+    opacity: 1;
+    position: fixed;
+    bottom: 0;
+}
+.upper-icons {
+    width: 548px;
+    height: 89px;
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    border: 1px solid #D4D4D4;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+    font: normal normal 600 32px/54px Baskerville;
+    letter-spacing: -1.28px;
+    color: #222222;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+/**/
+/* Containers */
+/**/
+
+.max-width-router {
+    width: 100%;
+}
+.dropdown-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.circle-campaign{
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    border: 2px solid #222222;
+    border-radius: 100%;
+    opacity: 1;
+    margin: 32px 0 32px 32px;
+    width: 32px;
+    height: 32px;
+}
+.dropdown-flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    gap: 16px;
+}
+
+/**/
+/* CSS Buttons */
+/**/
+.link-button{
+    text-align: center;
+    font: normal normal normal 16px/27px Poppins;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    opacity: 1;
+    background: #222222 0 0 no-repeat padding-box;
+    border-radius: 23px;
+    padding: 10px 32px 10px 32px;
+}
+.footer-button{
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 23px;
+    opacity: 1;
+    text-align: center;
+    font: normal normal normal 16px/27px Poppins;
+    letter-spacing: 0;
+    color: #222222;
+    padding: 10px 32px;
+    margin-top: 24px;
 }
 .dropdown-button-style-open {
     background: #F7F7F7 0 0 no-repeat padding-box;
@@ -180,4 +275,11 @@
     letter-spacing: -1.04px;
     color: #222222;
     text-transform: capitalize;
+}
+.btn-main{
+    background: #222222 0 0 no-repeat padding-box;
+    border-radius: 32px;
+    opacity: 1;
+    font: normal normal 600 20px/30px Poppins;
+    padding: 18px 220px 20px 220px;
 }

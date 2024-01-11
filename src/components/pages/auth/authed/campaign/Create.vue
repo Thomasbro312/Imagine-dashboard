@@ -87,7 +87,7 @@ export default {
                 </button>
                 <div class="dropdown-content" :class="{'margin-bottom-dropdown': dropdown1}" v-if="dropdown1">
                   <div class="detail-page">
-                    <div class="d-flex float campaign-name margin-top">
+                    <div class="d-flex campaign-name margin-top">
                       <div>
                         <label class="margin-text margin-name">Campagne Naam</label>
                         <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
@@ -95,7 +95,7 @@ export default {
                       <input class="input-campaign" type="text" id="campaign_name" v-model.trim="campaign_name">
                     </div>
                     <hr>
-                    <div class="margin-bottom float d-flex campaign-name margin-top">
+                    <div class="margin-bottom d-flex campaign-name margin-top">
                       <div>
                         <label class="margin-text margin-client">Klant</label>
                         <p class="description-text margin-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue tortor ultrices.</p>
@@ -114,7 +114,7 @@ export default {
                     <svg class="ms-auto dropdown-margin" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
                   </div>
                 </button>
-                <div v-if="dropdownDate" class="dropdown-content">
+                <div v-if="dropdownDate" :class="{'margin-bottom-dropdown': dropdownDate}" class="dropdown-content">
                   <div class="detail-page">
                     <div id="collapse-example" class="gap-date d-flex collapse show" aria-labelledby="heading-example">
                       <div class="d-flex flex-row">
@@ -137,7 +137,7 @@ export default {
               </div>
             </div>
             <footer class="footer-buttons-area">
-              <base-button class='btn-main text-white mt-2' type="submit">Volgende</base-button>
+              <base-button class='footer-button' type="submit">Volgende</base-button>
             </footer>
           </form>
         </div>
@@ -147,24 +147,6 @@ export default {
 </template>
 
 <style scoped>
-.max-width-router{
-  width: 100%;
-}
-.campaign-name{
-  text-align: left;
-  font: normal normal 600 16px/27px Poppins;
-  letter-spacing: 0;
-  color: #231F20;
-  opacity: 1;
-}
-.float label{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: stretch;
-  align-content: stretch;
-}
 .margin-text{
   margin-left: 32px;
 }
@@ -174,67 +156,13 @@ export default {
 .margin-bottom{
   margin-bottom: 40px;
 }
-.title{
-  text-align: left;
-  font: normal normal 600 42px/54px Baskerville;
-  letter-spacing: -1.68px;
-  color: #222222;
-  text-transform: capitalize;
-  opacity: 1;
-}
 .margin-left{
   margin-left: 64px;
-}
-.upper-icons{
-  width: 548px;
-  height: 89px;
-  background: #FFFFFF 0 0 no-repeat padding-box;
-  border: 1px solid #D4D4D4;
-  border-radius: 0 0 8px 8px;
-  text-align: center;
-  font: normal normal 600 32px/54px Baskerville;
-  letter-spacing: -1.28px;
-  color: #222222;
-  text-transform: capitalize;
-  opacity: 1;
 }
 .margin-name{
   margin-right: 198px;
 }
-.circle-campaign{
-  background: #FFFFFF 0 0 no-repeat padding-box;
-  border: 2px solid #222222;
-  border-radius: 100%;
-  opacity: 1;
-  margin: 32px 0 32px 32px;
-  width: 32px;
-  height: 32px;
-}
-.dropdown-flex{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: stretch;
-  gap: 16px;
-}
 .dropdown-margin{
   margin-right: 32px;
-}
-.footer-buttons-area{
-  height: 85px;
-  width: 100%;
-  background: #222222;
-  opacity: 1;
-  position: fixed;
-  bottom: 0;
-}
-.dropdown-content{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
 }
 </style>
