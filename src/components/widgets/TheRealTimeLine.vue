@@ -44,6 +44,7 @@ export default {
       this.showDate = d;
     },
     async getApiData() {
+      //this get all the campaign data
       if(this.id){
         const apiKey = 'Help';
         try {
@@ -79,16 +80,13 @@ export default {
       }
     },
     loopCalendar() {
+      // this loops the data so that it can show all the campaigns
       if(this.id){
         for (const item of this.apiData) {
           const start = new Date(item.start_date)
           const isoStartDate = start.toISOString()
           const end = new Date(item.end_date)
           const isoEndDate = end.toISOString()
-          // const start = item.start_date;
-          // const formattedStart = start.replace(/\s/, 'T');
-          // const end = item.end_date;
-          // const formattedEnd = end.replace(/\s/, 'T');
           this.items = [{
             id: 'e1',
             startDate: isoStartDate,
@@ -101,6 +99,7 @@ export default {
         this.isLoading = false;
       }
       else{
+        //this shows all the available campaigns with random colors
         for (const item of this.apiData) {
           const start = new Date(item.start_date)
           const isoStartDate = start.toISOString()

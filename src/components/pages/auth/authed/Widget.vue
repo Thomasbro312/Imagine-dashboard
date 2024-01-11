@@ -1,5 +1,4 @@
 <script>
-import TheTimeLine from "@/components/widgets/TheTimeLine.vue";
 import { RouterLink } from 'vue-router';
 import UniqueVistitorsChart from "@/components/widgets/UniqueVistitorsChart.vue";
 import TheRealTimeLine from "@/components/widgets/TheRealTimeLine.vue";

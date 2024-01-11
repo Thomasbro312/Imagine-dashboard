@@ -12,7 +12,6 @@ export default {
       chartOptions: {
         responsive: false,
       },
-      // Add a reference to the chart instance
       chartInstance: null,
     }
   },
@@ -35,14 +34,13 @@ export default {
           this.calculateMonthlyPageCounts();
           console.log(this.monthlyPageCounts);
           this.calculateAllPageCounts();
-          // Use this.chartInstance to reference the chart instance
         })
         .catch(error => {
         });
   },
   methods: {
     calculateMonthlyPageCounts() {
-      // Group logs by month
+      //this calculates the amount of monthly page visits
       const logsByMonth = this.pageLogs.reduce((acc, log) => {
         const month = new Date(log.datetimestamp).toLocaleString('en-US', { month: 'long', year: 'numeric' });
         if (!acc[month]) {

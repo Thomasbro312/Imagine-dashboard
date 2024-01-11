@@ -10,7 +10,7 @@ export default {
 
   data() {
     return {
-      pageLogs: [], // Assuming your API returns an array of page visit logs
+      pageLogs: [],
       monthlyPageCounts: {},
       chartData: {
         labels: [ ],
@@ -36,7 +36,7 @@ export default {
           return response.json();
         })
         .then(data => {
-          this.pageLogs = data; // Assuming your API returns an array of page visit logs
+          this.pageLogs = data;
           this.calculateMonthlyPageCounts();
           console.log(this.monthlyPageCounts)
           this.renderChart();
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     calculateMonthlyPageCounts() {
-      // Group logs by month
+      //this calculates the amount of monthly page visits
       const logsByMonth = this.pageLogs.reduce((acc, log) => {
         const month = new Date(log.datetimestamp).toLocaleString('en-US', { month: 'long', year: 'numeric' });
         if (!acc[month]) {
