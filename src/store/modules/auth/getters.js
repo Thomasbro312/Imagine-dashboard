@@ -2,9 +2,6 @@ export default {
     getError(state){
         return  state.error
     },
-    isCorrect(state){
-        return  state.isCorrect
-    },
     user_id(state){
         return state.user_id;
     },

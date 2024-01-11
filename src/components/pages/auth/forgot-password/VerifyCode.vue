@@ -12,15 +12,6 @@ export default {
     isEmailEmpty() {
       return this.email === '';
     },
-    isPasswordEmpty() {
-      return this.password === '';
-    },
-    isPasswordShort(){
-      return this.password.length < 6;
-    },
-    containsAt() {
-      return !this.email.includes('@');
-    }
   },
   methods: {
     capsLockEvent(){

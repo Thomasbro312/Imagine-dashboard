@@ -139,8 +139,8 @@ export default {
   width: 60vw;
 }
 .style{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 1px 6px #00000029;
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  box-shadow: 0 1px 6px #00000029;
   border: 1px solid #D4D4D4;
   border-radius: 8px;
   opacity: 1;

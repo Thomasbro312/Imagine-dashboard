@@ -184,9 +184,9 @@ export default {
 }
 .dropdown-link{
   width: 548px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0 0 no-repeat padding-box;
   border: 1px solid #D4D4D4;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0 0 8px 8px;
   text-align: center;
   font: normal normal 600 32px/54px Baskerville;
   letter-spacing: -1.28px;
@@ -195,8 +195,8 @@ export default {
   opacity: 1;
 }
 .backgroundChart{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 1px 6px #00000029;
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  box-shadow: 0 1px 6px #00000029;
   border: 1px solid #D4D4D4;
   border-radius: 8px;
   opacity: 1;
@@ -212,9 +212,9 @@ export default {
 .main-dropdown{
   width: 548px;
   height: 89px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0 0 no-repeat padding-box;
   border: 1px solid #D4D4D4;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0 0 8px 8px;
   text-align: center;
   font: normal normal 600 32px/54px Baskerville;
   letter-spacing: -1.28px;

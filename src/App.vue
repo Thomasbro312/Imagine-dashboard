@@ -37,7 +37,4 @@ export default {
 </template>
 
 <style scoped>
-.scrollable{
-  overflow: scroll;
-}
 </style>

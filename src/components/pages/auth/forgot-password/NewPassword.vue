@@ -9,18 +9,12 @@ export default {
     };
   },
   computed: {
-    isEmailEmpty() {
-      return this.email === '';
-    },
     isPasswordEmpty() {
       return this.password === '';
     },
     isPasswordShort(){
       return this.password.length < 6;
     },
-    containsAt() {
-      return !this.email.includes('@');
-    }
   },
   methods: {
     capsLockEvent(){
@@ -84,7 +78,7 @@ export default {
 .text-forgot{
   text-align: left;
   font: normal normal normal 18px/27px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #222222;
   opacity: 1;
 }

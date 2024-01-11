@@ -84,7 +84,7 @@ export default {
 .title-style{
   text-align: left;
   font: normal normal 600 18px/27px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #222222;
   opacity: 1;
   margin: 16px 0 11px 16px;
@@ -92,7 +92,7 @@ export default {
 .bottom-text-style{
   text-align: left;
   font: normal normal normal 15px/23px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #222222;
   opacity: 1;
   margin: 35px 0 0 16px;
