@@ -3,7 +3,7 @@ import TheChart from "@/components/widgets/UniqueVistitorsChart.vue";
 import NavBar from "@/components/ui/TheNavBar.vue";
 
 export default {
-  components: {NavBar, TheChart, TheTimeLine},
+  components: {NavBar, TheChart},
   data() {
     return {
       apiData: [],

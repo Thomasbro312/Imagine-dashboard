@@ -106,7 +106,6 @@ export default {
     BaseButton,
     NavBar,
     TheRealTimeLine,
-    TheTimeLine,
     UniqueVistitorsChart,
     RouterLink, // Add this line
   },
@@ -140,7 +139,7 @@ export default {
         <p class="welcome-message">Hi {{this.welcomeMessage}}, Wat ga je vandaag doen</p>
         <p class="welcome-text"> Check hier de laaste inzichten</p>
       </div>
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
         <div class="backgroundChart margin-dashboard mb-3 col">
           <unique-vistitors-chart/>
         </div>
@@ -154,7 +153,7 @@ export default {
           <total-visitors/>
         </div>
       </div>
-      <div class="">
+      <div class="d-flex  justify-content-around">
         <div class="timelineStyle margin-dashboard">
           <the-real-time-line id :id="id"/>
         </div>
@@ -202,9 +201,6 @@ export default {
   opacity: 1;
   max-width: 258px;
   height: 193px;
-}
-.timelineStyle{
-  width: 500px;
 }
 .margin-dashboard{
   margin-left: 32px;
