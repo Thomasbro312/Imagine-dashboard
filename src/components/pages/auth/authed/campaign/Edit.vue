@@ -33,6 +33,7 @@ export default {
     this.fetchResource(this.$route.params.id)
   },
   methods: {
+    // The show Dropdown methods set it to false or true. So that the dropdown shows/hides
     showDropdown() {
       this.dropdown1 = this.dropdown1 === false;
     },

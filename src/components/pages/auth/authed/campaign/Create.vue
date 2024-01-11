@@ -17,6 +17,7 @@ export default {
     }
   },
   methods:{
+    // The show Dropdown methods set it to false or true. So that the dropdown shows/hides
     showDropdown(){
       this.dropdown1 = this.dropdown1 === false;
     },
@@ -55,6 +56,7 @@ export default {
       this.apiData = await response.json();
     },
   },
+  // This Mounts the api call
   beforeMount() {
     this.userInfo();
   }
