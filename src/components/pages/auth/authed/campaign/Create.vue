@@ -109,8 +109,8 @@ export default {
                     </div>
                   </div>
                 </div>
-                <button @click="showDropdownDate" :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}" type="button" aria-expanded="false">
-                  <div class="dropdown-flex">
+                <button @click="showDropdownDate" class="" :class="{'dropdown-button-style-open': dropdownDate, 'dropdown-button-style-closed': !dropdownDate}" type="button" aria-expanded="false">
+                  <div class="dropdown-flex mb-10">
                     <div class="circle-campaign"></div>
                     <div>Planning</div>
                     <svg class="ms-auto dropdown-margin" height="25" viewBox="0 0 1792 1792" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>
@@ -166,5 +166,8 @@ export default {
 }
 .dropdown-margin{
   margin-right: 32px;
+}
+.mb-10{
+  margin-bottom: 100px;
 }
 </style>
