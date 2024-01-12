@@ -45,15 +45,6 @@
 /* Margin's/Borders */
 /**/
 
-.not-empty{
-    border: 2px solid #9DC4A3;
-}
-.error-border{
-    border: 2px solid #ff5e5e;
-}
-.empty{
-    border: 2px solid #D4D4D4;
-}
 .margin-auto{
     margin: auto;
 }

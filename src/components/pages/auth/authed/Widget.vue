@@ -13,7 +13,8 @@ export default {
       apiData: [],
       apiDataUsers: [],
       userId: this.$store.getters.user_id.userId,
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      clickTrue: true
     }
   },
   methods:{
@@ -122,7 +123,7 @@ export default {
 <template>
   <div class="navbar-router">
     <div class="row">
-      <nav-bar></nav-bar>
+      <nav-bar clickDashboard :clickDashboard="clickTrue"></nav-bar>
     </div>
     <div class="max-width-router">
       <div class="dropdown text-center">

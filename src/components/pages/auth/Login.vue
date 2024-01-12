@@ -1,4 +1,5 @@
 <script>
+
 import store from "@/store";
 
 export default {
@@ -66,7 +67,7 @@ export default {
             <form @submit.prevent="login">
               <div class="d-flex flex-column margin-top-email">
                 <label class="font-poppins margin-bottom-form" for="login">Email*</label>
-                <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': containsAt || loginError}" type="email" v-model.trim="email" id="email" required/>
+                <input class="input-main" :class="{'not-empty': !isEmailEmpty, 'empty': isEmailEmpty, 'error-border': loginError || containsAt}" type="email" v-model.trim="email" id="email" required/>
               </div>
               <div class="d-flex flex-column">
                 <label class="font-poppins margin-bottom-form margin-top-form" for="password">Wachtwoord*</label>
@@ -113,5 +114,14 @@ export default {
 }
 .margin-top-account{
   margin-top: 35px;
+}
+.not-empty{
+  border: 2px solid #9DC4A3;
+}
+.error-border{
+  border: 2px solid #ff5e5e;
+}
+.empty{
+  border: 2px solid #D4D4D4;
 }
 </style>
