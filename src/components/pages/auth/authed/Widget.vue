@@ -18,9 +18,14 @@ export default {
     }
   },
   methods:{
-    onClickButton(id){
-      this.$router.replace('/auth/campaign/' + id)
-      console.log(id)
+    onClickButton(id) {
+      this.$router.push('/auth/campaign/' + id)
+          .then(() => {
+            console.log('Navigation successful');
+          })
+          .catch(err => {
+            console.error('Error navigating:', err);
+          });
     },
     async getClientName(clientId) {
       const apiKey = 'Help';
@@ -132,7 +137,8 @@ export default {
         </button>
         <ul class="dropdown-menu text-center dropdown-link">
           <li v-for="userItem in apiDataUsers" :key="userItem.id">
-            <a @click="onClickButton(userItem.id)">{{userItem.campaign_name}}</a>
+            <router-link :to="'/auth/campaign/' + userItem.id">{{userItem.campaign_name}}</router-link>
+            <p>{{userItem}}</p>
           </li>
         </ul>
       </div>

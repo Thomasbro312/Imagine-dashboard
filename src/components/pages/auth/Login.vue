@@ -62,7 +62,7 @@ export default {
       <div class="row">
         <div class="col-6 m-auto">
           <div class="container-login">
-            <img class="login-logo" src="../../../../public/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
+            <img class="login-logo" src="/img/logo_ungrouped.svg" alt="Logo Imagine Creative Agency">
             <h3 class="font-baskerville">Inloggen</h3>
             <form @submit.prevent="login">
               <div class="d-flex flex-column margin-top-email">
