@@ -15,7 +15,7 @@ export default {
       return store.getters.isAuthenticated;
     },
     isAdmin() {
-      return store.getters.role.role === '2'; // Replace 'admin' with the correct role
+      return store.getters.role.role === '2';
     },
   },
   mounted() {
