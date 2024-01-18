@@ -138,7 +138,6 @@ export default {
         <ul class="dropdown-menu text-center dropdown-link">
           <li v-for="userItem in apiDataUsers" :key="userItem.id">
             <router-link :to="'/auth/campaign/' + userItem.id">{{userItem.campaign_name}}</router-link>
-            <p>{{userItem}}</p>
           </li>
         </ul>
       </div>

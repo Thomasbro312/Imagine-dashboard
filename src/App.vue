@@ -1,6 +1,5 @@
 <script>
 import store from "@/store";
-import login from "@/components/pages/auth/Login.vue";
 
 export default {
   methods: {
@@ -30,7 +29,7 @@ export default {
 
 <template>
       <div>
-        <router-view v-slot='slotProps'>
+        <router-view :key="$route.fullPath" v-slot='slotProps'>
           <component :is='slotProps.Component'></component>
         </router-view>
       </div>
