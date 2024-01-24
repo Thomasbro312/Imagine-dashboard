@@ -121,7 +121,15 @@ export default {
     <div class="max-width-router">
       <div class="d-flex justify-content-center">
         <div class="d-flex justify-content-center upper-icons text-center">
-          <p class="text-center">Campagne Aanpassen</p>
+          <div class="d-flex justify-content-center upper-icons text-center upper-main-flex">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active upper-flex font-upper"><div class="circle-upper">1</div>Campagne</li>
+                <li class="breadcrumb-item upper-flex font-upper-active"><div class="circle-upper-active">2</div>API's</li>
+                <li class="breadcrumb-item upper-flex font-upper-active"><div class="circle-upper-active">3</div>Team</li>
+              </ol>
+            </nav>
+          </div>
         </div>
       </div>
       <p class="margin-left title">Campagne Aanpassen</p>
@@ -319,5 +327,71 @@ export default {
 }
 .mb-10{
   margin-bottom: 100px;
+}
+.font-upper{
+  font: normal normal normal 16px/20px Poppins;
+  letter-spacing: 0px;
+  color: #231F20;
+  opacity: 1;
+}
+.font-upper-active{
+  font: normal normal normal 16px/20px Poppins;
+  letter-spacing: 0px;
+  color: #D4D4D4;
+  opacity: 1;
+}
+.circle-upper{
+  width: 38px;
+  height: 38px;
+  margin-right: 8px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 2px solid #222222;
+  opacity: 1;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+.circle-upper-active{
+  width: 38px;
+  height: 38px;
+  margin-right: 8px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 2px solid #D4D4D4;
+  opacity: 1;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+.upper-main-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+.upper-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+.footer-button-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: stretch;
 }
 </style>
