@@ -194,13 +194,13 @@ export default {
 }
 .font-upper{
   font: normal normal normal 16px/20px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #231F20;
   opacity: 1;
 }
 .font-upper-active{
   font: normal normal normal 16px/20px Poppins;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #D4D4D4;
   opacity: 1;
 }
@@ -208,7 +208,7 @@ export default {
   width: 38px;
   height: 38px;
   margin-right: 8px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0 0 no-repeat padding-box;
   border: 2px solid #222222;
   opacity: 1;
   border-radius: 100%;
@@ -223,7 +223,7 @@ export default {
   width: 38px;
   height: 38px;
   margin-right: 8px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0 0 no-repeat padding-box;
   border: 2px solid #D4D4D4;
   opacity: 1;
   border-radius: 100%;
