@@ -48,7 +48,6 @@ export default {
     },
   },
   beforeUpdate() {
-    console.log(store.getters.isAuthenticated)
     if (store.getters.isAuthenticated){
       this.$router.push('/auth/index')
     }
