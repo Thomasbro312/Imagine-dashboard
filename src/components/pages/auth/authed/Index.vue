@@ -149,7 +149,7 @@ export default {
       <div v-if="!isDataEmpty(apiData)" class="container d-flex justify-content-center">
         <div class="row">
           <div v-for="item in sortedArray" :key="item.id" class="col-lg-auto col-md-auto col-sm-8 pt-3">
-            <div class="card card-back-drop dimensions-card">
+            <div class="card card-back-drop backgroundChart">
               <div class="card-body pb-0">
                 <div class="pb-3 card-title-height">
                   <h3 class="card-title w-auto">{{ item.campaign_name }}</h3>
@@ -182,10 +182,13 @@ export default {
 </template>
 
 <style scoped>
-.dimensions-card {
-  background-color: #f8f8f8;
-  height: 650px;
-  width: 300px;
+.backgroundChart{
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  box-shadow: 0 1px 6px #00000029;
+  border: 1px solid #D4D4D4;
+  border-radius: 8px;
+  opacity: 1;
+  max-width: 258px;
 }
 .card-title-height{
   height: 80px;
