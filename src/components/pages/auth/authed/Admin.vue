@@ -131,11 +131,11 @@ export default {
           <the-real-time-line/>
         </div>
         <div>
-          <base-button class="mb-3" link :to="{name: 'create-campaign'}">Create Campaign</base-button>
+          <base-button class="footer-button" link :to="{name: 'create-campaign'}">Create Campaign</base-button>
         </div>
         <div class="">
-          <button class="btn btn-outline-secondary me-2" @click="sortAscending">Sort Ascending</button>
-          <button class="btn btn-outline-secondary" @click="sortDescending">Sort Descending</button>
+          <button class="footer-button me-2" @click="sortAscending">Sort Ascending</button>
+          <button class="footer-button" @click="sortDescending">Sort Descending</button>
         </div>
       </div>
       <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">

@@ -132,8 +132,8 @@ export default {
         <p>Welcome back {{this.welcomeMessage}}!</p>
       </div>
       <div class="">
-        <button class="btn btn-outline-secondary me-2" @click="sortAscending">Sort Ascending</button>
-        <button class="btn btn-outline-secondary" @click="sortDescending">Sort Descending</button>
+        <button class="footer-button me-2" @click="sortAscending">Sort Ascending</button>
+        <button class="footer-button" @click="sortDescending">Sort Descending</button>
       </div>
       <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">
         <div v-if="!isLoading">
@@ -200,4 +200,5 @@ export default {
 .max-width-router{
   width: 100%;
 }
+
 </style>
