@@ -20,7 +20,6 @@ export default {
   },
   created() {
     this.fetchResource()
-    this.$store.dispatch('fetchUserById')
   },
   computed: {
     apiData(){
@@ -30,10 +29,14 @@ export default {
   methods: {
     // This gets the specified campaign from the api and puts it inside the form fields
     async fetchResource() {
+      const apiKey = 'Help';
       const id = this.$store.getters.user_id.userId
       try {
         const response = await fetch(`http://localhost:8000/api/users/${id}`,{
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
         })
         let data = await response.json()
         this.editedResource.users.user_name = data[0].user_name
@@ -63,8 +66,10 @@ export default {
 </script>
 
 <template>
-  <nav-bar></nav-bar>
-  <div class="container">
+  <div class="navbar-router">
+    <div class="row">
+      <nav-bar></nav-bar>
+    </div>
     <div class="row">
       <div class="col-6 m-auto">
         <div class="container-login">
@@ -88,7 +93,7 @@ export default {
                   <label for="companyName" class="font-poppins">Company Name</label>
                   <input type="text" class="input-main" id="companyName" v-model="editedResource.users.company_name">
                 </div>
-                <base-button class='btn-main text-white' type="submit">Update</base-button>
+                <base-button class='footer-button' type="submit">Update</base-button>
               </form>
             </div>
           </div>

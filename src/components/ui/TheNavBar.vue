@@ -20,9 +20,13 @@ export default {
   },
   data(){
     return{
+      welcomeMessage: "",
+      apiData: [],
+      apiDataUsers: [],
       hoverDashboard: false,
       hoverCampaign: false,
       hover: false,
+      userId: this.$store.getters.user_id.userId,
       idProfile: store.getters.userId,
       dynamicHeight: window.innerHeight
     }
@@ -45,7 +49,86 @@ export default {
     beforeDestroy() {
       // Remove the event listener when the component is destroyed
       window.removeEventListener('resize', this.updateDynamicHeight);
-    }
+    },
+    async getClientName(clientId) {
+      const apiKey = 'Help';
+      try {
+        const response = await fetch(`http://localhost:8000/api/users/${clientId}`, {
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          return data[0].user_name;
+
+        } else {
+          console.error('Failed to fetch client name');
+          return 'Client Name Not Found';
+        }
+      } catch (err) {
+        console.error(err);
+        return 'Client Name Not Found';
+      }
+    },
+    async getApiDataUsers() {
+      const userId = this.userId
+      console.log(userId)
+      this.isLoading = true;
+      try {
+        const apiKey = 'Help';
+        const response = await fetch(`http://localhost:8000/api/user-campaign/${userId}`, {
+          method: 'GET',
+          headers: {
+            'API-Key': apiKey,
+          },
+        })
+        this.apiDataUsers = await response.json();
+        console.log(this.apiDataUsers)
+      } catch (err){
+        console.error(err);
+        return 'Phase Name Not Found'; // Provide a default value in case of an error
+      }
+
+      this.isLoading = false;
+    },
+    async getApiData() {
+      if(this.id){
+        const apiKey = 'Help';
+        try {
+          const response = await fetch(`http://localhost:8000/api/campaign/${this.$route.params.id}`, {
+            method: 'GET',
+            headers: {
+              'API-Key': apiKey,
+            },
+          });
+          if (response.ok) {
+            this.apiData = await response.json()
+          }
+        } catch (error) {
+          console.error(error);
+          return 'Client Name Not Found';
+        }
+      }else{
+        const apiKey = 'Help';
+        try {
+          const response = await fetch(`http://localhost:8000/api/campaign`, {
+            method: 'GET',
+            headers: {
+              'API-Key': apiKey,
+            },
+          });
+          if (response.ok) {
+            this.apiData = await response.json()
+          }
+        } catch (error) {
+          console.error(error);
+          return 'Client Name Not Found';
+        }
+      }
+    },
   },
   computed: {
     store() {
@@ -62,6 +145,13 @@ export default {
     token() {
       return this.$store.state.token;
     }
+  },
+  async beforeMount() {
+    await this.getApiData()
+    await this.getApiDataUsers()
+  },
+  async created() {
+    this.welcomeMessage = await this.getClientName(this.userId)
   }
 }
 </script>
@@ -108,7 +198,7 @@ export default {
           <div class="dropdown margin-auto dropdown-menu-style px-3 ">
             <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="" width="30" height="30" class="rounded-circle">
-              <span class="d-none d-sm-inline mx-1 text-white">Place Holder</span>
+              <span class="d-none d-sm-inline mx-1 text-white">{{this.welcomeMessage}}</span>
             </a>
             <ul class="dropdown-menu bg-navbar-dropdown text-small shadow container-dropdown-font">
               <li><router-link class="dropdown-item" to="/auth/users"><span class="m-0 w-auto">Profile</span></router-link></li>

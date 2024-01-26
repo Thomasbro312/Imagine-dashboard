@@ -127,13 +127,14 @@ export default {
     <div class="row">
       <nav-bar></nav-bar>
     </div>
-    <div class="max-width-router">
-      <div class="text-center">
-        <p>Welcome back {{this.welcomeMessage}}!</p>
-      </div>
-      <div class="">
+    <div class="max-width-router ms-2">
+      <div>
         <button class="footer-button me-2" @click="sortAscending">Sort Ascending</button>
         <button class="footer-button" @click="sortDescending">Sort Descending</button>
+      </div>
+      <div>
+        <p class="welcome-message text-center">Hi {{this.welcomeMessage}}, Wat ga je vandaag doen</p>
+        <p class="welcome-text text-center"> Check hier de laaste inzichten</p>
       </div>
       <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">
         <div v-if="!isLoading">
@@ -170,7 +171,7 @@ export default {
                 <hr>
               </div>
               <div class="mb-3 mx-3">
-                <base-button class="card-button" link :to="{ name:'campaign-summary', params: {id: item.id}}">View Details
+                <base-button class="footer-button-index" link :to="{ name:'campaign-summary', params: {id: item.id}}">View Details
                 </base-button>
               </div>
             </div>
@@ -199,6 +200,35 @@ export default {
 }
 .max-width-router{
   width: 100%;
+}
+.footer-button-index{
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  border: 1px solid #707070;
+  border-radius: 23px;
+  opacity: 1;
+  font: normal normal normal 16px/27px Poppins;
+  letter-spacing: 0;
+  color: #222222;
+  padding: 5px 16px;
+  margin-top: 12px;
+}
+.welcome-text{
+  text-align: left;
+  font: normal normal normal 20px/27px Poppins;
+  letter-spacing: 0;
+  margin-left: 32px;
+  margin-bottom: 40px;
+  color: #231F20;
+  opacity: 1;
+}
+.welcome-message{
+  text-align: left;
+  font: normal normal 600 42px/54px Baskerville;
+  letter-spacing: -1.68px;
+  margin-left: 32px;
+  margin-top: 56px;
+  color: #222222;
+  opacity: 1;
 }
 
 </style>

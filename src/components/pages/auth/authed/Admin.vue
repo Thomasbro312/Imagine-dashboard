@@ -108,14 +108,14 @@ export default {
     },
   },
   async created() {
-    // Fetch campaign data
-    await this.getApiData();
-
     // Fetch and append client names to the campaigns
     for (const item of this.apiData) {
       item.client_name = await this.getClientName(item.client_id);
       item.phase = await this.getPhaseId(item.campaign_phase)
     }
+  },
+  async beforeMount() {
+    await this.getApiData()
   }
 }
 </script>
@@ -125,74 +125,70 @@ export default {
     <div class="row">
       <nav-bar></nav-bar>
     </div>
-    <div class="max-width-router">  <div>
+    <div class="max-width-router ms-2 mt-3">
       <div>
-        <div class="timelineStyle p-3 mb-3">
-          <the-real-time-line/>
-        </div>
         <div>
-          <base-button class="footer-button" link :to="{name: 'create-campaign'}">Create Campaign</base-button>
+          <div>
+            <base-button class="footer-button" link :to="{name: 'create-campaign'}">Create Campaign</base-button>
+          </div>
+          <div class="">
+            <button class="footer-button me-2" @click="sortAscending">Sort Ascending</button>
+            <button class="footer-button" @click="sortDescending">Sort Descending</button>
+          </div>
         </div>
-        <div class="">
-          <button class="footer-button me-2" @click="sortAscending">Sort Ascending</button>
-          <button class="footer-button" @click="sortDescending">Sort Descending</button>
+        <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">
+          <div v-if="!isLoading">
+            <p>There are not any Campaigns</p>
+            <p>Please make one :)</p>
+          </div>
         </div>
-      </div>
-      <div v-if="isDataEmpty(apiData)" class="text-center text-secondary mt-5">
-        <div v-if="!isLoading">
-          <p>There are not any Campaigns</p>
-          <p>Please make one :)</p>
+        <div class="text-center">
+          <div v-if="isLoading" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
-      </div>
-      <div class="text-center">
-        <div v-if="isLoading" class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-      <div v-if="!isDataEmpty(apiData)" class="container d-flex">
-        <div class="row justify-content-center">
-          <div v-for="item in sortedArray" :key="item.id" class="col-lg-auto col-md-auto col-sm-8 pt-3 gap-5">
-            <div class="card card-back-drop backgroundChart">
-              <div class="card-body pb-0">
-                <div class="pb-3 card-title-height">
-                  <h3 class="card-title w-auto">{{ item.campaign_name }}</h3>
+        <div v-if="!isDataEmpty(apiData)" class="container d-flex">
+          <div class="row justify-content-center">
+            <div v-for="item in sortedArray" :key="item.id" class="col-lg-auto col-md-auto col-sm-8 pt-3 gap-5">
+              <div class="card card-back-drop backgroundChart">
+                <div class="card-body pb-0">
+                  <div class="pb-3 card-title-height">
+                    <h3 class="card-title w-auto">{{ item.campaign_name }}</h3>
+                  </div>
+                  <hr>
+                  <h5>Campaign UID</h5>
+                  <p>{{ item.campaign_id }}</p>
+                  <h5>Client</h5>
+                  <p>{{ item.client_name }}</p>
+                  <h5>Campaign start</h5>
+                  <p>{{ item.start_date }}</p>
+                  <h5>Campaign end</h5>
+                  <p>{{ item.end_date }}</p>
+                  <h5>Total campaign duration</h5>
+                  <p>{{ item.diff_date }} Days</p>
+                  <h5>Campaign Phase</h5>
+                  <p>{{ item.phase }}</p>
                 </div>
                 <hr>
-                <h5>Campaign UID</h5>
-                <p>{{ item.campaign_id }}</p>
-                <h5>Client</h5>
-                <p>{{ item.client_name }}</p>
-                <h5>Campaign start</h5>
-                <p>{{ item.start_date }}</p>
-                <h5>Campaign end</h5>
-                <p>{{ item.end_date }}</p>
-                <h5>Total campaign duration</h5>
-                <p>{{ item.diff_date }} Days</p>
-                <h5>Campaign Phase</h5>
-                <p>{{ item.phase }}</p>
-              </div>
-              <hr>
-              <div class="mb-3 mx-3">
-                <base-button class="card-button me-2" link :to="{ name:'edit-campaign', params: {id: item.id}}">Edit
-                </base-button>
-                <base-button class="card-button" link :to="{ name:'campaign-summary', params: {id: item.id}}">View Details
-                </base-button>
+                <div class="mb-3 mx-3">
+                  <base-button class="footer-button-admin me-2" link :to="{ name:'edit-campaign', params: {id: item.id}}">Edit
+                  </base-button>
+                  <base-button class="footer-button-admin" link :to="{ name:'campaign-summary', params: {id: item.id}}">View Details
+                  </base-button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="timelineStyle p-3 mb-3 center-align">
+        <the-real-time-line/>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.dimensions-card {
-  background-color: #f8f8f8;
-  height: 650px;
-  width: 300px;
-}
 .card-title-height{
   height: 80px;
 }
@@ -211,5 +207,24 @@ export default {
   border-radius: 8px;
   opacity: 1;
   max-width: 258px;
+}
+.footer-button-admin{
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  border: 1px solid #707070;
+  border-radius: 23px;
+  opacity: 1;
+  font: normal normal normal 16px/27px Poppins;
+  letter-spacing: 0;
+  color: #222222;
+  padding: 5px 16px;
+  margin-top: 12px;
+}
+.center-align{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
 }
 </style>

@@ -1,5 +1,6 @@
 export default {
     async editUser(context, payload) {
+        const apiKey = 'Help';
         const idp = this.$store.getters.user_id.userId
         try {
             const response = await fetch(`http://localhost:8000/api/users/${idp}`, {
@@ -9,7 +10,10 @@ export default {
                     email: payload.email,
                     phone_number: payload.phone_number,
                     company_name: payload.company_name
-                })
+                }),
+                headers: {
+                    'API-Key': apiKey,
+                },
             })
             if (response.ok) {
 
@@ -22,10 +26,14 @@ export default {
         }
     },
     async fetchUserById(context) {
+        const apiKey = 'Help';
         const id = this.$store.getters.user_id.userId
         try {
             const response = await fetch(`http://localhost:8000/api/users/${id}`,{
-                method: 'GET'
+                method: 'GET',
+                headers: {
+                    'API-Key': apiKey,
+                },
             })
             const data = await response.json()
             this.users.user_name = data[0].user_name

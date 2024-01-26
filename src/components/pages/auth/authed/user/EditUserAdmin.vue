@@ -75,23 +75,23 @@ export default {
 
   <div>
     <div>
-      <h1 class="font-baskerville">Edit User</h1>
+      <h1 class="margin-left title">Edit User</h1>
       <form @submit.prevent="editResource(this.$route.params.id)">
         <div class="mb-3">
           <label for="userName" class="form-label">First and Last name</label>
-          <input type="text" class="form-control" id="userName" v-model="editedResource.users.user_name">
+          <input type="text" class="input-campaign" id="userName" v-model="editedResource.users.user_name">
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" v-model="editedResource.users.email">
+          <input type="email" class="input-campaign" id="email" v-model="editedResource.users.email">
         </div>
         <div class="mb-3">
           <label for="phoneNumber" class="form-label">Phone Number</label>
-          <input type="tel" class="form-control" id="phoneNumber" v-model="editedResource.users.phone_number">
+          <input type="tel" class="input-campaign" id="phoneNumber" v-model="editedResource.users.phone_number">
         </div>
         <div class="mb-3">
           <label for="companyName" class="form-label">Company Name</label>
-          <input type="text" class="form-control" id="companyName" v-model="editedResource.users.company_name">
+          <input type="text" class="input-campaign" id="companyName" v-model="editedResource.users.company_name">
         </div>
         <base-button class='margin-button btn-outline-dark' type="submit">Update</base-button>
       </form>

@@ -39,8 +39,6 @@ const router = createRouter({
 
 // this checks if the user is authenticated
 router.beforeEach(function(to,from, next){
-    console.log('Navigating to:', to.fullPath);
-    console.log('Meta:', to.meta);
     if (to.meta.requiresUnauth && store.getters.isAuthenticated) {
         next('/auth/index');
     } else  if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
@@ -54,11 +52,6 @@ router.beforeEach(function(to,from, next){
     } else {
         next(); // Proceed with the route for other cases
     }
-    console.log('Final destination:', to.fullPath);
-    console.log('Is Authenticated:', store.getters.isAuthenticated);
-
-// Example: Check user role information in your store.
-    console.log('User Role:', store.getters.role);
 });
 
 

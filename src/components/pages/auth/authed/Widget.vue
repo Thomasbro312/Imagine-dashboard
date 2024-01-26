@@ -18,15 +18,6 @@ export default {
     }
   },
   methods:{
-    onClickButton(id) {
-      this.$router.push('/auth/campaign/' + id)
-          .then(() => {
-            console.log('Navigation successful');
-          })
-          .catch(err => {
-            console.error('Error navigating:', err);
-          });
-    },
     async getClientName(clientId) {
       const apiKey = 'Help';
       try {
@@ -113,7 +104,7 @@ export default {
     NavBar,
     TheRealTimeLine,
     UniqueVistitorsChart,
-    RouterLink, // Add this line
+    RouterLink,
   },
   async beforeMount() {
     await this.getApiData()
