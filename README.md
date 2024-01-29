@@ -1,29 +1,22 @@
-# vue-test2
+Installatie en Opstarten van de VUE.JS Applicatie
+1.	Installatie van Dependencies:
+•	Voer de volgende commando's uit om alle benodigde dependencies te installeren en bij te werken:
+sql
+npm install 
+npm update 
+2.	Opstarten van VUE.JS Applicatie:
+•	Start de VUE.JS applicatie met het volgende commando:
+Command
+npm run dev 
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Bestands- en Codenotaties
+1.	Bestandsnamen:
+•	Houd de bestandsnamen in Pascal Case.
+2.	Class Namen:
+•	Gebruik kebab-case voor class namen.
+3.	Variabele Namen:
+•	Hanteer Pascal Case voor variabele namen.
+4.	Methoden en Functies:
+•	Schrijf methoden en functies in camelCase.
+5.	Commentaar in Code:
+•	Voeg commentaar toe boven de code om de functie van de code te beschrijven.
