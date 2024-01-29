@@ -20,3 +20,5 @@ Bestands- en Codenotaties
 •	Schrijf methoden en functies in camelCase.
 5.	Commentaar in Code:
 •	Voeg commentaar toe boven de code om de functie van de code te beschrijven.
+
+HET DATABASE MOET OOK GESTART ZIJN
