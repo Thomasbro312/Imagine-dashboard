@@ -32,17 +32,19 @@ export default {
     <div class="row">
       <nav-bar></nav-bar>
     </div>
-    <div class="max-width-router backgroundChart mx-5 mt-5">
-      <h4 class="mx-3">Name</h4>
-      <p class="mx-3">{{ this.apiData[0].user_name }}</p>
-      <h4 class="mx-3">Email</h4>
-      <p class="mx-3">{{ this.apiData[0].email }}</p>
-      <h4 class="mx-3">Phone Number</h4>
-      <p class="mx-3">{{ this.apiData[0].phone_number }}</p>
-      <h4 class="mx-3">Company Name</h4>
-      <p class="mx-3">{{ this.apiData[0].company_name }}</p>
-      <base-button class="footer-button mx-3" link :to="{ name: 'edit-user'}">Edit
-      </base-button>
+    <div class="">
+      <div class="max-width-router backgroundChart mx-5 mt-5">
+        <h4 class="mx-3">Name</h4>
+        <p class="mx-3">{{ this.apiData[0].user_name }}</p>
+        <h4 class="mx-3">Email</h4>
+        <p class="mx-3">{{ this.apiData[0].email }}</p>
+        <h4 class="mx-3">Phone Number</h4>
+        <p class="mx-3">{{ this.apiData[0].phone_number }}</p>
+        <h4 class="mx-3">Company Name</h4>
+        <p class="mx-3">{{ this.apiData[0].company_name }}</p>
+        <base-button class="footer-button mx-3" link :to="{ name: 'edit-user'}">Edit
+        </base-button>
+      </div>
     </div>
   </div>
 </template>
@@ -59,5 +61,13 @@ export default {
   opacity: 1;
   max-width: 258px;
   height: 360px;
+}
+.flex-center{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
 }
 </style>
